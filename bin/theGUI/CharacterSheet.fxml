@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="846.0" prefWidth="774.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1">
+   <center>
+      <VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox prefHeight="84.0" prefWidth="744.0">
+               <children>
+                  <ImageView fitHeight="100.0" fitWidth="143.0" pickOnBounds="true" preserveRatio="true" />
+                  <TextField alignment="CENTER" prefHeight="46.0" prefWidth="206.0" promptText="CHARACTER NAME">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets right="10.0" top="25.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <VBox prefHeight="100.0" prefWidth="394.0">
+                     <children>
+                        <HBox prefHeight="52.0" prefWidth="329.0">
+                           <children>
+                              <TextField prefHeight="31.0" prefWidth="126.0" promptText="CLASS">
+                                 <HBox.margin>
+                                    <Insets right="5.0" top="10.0" />
+                                 </HBox.margin>
+                              </TextField>
+                              <TextField prefHeight="31.0" prefWidth="138.0" promptText="BACKGROUND">
+                                 <HBox.margin>
+                                    <Insets right="5.0" top="10.0" />
+                                 </HBox.margin>
+                              </TextField>
+                              <TextField prefHeight="31.0" prefWidth="130.0" promptText="PLAYER NAME">
+                                 <HBox.margin>
+                                    <Insets right="5.0" top="10.0" />
+                                 </HBox.margin>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="100.0" prefWidth="200.0">
+                           <children>
+                              <TextField prefHeight="31.0" prefWidth="121.0" promptText="RACE">
+                                 <HBox.margin>
+                                    <Insets right="5.0" top="10.0" />
+                                 </HBox.margin>
+                              </TextField>
+                              <TextField prefHeight="31.0" prefWidth="132.0" promptText="ALIGNMENT">
+                                 <HBox.margin>
+                                    <Insets right="5.0" top="10.0" />
+                                 </HBox.margin>
+                              </TextField>
+                              <TextField prefHeight="31.0" prefWidth="124.0" promptText="EXPERIENCE">
+                                 <HBox.margin>
+                                    <Insets right="5.0" top="10.0" />
+                                 </HBox.margin>
+                              </TextField>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox prefHeight="725.0" prefWidth="744.0">
+               <children>
+                  <VBox prefHeight="716.0" prefWidth="294.0">
+                     <children>
+                        <HBox prefHeight="715.0" prefWidth="271.0">
+                           <children>
+                              <VBox prefHeight="715.0" prefWidth="125.0">
+                                 <children>
+                                    <TextField alignment="CENTER" prefHeight="102.0" prefWidth="102.0" promptText="STRENGTH">
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                       <VBox.margin>
+                                          <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
+                                       </VBox.margin>
+                                    </TextField>
+                                    <Label alignment="CENTER" contentDisplay="CENTER" text="Label" />
+                                 </children>
+                              </VBox>
+                              <VBox prefHeight="715.0" prefWidth="168.0" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="716.0" prefWidth="247.0" />
+                  <VBox prefHeight="716.0" prefWidth="249.0" />
+               </children>
+            </HBox>
+         </children>
+         <BorderPane.margin>
+            <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+         </BorderPane.margin>
+      </VBox>
+   </center>
+</BorderPane>
