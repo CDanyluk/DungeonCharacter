@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="463.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox prefHeight="75.0" prefWidth="600.0">
+         <children>
+            <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="157.0" prefWidth="600.0">
+               <children>
+                  <ImageView fitHeight="94.0" fitWidth="105.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../../../Downloads/DungeonCharacter-master/src/SmallDragon.png" />
+                     </image>
+                  </ImageView>
+                  <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="137.0" prefWidth="495.0">
+                     <children>
+                        <Label alignment="BOTTOM_CENTER" text="Click here to create a new character and begin your adventure!">
+                           <font>
+                              <Font name="Bradley Hand Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="94.0" fitWidth="145.0" pickOnBounds="true" preserveRatio="true" />
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </HBox>
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="99.0" prefWidth="600.0">
+         <children>
+            <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="52.0" prefWidth="329.0" translateX="10.0">
+               <children>
+                  <TextField prefHeight="30.0" prefWidth="143.0" promptText="CHARACTER NAME">
+                     <HBox.margin>
+                        <Insets right="5.0" top="10.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <TextField prefHeight="31.0" prefWidth="138.0" promptText="CLASS">
+                     <HBox.margin>
+                        <Insets right="5.0" top="10.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="44.0" prefWidth="289.0" translateX="10.0">
+               <children>
+                  <TextField prefHeight="31.0" prefWidth="149.0" promptText="PLAYER NAME">
+                     <HBox.margin>
+                        <Insets right="5.0" top="10.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <TextField prefHeight="31.0" prefWidth="139.0" promptText="RACE">
+                     <HBox.margin>
+                        <Insets right="5.0" top="10.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</VBox>
