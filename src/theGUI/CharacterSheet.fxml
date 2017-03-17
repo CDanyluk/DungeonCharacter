@@ -305,7 +305,7 @@
                                                                   <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
                                                                </HBox.margin>
                                                             </Button>
-                                                            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="28.0" prefWidth="151.0" text="[ +0 ]  INTELLIGENCE">
+                                                            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="28.0" prefWidth="151.0" text="[ +0 ]  WISDOM">
                                                                <font>
                                                                   <Font size="11.0" />
                                                                </font>
@@ -330,7 +330,7 @@
                                                                   <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
                                                                </HBox.margin>
                                                             </Button>
-                                                            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="28.0" prefWidth="151.0" text="[ +0 ]  INTELLIGENCE">
+                                                            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="28.0" prefWidth="151.0" text="[ +0 ]  CHARISMA">
                                                                <font>
                                                                   <Font size="11.0" />
                                                                </font>
