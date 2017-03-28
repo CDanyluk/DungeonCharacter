@@ -15,7 +15,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="945.0" prefWidth="774.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="945.0" prefWidth="774.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="theGUI.CharacterController">
    <center>
       <VBox prefHeight="923.0" prefWidth="744.0" BorderPane.alignment="CENTER">
          <children>
@@ -944,7 +944,7 @@
                         </TextArea>
                         <HBox prefHeight="55.0" prefWidth="284.0">
                            <children>
-                              <Button alignment="CENTER" mnemonicParsing="false" prefHeight="39.0" prefWidth="123.0" text="LEVEL UP!" textAlignment="CENTER">
+                              <Button fx:id="levelup" alignment="CENTER" mnemonicParsing="false" onAction="#open" prefHeight="39.0" prefWidth="123.0" text="LEVEL UP!" textAlignment="CENTER">
                                  <HBox.margin>
                                     <Insets bottom="8.0" left="79.0" right="25.0" top="8.0" />
                                  </HBox.margin>

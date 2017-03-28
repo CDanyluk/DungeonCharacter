@@ -1,12 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="584.0" prefWidth="399.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="584.0" prefWidth="399.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="theGUI.LevelController">
    <children>
       <Label layoutX="125.0" layoutY="23.0" prefHeight="51.0" prefWidth="149.0" text="Level Up!">
          <font>
@@ -95,6 +98,6 @@
       <Button layoutX="346.0" layoutY="411.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="+" />
       <Button layoutX="246.0" layoutY="481.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="-" />
       <Button layoutX="346.0" layoutY="481.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" text="+" />
-      <Button layoutX="170.0" layoutY="534.0" mnemonicParsing="false" text="Confirm" />
+      <Button fx:id="confirm" layoutX="170.0" layoutY="534.0" mnemonicParsing="false" onAction="#close" text="Confirm" />
    </children>
 </Pane>
