@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="463.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="theGUI.SearchController">
+   <children>
+      <HBox prefHeight="75.0" prefWidth="600.0">
+         <children>
+            <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="133.0" prefWidth="600.0">
+               <children>
+                  <ImageView fitHeight="94.0" fitWidth="105.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../SmallDragon.png" />
+                     </image>
+                  </ImageView>
+                  <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="137.0" prefWidth="525.0">
+                     <children>
+                        <Label alignment="BOTTOM_CENTER" text="Click here to create a new character and begin your adventure!">
+                           <font>
+                              <Font name="Bradley Hand Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <ImageView fitHeight="34.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true" translateY="10.0">
+                           <image>
+                              <Image url="@../down-arrow.png" />
+                           </image>
+                        </ImageView>
+                        <Button fx:id="create" mnemonicParsing="false" onAction="#openCharSheet" prefHeight="37.0" prefWidth="83.0" text="Create!" translateY="20.0">
+                           <font>
+                              <Font name="Bradley Hand Bold" size="16.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </HBox>
+      <Line endX="480.0" startX="-100.0" translateX="10.0" />
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="131.0" prefWidth="600.0">
+         <children>
+            <Label alignment="BOTTOM_CENTER" text="Or, lookup an already-made character and pick up where you left off!" translateX="10.0" translateY="5.0">
+               <font>
+                  <Font name="Bradley Hand Bold" size="18.0" />
+               </font>
+            </Label>
+            <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="443.0" translateX="10.0">
+               <children>
+                  <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="100.0" prefWidth="321.0">
+                     <children>
+                        <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="52.0" prefWidth="329.0">
+                           <children>
+                              <TextField fx:id="charName" prefHeight="30.0" prefWidth="143.0" promptText="CHARACTER NAME">
+                                 <HBox.margin>
+                                    <Insets right="5.0" top="10.0" />
+                                 </HBox.margin>
+                              </TextField>
+                              <TextField fx:id="charClass" prefHeight="31.0" prefWidth="138.0" promptText="CLASS">
+                                 <HBox.margin>
+                                    <Insets right="5.0" top="10.0" />
+                                 </HBox.margin>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="44.0" prefWidth="289.0">
+                           <children>
+                              <TextField fx:id="playerName" prefHeight="31.0" prefWidth="149.0" promptText="PLAYER NAME">
+                                 <HBox.margin>
+                                    <Insets right="5.0" top="10.0" />
+                                 </HBox.margin>
+                              </TextField>
+                              <TextField fx:id="charRace" prefHeight="31.0" prefWidth="139.0" promptText="RACE">
+                                 <HBox.margin>
+                                    <Insets right="5.0" top="10.0" />
+                                 </HBox.margin>
+                              </TextField>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+                  <Button fx:id="search" mnemonicParsing="false" onAction="#search" text="Search!" translateY="25.0">
+                     <font>
+                        <Font name="Bradley Hand Bold" size="17.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <Label alignment="BOTTOM_CENTER" text="Click your character to view their sheet!" translateX="10.0">
+         <font>
+            <Font name="Bradley Hand Bold" size="18.0" />
+         </font>
+      </Label>
+      <ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="163.0" prefWidth="580.0" translateX="10.0" translateY="5.0">
+         <content>
+            <VBox fx:id="charList" prefHeight="162.0" prefWidth="561.0" />
+         </content>
+      </ScrollPane>
+   </children>
+</VBox>
