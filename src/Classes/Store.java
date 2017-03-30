@@ -1,12 +1,12 @@
 package Classes;
 import java.sql.SQLException;
 
-import Classes.Information;
+import Classes.Attributes;
 import theDatabase.Database;
 
 public class Store {
 	
-	Information info;
+	Attributes info;
 	Statistics stats;
 	Database data;
 	

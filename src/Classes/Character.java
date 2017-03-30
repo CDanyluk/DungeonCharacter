@@ -16,7 +16,7 @@ public class Character {
 
 	*/
 	
-	Information info;
+	Attributes info;
 	Statistics stats;
 	private String name;
 	private HashMap charInfo;
