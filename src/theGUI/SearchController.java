@@ -2,13 +2,13 @@ package theGUI;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import theDatabase.CharacterFinder;
 
 public class SearchController {
 
@@ -16,8 +16,8 @@ public class SearchController {
 	@FXML Button search;
 	@FXML TextField charName;
 	@FXML TextField playerName;
-	@FXML TextField charClass;
 	@FXML TextField charRace;
+	@FXML TextField charClass;
 	@FXML VBox charList;
 
 	/*
@@ -54,6 +54,9 @@ public class SearchController {
 		// add label to VBox using charList.getChildren.add(newLabel)
 		// set label to have a click event which pulls the character sheet of that particular character
 		// maybe get a reference to each character sheet before displaying, to access the sheet faster?
+		CharacterFinder cf = new CharacterFinder(charName.getText(), playerName.getText(),
+				charRace.getText(), charClass.getText());
+
 
 	}
 
