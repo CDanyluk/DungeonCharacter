@@ -8,38 +8,60 @@ public enum Information {
 	*/
 
 	CLASS {
+		String clas = "";
 		@Override
-		public String message() {
-			return "class";
+		public String get() {
+			return clas;
+		}
+		@Override
+		public void change(String s) {
+			clas = s;
 		}
 	}, BACKGROUND {
+		String back = "";
 		@Override
-		public String message() {
-			return "background";
+		public String get() {
+			return back;
+		}
+		@Override
+		public void change(String s) {
+			back = s;
 		}
 	}, PLAYER {
+		String play = "";
 		@Override
-		public String message() {
-			return "player";
+		public String get() {
+			return play;
+		}
+		@Override
+		public void change(String s) {
+			play = s;
 		}
 	}, RACE {
+		String rac = "";
 		@Override
-		public String message() {
-			return "race";
+		public String get() {
+			return rac;
+		}
+		@Override
+		public void change(String s) {
+			rac = s;
 		}
 	}, ALIGNMENT {
+		String ali = "";
 		@Override
-		public String message() {
-			return "alignemnt";
+		public String get() {
+			return ali;
 		}
-	}, EXPERIENCE {
 		@Override
-		public String message() {
-			return "experience";
+		public void change(String s) {
+			ali = s;
 		}
 	};
 
-	abstract public String message();
+	abstract public String get();
+	
+	abstract public void change(String s);
 }
 
 
