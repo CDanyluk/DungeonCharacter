@@ -54,6 +54,7 @@ public class SearchController {
 		// add label to VBox using charList.getChildren.add(newLabel)
 		// set label to have a click event which pulls the character sheet of that particular character
 		// maybe get a reference to each character sheet before displaying, to access the sheet faster?
+
 	}
 
 }
