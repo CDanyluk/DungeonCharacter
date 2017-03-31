@@ -35,7 +35,7 @@
                               <Image url="@../down-arrow.png" />
                            </image>
                         </ImageView>
-                        <Button fx:id="create" mnemonicParsing="false" onAction="#openCharSheet" prefHeight="37.0" prefWidth="83.0" text="Create!" translateY="20.0">
+                        <Button fx:id="create" mnemonicParsing="false" onAction="#openBlankCharSheet" prefHeight="37.0" prefWidth="83.0" text="Create!" translateY="20.0">
                            <font>
                               <Font name="Bradley Hand Bold" size="16.0" />
                            </font>

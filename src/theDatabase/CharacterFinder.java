@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 public class CharacterFinder {
 
@@ -18,10 +19,11 @@ public class CharacterFinder {
 		this.charClass = charClass;
 	}
 
-	public void find() throws ClassNotFoundException {
+	public ArrayList<String> searchDatabase() throws ClassNotFoundException {
 		Class.forName("org.sqlite.JDBC");
 		Connection connection;
 		String query = buildQuery();
+		ArrayList<String> characterList = new ArrayList<>();
 
 		try {
 			// TODO change this to make sure it uses the appropriate filename
@@ -29,10 +31,25 @@ public class CharacterFinder {
 			Statement statement = connection.createStatement();
 
 			ResultSet results = statement.executeQuery(query);
+
+			while (results.next()) {
+				 characterList.add(buildCharacterString(results));
+			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+
+		return characterList;
+	}
+
+	private String buildCharacterString(ResultSet rs) throws SQLException {
+		String charName = rs.getString("Name");
+		String playerName = rs.getString("PlayerName");
+		String race = rs.getString("Race");
+		String charClass = rs.getString("Class");
+
+		return ("Player: " + playerName + ", Character: " + charName + " - " +
+				race + " - " + charClass + ".");
 	}
 
 	private String buildQuery() {

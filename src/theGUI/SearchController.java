@@ -1,9 +1,15 @@
 package theGUI;
 
+import java.util.ArrayList;
+
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
@@ -24,7 +30,7 @@ public class SearchController {
 	 * Called when the create button is pressed
 	 */
 	@FXML
-	void openCharSheet() {
+	void openBlankCharSheet() {
 		try {
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(CharacterRun.class.getResource("CharacterSheet.fxml"));
@@ -45,7 +51,7 @@ public class SearchController {
 	 * Called when search button is pressed
 	 */
 	@FXML
-	void search() {
+	void search() throws ClassNotFoundException {
 		// gonna need to do database lookups
 		// will lookup using all fields which contain text
 		// if no fields contain text, display an alert box
@@ -56,8 +62,32 @@ public class SearchController {
 		// maybe get a reference to each character sheet before displaying, to access the sheet faster?
 		CharacterFinder cf = new CharacterFinder(charName.getText(), playerName.getText(),
 				charRace.getText(), charClass.getText());
-
+		ArrayList<String> characterList = cf.searchDatabase();
+		displayCharacters(characterList);
 
 	}
+
+	void displayCharacters(ArrayList<String> charList) {
+		if (charList.size() == 0) {
+			getError("No characters found!");
+		} else {
+			for (String character : charList) {
+				Label label = new Label(character);
+				// TODO
+				// label.onMouseClickedProperty() = openCharacterSheet();
+				this.charList.getChildren().add(label);
+			}
+		}
+	}
+
+	void getError (String msg) {
+		Alert alert = new Alert(AlertType.ERROR, msg, ButtonType.OK);
+		alert.showAndWait();
+	}
+
+//	@FXML
+//	void openCharacterSheet() {
+//
+//	}
 
 }
