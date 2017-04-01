@@ -2,6 +2,7 @@ package theGUI;
 
 import javafx.fxml.FXML;
 
+
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -13,6 +14,8 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import Classes.Character;
+import Classes.Attributes;
+import Classes.Statistics;
 
 public class CharacterController {
 	
@@ -149,35 +152,35 @@ public class CharacterController {
 	
 	@FXML
 	void setAttri() {
-		character.addAttri("class", clas.getText());
-		character.addAttri("background", background.getText());
-		character.addAttri("player", player.getText());
-		character.addAttri("race", race.getText());
-		character.addAttri("alignmet", alignment.getText());
+		character.addAttri(Attributes.CLASS, clas.getText());
+		character.addAttri(Attributes.BACKGROUND, background.getText());
+		character.addAttri(Attributes.PLAYER, player.getText());
+		character.addAttri(Attributes.RACE, race.getText());
+		character.addAttri(Attributes.ALIGNMENT, alignment.getText());
 	}
 	
 	@FXML
 	void setStats() {
 		int exp = Integer.parseInt(experience.getText());
-		character.addStats("experience", exp);
+		character.addStats(Statistics.EXPERIENCE, exp);
 
 		int str = Integer.parseInt(strength.getText());
-		character.addStats("strength", str);
+		character.addStats(Statistics.STRENGTH, str);
 
 		int dex = Integer.parseInt(dexterity.getText());
-		character.addStats("dexterity", dex);
+		character.addStats(Statistics.DEXTERITY, dex);
 
 		int con = Integer.parseInt(constitution.getText());
-		character.addStats("constitution", con);
+		character.addStats(Statistics.CONSTITUTION, con);
 
 		int inte = Integer.parseInt(intelligence.getText());
-		character.addStats("intelligence", inte);
+		character.addStats(Statistics.INTELLIGENCE, inte);
 
 		int wis = Integer.parseInt(wisdom.getText());
-		character.addStats("wisdom", wis);
+		character.addStats(Statistics.WISDOM, wis);
 
 		int ch = Integer.parseInt(charisma.getText());
-		character.addStats("charisma", ch);
+		character.addStats(Statistics.CHARISMA, ch);
 	}
 	
 	@FXML

@@ -1,7 +1,7 @@
 
 CREATE TABLE Attributes (CharID INTEGER, Class TEXT, Race TEXT, Background TEXT, Alignment TEXT, PlayerName TEXT, Experience TEXT)
 
-CREATE TABLE Statistics (CharID INTEGER, Strength INTEGER, Dexterity INTEGER, Consitution INTEGER, Intelligence INTEGER, Wisdom INTEGER, Charisma INTEGER)
+CREATE TABLE Statistics (CharID INTEGER, Strength INTEGER, Dexterity INTEGER, Constitution INTEGER, Intelligence INTEGER, Wisdom INTEGER, Charisma INTEGER)
 
 CREATE TABLE Skills (CharID INTEGER, Acrobatics INTEGER, Animals INTEGER, Arcana INTEGER, Athletics INTEGER, Deception INTEGER, History INTEGER, Insight INTEGER,//
 Intimidation INTEGER, Investigation INTEGER, Medicine INTEGER, Nature INTEGER, Perception INTEGER, Performance INTEGER, Persuasion INTEGER, Religion INTEGER,//
