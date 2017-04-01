@@ -19,38 +19,32 @@ public class Character {
 	//Attributes attri;
 	//Statistics stats;
 	private String name;
-	private HashMap charAttri;
-	private  HashMap charStats;
+	private  EnumMap<Attributes, String> charAttri;
+	private  EnumMap<Statistics, Integer> charStats;
 	
 	public Character(String name) {
 		this.name = name;
-		this.charAttri = new HashMap();
-		this.charStats = new HashMap();
+		this.charAttri = new EnumMap<>(Attributes.class);
+		this.charStats = new EnumMap<>(Statistics.class);
 		
 	}
 	
 	public String getName() {return name;}
 	
-	public void addStats(String statName, int i) {
-		if (charStats.get(statName) != null) {
-			charStats.remove(statName);
-		}
-		charStats.put(statName, i);
+	public void addStats(Statistics s, int i) {
+		charStats.put(s, i);
 	}
 	
-	public void addAttri(String attriType, String info) {
-		if (charAttri.get(attriType) != null) {
-			charAttri.remove(attriType);
-		}
-		charAttri.put(attriType, info);
+	public void addAttri(Attributes a, String info) {
+		charAttri.put(a, info);
 	}
 	
-	public String getAttri(String attriType) {
-		return (String) charAttri.get(attriType);
+	public String getAttri(Attributes attriType) {
+		return charAttri.get(attriType);
 	}
 	
-	public String getStats(String statName) {
-		return (String) charStats.get(statName);
+	public int getStats(Statistics statName) {
+		return charStats.get(statName);
 	}
 
 }
