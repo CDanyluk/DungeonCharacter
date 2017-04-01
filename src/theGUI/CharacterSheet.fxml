@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -16,7 +22,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="945.0" prefWidth="774.0" xmlns="http://javafx.com/javafx/8.0.102" xmlns:fx="http://javafx.com/fxml/1" fx:controller="theGUI.CharacterController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="945.0" prefWidth="774.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="theGUI.CharacterController">
    <center>
       <VBox prefHeight="923.0" prefWidth="744.0" BorderPane.alignment="CENTER">
          <children>
@@ -26,7 +32,7 @@
                      <image>
                         <Image url="@../SmallDragon.png" />
                      </image></ImageView>
-                  <TextField alignment="CENTER" prefHeight="46.0" prefWidth="206.0" promptText="CHARACTER NAME">
+                  <TextField fx:id="name" alignment="CENTER" prefHeight="46.0" prefWidth="206.0" promptText="CHARACTER NAME">
                      <font>
                         <Font size="20.0" />
                      </font>
@@ -41,17 +47,17 @@
                      <children>
                         <HBox prefHeight="52.0" prefWidth="329.0">
                            <children>
-                              <TextField prefHeight="31.0" prefWidth="126.0" promptText="CLASS">
+                              <TextField fx:id="clas" onAction="#setAttri" prefHeight="31.0" prefWidth="126.0" promptText="CLASS">
                                  <HBox.margin>
                                     <Insets right="5.0" top="10.0" />
                                  </HBox.margin>
                               </TextField>
-                              <TextField prefHeight="31.0" prefWidth="138.0" promptText="BACKGROUND">
+                              <TextField fx:id="background" onAction="#setAttri" prefHeight="31.0" prefWidth="138.0" promptText="BACKGROUND">
                                  <HBox.margin>
                                     <Insets right="5.0" top="10.0" />
                                  </HBox.margin>
                               </TextField>
-                              <TextField prefHeight="31.0" prefWidth="130.0" promptText="PLAYER NAME">
+                              <TextField fx:id="player" onAction="#setAttri" prefHeight="31.0" prefWidth="130.0" promptText="PLAYER NAME">
                                  <HBox.margin>
                                     <Insets right="5.0" top="10.0" />
                                  </HBox.margin>
@@ -60,17 +66,17 @@
                         </HBox>
                         <HBox prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <TextField prefHeight="31.0" prefWidth="121.0" promptText="RACE">
+                              <TextField fx:id="race" onAction="#setAttri" prefHeight="31.0" prefWidth="121.0" promptText="RACE">
                                  <HBox.margin>
                                     <Insets right="5.0" top="10.0" />
                                  </HBox.margin>
                               </TextField>
-                              <TextField prefHeight="31.0" prefWidth="132.0" promptText="ALIGNMENT">
+                              <TextField fx:id="alignment" onAction="#setAttri" prefHeight="31.0" prefWidth="132.0" promptText="ALIGNMENT">
                                  <HBox.margin>
                                     <Insets right="5.0" top="10.0" />
                                  </HBox.margin>
                               </TextField>
-                              <TextField prefHeight="31.0" prefWidth="124.0" promptText="EXPERIENCE">
+                              <TextField fx:id="experience" onAction="#setStats" prefHeight="31.0" prefWidth="124.0" promptText="EXPERIENCE">
                                  <HBox.margin>
                                     <Insets right="5.0" top="10.0" />
                                  </HBox.margin>
@@ -89,24 +95,26 @@
                            <children>
                               <VBox prefHeight="765.0" prefWidth="148.0">
                                  <children>
-                                    <TextField alignment="CENTER" prefHeight="102.0" prefWidth="102.0" promptText="STRENGTH">
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="21.0" prefWidth="171.0" text="STRENGTH" />
+                                    <TextField fx:id="strength" alignment="CENTER" onAction="#setStats" prefHeight="102.0" prefWidth="102.0" promptText="STRENGTH">
                                        <font>
                                           <Font size="16.0" />
                                        </font>
                                        <VBox.margin>
-                                          <Insets bottom="3.0" left="8.0" right="8.0" top="8.0" />
+                                          <Insets bottom="3.0" left="8.0" right="8.0" />
                                        </VBox.margin>
                                     </TextField>
-                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="21.0" prefWidth="129.0" text="( 0 )" textAlignment="CENTER">
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="21.0" prefWidth="176.0" text="( 0 )" textAlignment="CENTER">
                                        <VBox.margin>
                                           <Insets bottom="8.0" />
                                        </VBox.margin></Label>
-                                    <TextField alignment="CENTER" prefHeight="102.0" prefWidth="102.0" promptText="DEXTERITY">
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="21.0" prefWidth="171.0" text="DEXTERITY" />
+                                    <TextField fx:id="dexterity" alignment="CENTER" onAction="#setStats" prefHeight="102.0" prefWidth="102.0" promptText="DEXTERITY">
                                        <font>
                                           <Font size="16.0" />
                                        </font>
                                        <VBox.margin>
-                                          <Insets bottom="3.0" left="8.0" right="8.0" top="8.0" />
+                                          <Insets bottom="3.0" left="8.0" right="8.0" />
                                        </VBox.margin>
                                     </TextField>
                                     <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="21.0" prefWidth="211.0" text="( 0 )">
@@ -114,12 +122,13 @@
                                           <Insets bottom="8.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <TextField alignment="CENTER" prefHeight="102.0" prefWidth="102.0" promptText="CONSTITUTION">
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="21.0" prefWidth="171.0" text="CONSTITUTION" />
+                                    <TextField fx:id="constitution" alignment="CENTER" onAction="#setStats" prefHeight="102.0" prefWidth="102.0" promptText="CONSTITUTION">
                                        <font>
                                           <Font size="16.0" />
                                        </font>
                                        <VBox.margin>
-                                          <Insets bottom="3.0" left="8.0" right="8.0" top="8.0" />
+                                          <Insets bottom="3.0" left="8.0" right="8.0" />
                                        </VBox.margin>
                                     </TextField>
                                     <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="21.0" prefWidth="206.0" text="( 0 )">
@@ -127,12 +136,13 @@
                                           <Insets bottom="8.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <TextField alignment="CENTER" prefHeight="102.0" prefWidth="102.0" promptText="INTELLIGENCE">
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="21.0" prefWidth="171.0" text="INTELLIGENCE" />
+                                    <TextField fx:id="intelligence" alignment="CENTER" onAction="#setStats" prefHeight="102.0" prefWidth="102.0" promptText="INTELLIGENCE">
                                        <font>
                                           <Font size="16.0" />
                                        </font>
                                        <VBox.margin>
-                                          <Insets bottom="3.0" left="8.0" right="8.0" top="8.0" />
+                                          <Insets bottom="3.0" left="8.0" right="8.0" />
                                        </VBox.margin>
                                     </TextField>
                                     <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="21.0" prefWidth="150.0" text="( 0 )">
@@ -140,12 +150,13 @@
                                           <Insets bottom="8.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <TextField alignment="CENTER" prefHeight="102.0" prefWidth="102.0" promptText="WISDOM">
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="21.0" prefWidth="171.0" text="WISDOM" />
+                                    <TextField fx:id="wisdom" alignment="CENTER" onAction="#setStats" prefHeight="102.0" prefWidth="102.0" promptText="WISDOM">
                                        <font>
                                           <Font size="16.0" />
                                        </font>
                                        <VBox.margin>
-                                          <Insets bottom="3.0" left="8.0" right="8.0" top="8.0" />
+                                          <Insets bottom="3.0" left="8.0" right="8.0" />
                                        </VBox.margin>
                                     </TextField>
                                     <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="21.0" prefWidth="189.0" text="( 0 )">
@@ -153,12 +164,13 @@
                                           <Insets bottom="8.0" />
                                        </VBox.margin>
                                     </Label>
-                                    <TextField alignment="CENTER" prefHeight="102.0" prefWidth="102.0" promptText="CHARISMA">
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="21.0" prefWidth="171.0" text="CHARISMA" />
+                                    <TextField fx:id="charisma" alignment="CENTER" onAction="#setStats" prefHeight="102.0" prefWidth="102.0" promptText="CHARISMA">
                                        <font>
                                           <Font size="16.0" />
                                        </font>
                                        <VBox.margin>
-                                          <Insets bottom="3.0" left="8.0" right="8.0" top="8.0" />
+                                          <Insets bottom="3.0" left="8.0" right="8.0" />
                                        </VBox.margin>
                                     </TextField>
                                     <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="21.0" prefWidth="138.0" text="( 0 )">
@@ -180,7 +192,7 @@
                                           <Label prefHeight="53.0" prefWidth="151.0" text="PROFICIENCY BONUS" />
                                        </children>
                                     </HBox>
-                                    <Label text="Label" />
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="21.0" prefWidth="226.0" text="SAVING THROWS" />
                                     <HBox prefHeight="194.0" prefWidth="202.0">
                                        <children>
                                           <GridPane gridLinesVisible="true" prefHeight="261.0" prefWidth="186.0">
@@ -198,7 +210,7 @@
                                                    <children>
                                                       <HBox prefHeight="31.0" prefWidth="186.0">
                                                          <children>
-                                                            <Button mnemonicParsing="false" text="-">
+                                                            <Button fx:id="strdown" mnemonicParsing="false" onAction="#decreaseStr" text="-">
                                                                <font>
                                                                   <Font size="10.0" />
                                                                </font>
@@ -206,12 +218,12 @@
                                                                   <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
                                                                </HBox.margin>
                                                             </Button>
-                                                            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="31.0" prefWidth="145.0" text="[ +0 ]  STRENGTH">
+                                                            <Label fx:id="savingstr" alignment="CENTER" contentDisplay="CENTER" prefHeight="31.0" prefWidth="145.0" text="[ +0 ]  STRENGTH">
                                                                <font>
                                                                   <Font size="11.0" />
                                                                </font>
                                                             </Label>
-                                                            <Button mnemonicParsing="false" text="+">
+                                                            <Button fx:id="strup" mnemonicParsing="false" onAction="#increaseStr" text="+">
                                                                <font>
                                                                   <Font size="10.0" />
                                                                </font>
@@ -223,7 +235,7 @@
                                                       </HBox>
                                                       <HBox prefHeight="29.0" prefWidth="186.0">
                                                          <children>
-                                                            <Button mnemonicParsing="false" text="-">
+                                                            <Button fx:id="dexdown" mnemonicParsing="false" onAction="#decreaseDex" text="-">
                                                                <font>
                                                                   <Font size="10.0" />
                                                                </font>
@@ -231,12 +243,12 @@
                                                                   <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
                                                                </HBox.margin>
                                                             </Button>
-                                                            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="25.0" prefWidth="151.0" text="[ +0 ]  DEXTERITY">
+                                                            <Label fx:id="savingdex" alignment="CENTER" contentDisplay="CENTER" prefHeight="25.0" prefWidth="151.0" text="[ +0 ]  DEXTERITY">
                                                                <font>
                                                                   <Font size="11.0" />
                                                                </font>
                                                             </Label>
-                                                            <Button mnemonicParsing="false" text="+">
+                                                            <Button fx:id="dexup" mnemonicParsing="false" onAction="#increaseDex" text="+">
                                                                <font>
                                                                   <Font size="10.0" />
                                                                </font>
@@ -248,7 +260,7 @@
                                                       </HBox>
                                                       <HBox prefHeight="27.0" prefWidth="186.0">
                                                          <children>
-                                                            <Button mnemonicParsing="false" text="-">
+                                                            <Button fx:id="condown" mnemonicParsing="false" onAction="#decreaseCon" text="-">
                                                                <font>
                                                                   <Font size="10.0" />
                                                                </font>
@@ -256,12 +268,12 @@
                                                                   <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
                                                                </HBox.margin>
                                                             </Button>
-                                                            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="25.0" prefWidth="151.0" text="[ +0 ]  CONSTITUTION">
+                                                            <Label fx:id="savingcon" alignment="CENTER" contentDisplay="CENTER" prefHeight="25.0" prefWidth="151.0" text="[ +0 ]  CONSTITUTION">
                                                                <font>
                                                                   <Font size="11.0" />
                                                                </font>
                                                             </Label>
-                                                            <Button mnemonicParsing="false" text="+">
+                                                            <Button fx:id="conup" mnemonicParsing="false" onAction="#increaseCon" text="+">
                                                                <font>
                                                                   <Font size="10.0" />
                                                                </font>
@@ -273,7 +285,7 @@
                                                       </HBox>
                                                       <HBox prefHeight="29.0" prefWidth="186.0">
                                                          <children>
-                                                            <Button mnemonicParsing="false" text="-">
+                                                            <Button fx:id="intdown" mnemonicParsing="false" onAction="#decreaseInt" text="-">
                                                                <font>
                                                                   <Font size="10.0" />
                                                                </font>
@@ -281,12 +293,12 @@
                                                                   <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
                                                                </HBox.margin>
                                                             </Button>
-                                                            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="28.0" prefWidth="151.0" text="[ +0 ]  INTELLIGENCE">
+                                                            <Label fx:id="savingint" alignment="CENTER" contentDisplay="CENTER" prefHeight="28.0" prefWidth="151.0" text="[ +0 ]  INTELLIGENCE">
                                                                <font>
                                                                   <Font size="11.0" />
                                                                </font>
                                                             </Label>
-                                                            <Button mnemonicParsing="false" text="+">
+                                                            <Button fx:id="intup" mnemonicParsing="false" onAction="#increaseInt" text="+">
                                                                <font>
                                                                   <Font size="10.0" />
                                                                </font>
@@ -298,7 +310,7 @@
                                                       </HBox>
                                                       <HBox prefHeight="29.0" prefWidth="186.0">
                                                          <children>
-                                                            <Button mnemonicParsing="false" text="-">
+                                                            <Button fx:id="wisdown" mnemonicParsing="false" onAction="#decreaseWis" text="-">
                                                                <font>
                                                                   <Font size="10.0" />
                                                                </font>
@@ -306,12 +318,12 @@
                                                                   <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
                                                                </HBox.margin>
                                                             </Button>
-                                                            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="28.0" prefWidth="151.0" text="[ +0 ]  WISDOM">
+                                                            <Label fx:id="savingwis" alignment="CENTER" contentDisplay="CENTER" prefHeight="28.0" prefWidth="151.0" text="[ +0 ]  WISDOM">
                                                                <font>
                                                                   <Font size="11.0" />
                                                                </font>
                                                             </Label>
-                                                            <Button mnemonicParsing="false" text="+">
+                                                            <Button fx:id="wisup" mnemonicParsing="false" onAction="#increaseWis" text="+">
                                                                <font>
                                                                   <Font size="10.0" />
                                                                </font>
@@ -323,7 +335,7 @@
                                                       </HBox>
                                                       <HBox prefHeight="29.0" prefWidth="186.0">
                                                          <children>
-                                                            <Button mnemonicParsing="false" text="-">
+                                                            <Button fx:id="chardown" mnemonicParsing="false" onAction="#decreaseChar" text="-">
                                                                <font>
                                                                   <Font size="10.0" />
                                                                </font>
@@ -331,12 +343,12 @@
                                                                   <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
                                                                </HBox.margin>
                                                             </Button>
-                                                            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="28.0" prefWidth="151.0" text="[ +0 ]  CHARISMA">
+                                                            <Label fx:id="savingchar" alignment="CENTER" contentDisplay="CENTER" prefHeight="28.0" prefWidth="151.0" text="[ +0 ]  CHARISMA">
                                                                <font>
                                                                   <Font size="11.0" />
                                                                </font>
                                                             </Label>
-                                                            <Button mnemonicParsing="false" text="+">
+                                                            <Button fx:id="charup" mnemonicParsing="false" onAction="#increaseChar" text="+">
                                                                <font>
                                                                   <Font size="10.0" />
                                                                </font>
@@ -352,7 +364,7 @@
                                           </GridPane>
                                        </children>
                                     </HBox>
-                                    <Label text="Label" />
+                                    <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="21.0" prefWidth="316.0" text="SKILLS" />
                                     <HBox prefHeight="558.0" prefWidth="202.0">
                                        <children>
                                           <GridPane gridLinesVisible="true" prefHeight="261.0" prefWidth="186.0">
@@ -891,7 +903,7 @@
                               </TextField>
                            </children>
                         </HBox>
-                        <HBox prefHeight="170.0" prefWidth="284.0">
+                        <HBox prefHeight="197.0" prefWidth="284.0">
                            <children>
                               <GridPane gridLinesVisible="true" prefHeight="261.0" prefWidth="321.0">
                                  <children>
@@ -907,20 +919,25 @@
                                                       <Insets />
                                                    </HBox.margin>
                                                 </Label>
-                                                <TextField alignment="CENTER" prefHeight="56.0" prefWidth="65.0" promptText="0" />
+                                                <TextField fx:id="currentHP" alignment="CENTER" prefHeight="56.0" prefWidth="65.0" promptText="0" />
                                                 <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="51.0" prefWidth="33.0" text="/">
                                                    <font>
                                                       <Font size="21.0" />
                                                    </font>
                                                 </Label>
-                                                <TextField alignment="CENTER" prefHeight="56.0" prefWidth="65.0" promptText="0" />
+                                                <TextField fx:id="totalHP" alignment="CENTER" prefHeight="56.0" prefWidth="65.0" promptText="0" />
                                              </children>
                                           </HBox>
-                                          <ProgressBar prefHeight="80.0" prefWidth="269.0" progress="0.0">
+                                          <ProgressBar fx:id="HP" prefHeight="79.0" prefWidth="268.0" progress="0.0">
                                              <padding>
                                                 <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
                                              </padding>
                                           </ProgressBar>
+                                          <Button fx:id="recalculate" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#setHP" prefHeight="31.0" prefWidth="123.0" text="RECALCULATE">
+                                             <VBox.margin>
+                                                <Insets bottom="10.0" left="75.0" />
+                                             </VBox.margin>
+                                          </Button>
                                        </children>
                                     </VBox>
                                  </children>
@@ -963,7 +980,7 @@
                                     <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
                                  </HBox.margin>
                               </Button>
-                              <Button fx:id="levelup1" alignment="CENTER" mnemonicParsing="false" onAction="#open" prefHeight="39.0" prefWidth="123.0" text="SAVE!" textAlignment="CENTER">
+                              <Button fx:id="save" alignment="CENTER" mnemonicParsing="false" onAction="#setAttri" prefHeight="39.0" prefWidth="123.0" text="SAVE!" textAlignment="CENTER">
                                  <HBox.margin>
                                     <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
                                  </HBox.margin>

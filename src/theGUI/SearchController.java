@@ -19,6 +19,7 @@ import theDatabase.CharacterFinder;
 public class SearchController {
 
 	@FXML Button create;
+	@FXML TextField createName;
 	@FXML Button search;
 	@FXML TextField charName;
 	@FXML TextField playerName;
@@ -37,6 +38,7 @@ public class SearchController {
 			BorderPane root = (BorderPane) loader.load();
 
 			CharacterController second = (CharacterController)loader.getController();
+			second.name.setText(createName.getText());
 
 			Stage secondStage = new Stage();
 			Scene scene = new Scene(root);

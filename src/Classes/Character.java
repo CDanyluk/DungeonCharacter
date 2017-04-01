@@ -16,15 +16,15 @@ public class Character {
 
 	*/
 	
-	Attributes info;
-	Statistics stats;
+	//Attributes attri;
+	//Statistics stats;
 	private String name;
-	private HashMap charInfo;
+	private HashMap charAttri;
 	private  HashMap charStats;
 	
 	public Character(String name) {
 		this.name = name;
-		this.charInfo = new HashMap();
+		this.charAttri = new HashMap();
 		this.charStats = new HashMap();
 		
 	}
@@ -38,12 +38,19 @@ public class Character {
 		charStats.put(statName, i);
 	}
 	
-	public void addCharInfo(String informationType, String info) {
-		if (charInfo.get(informationType) != null) {
-			charInfo.remove(informationType);
+	public void addAttri(String attriType, String info) {
+		if (charAttri.get(attriType) != null) {
+			charAttri.remove(attriType);
 		}
-		charInfo.put(informationType, info);
+		charAttri.put(attriType, info);
 	}
 	
+	public String getAttri(String attriType) {
+		return (String) charAttri.get(attriType);
+	}
+	
+	public String getStats(String statName) {
+		return (String) charStats.get(statName);
+	}
 
 }
