@@ -373,6 +373,56 @@
                                                    <children>
                                                       <HBox prefHeight="31.0" prefWidth="186.0">
                                                          <children>
+                                                            <Button fx:id="acrobaticsdown" mnemonicParsing="false" onAction="#decreaseAcrobatics" text="-">
+                                                               <font>
+                                                                  <Font size="10.0" />
+                                                               </font>
+                                                               <HBox.margin>
+                                                                  <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                                                               </HBox.margin>
+                                                            </Button>
+                                                            <Label fx:id="acrobatics" alignment="CENTER" contentDisplay="CENTER" prefHeight="31.0" prefWidth="145.0" text="[ +0 ]  ACROBATICS">
+                                                               <font>
+                                                                  <Font size="11.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Button fx:id="acrobaticsup" mnemonicParsing="false" onAction="#increaseAcrobatics" text="+">
+                                                               <font>
+                                                                  <Font size="10.0" />
+                                                               </font>
+                                                               <HBox.margin>
+                                                                  <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                                                               </HBox.margin>
+                                                            </Button>
+                                                         </children>
+                                                      </HBox>
+                                                      <HBox prefHeight="31.0" prefWidth="186.0">
+                                                         <children>
+                                                            <Button fx:id="animalsdown" mnemonicParsing="false" onAction="#decreaseAnimals" text="-">
+                                                               <font>
+                                                                  <Font size="10.0" />
+                                                               </font>
+                                                               <HBox.margin>
+                                                                  <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                                                               </HBox.margin>
+                                                            </Button>
+                                                            <Label fx:id="animals" alignment="CENTER" contentDisplay="CENTER" prefHeight="31.0" prefWidth="145.0" text="[ +0 ]  ANIMALS">
+                                                               <font>
+                                                                  <Font size="11.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <Button fx:id="animalsup" mnemonicParsing="false" onAction="#increaseAnimals" text="+">
+                                                               <font>
+                                                                  <Font size="10.0" />
+                                                               </font>
+                                                               <HBox.margin>
+                                                                  <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+                                                               </HBox.margin>
+                                                            </Button>
+                                                         </children>
+                                                      </HBox>
+                                                      <HBox prefHeight="31.0" prefWidth="186.0">
+                                                         <children>
                                                             <Button mnemonicParsing="false" text="-">
                                                                <font>
                                                                   <Font size="10.0" />
@@ -381,7 +431,7 @@
                                                                   <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
                                                                </HBox.margin>
                                                             </Button>
-                                                            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="31.0" prefWidth="145.0" text="[ +0 ]  ACROBATICS">
+                                                            <Label fx:id="arcana" alignment="CENTER" contentDisplay="CENTER" prefHeight="31.0" prefWidth="145.0" text="[ +0 ]  ARCANA">
                                                                <font>
                                                                   <Font size="11.0" />
                                                                </font>
@@ -406,7 +456,7 @@
                                                                   <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
                                                                </HBox.margin>
                                                             </Button>
-                                                            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="31.0" prefWidth="145.0" text="[ +0 ]  ANIMALS">
+                                                            <Label fx:id="athletics" alignment="CENTER" contentDisplay="CENTER" prefHeight="31.0" prefWidth="145.0" text="[ +0 ]  ATHLETICS">
                                                                <font>
                                                                   <Font size="11.0" />
                                                                </font>
@@ -431,7 +481,7 @@
                                                                   <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
                                                                </HBox.margin>
                                                             </Button>
-                                                            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="31.0" prefWidth="145.0" text="[ +0 ]  ARCANA">
+                                                            <Label fx:id="deception" alignment="CENTER" contentDisplay="CENTER" prefHeight="31.0" prefWidth="145.0" text="[ +0 ]  DECEPTION">
                                                                <font>
                                                                   <Font size="11.0" />
                                                                </font>
@@ -456,7 +506,7 @@
                                                                   <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
                                                                </HBox.margin>
                                                             </Button>
-                                                            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="31.0" prefWidth="145.0" text="[ +0 ]  ATHLETICS">
+                                                            <Label fx:id="history" alignment="CENTER" contentDisplay="CENTER" prefHeight="31.0" prefWidth="145.0" text="[ +0 ]  HISTORY">
                                                                <font>
                                                                   <Font size="11.0" />
                                                                </font>
@@ -481,7 +531,7 @@
                                                                   <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
                                                                </HBox.margin>
                                                             </Button>
-                                                            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="31.0" prefWidth="145.0" text="[ +0 ]  DECEPTION">
+                                                            <Label fx:id="insight" alignment="CENTER" contentDisplay="CENTER" prefHeight="31.0" prefWidth="145.0" text="[ +0 ]  INSIGHT">
                                                                <font>
                                                                   <Font size="11.0" />
                                                                </font>
@@ -506,7 +556,7 @@
                                                                   <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
                                                                </HBox.margin>
                                                             </Button>
-                                                            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="31.0" prefWidth="145.0" text="[ +0 ]  HISTORY">
+                                                            <Label fx:id="intimidation" alignment="CENTER" contentDisplay="CENTER" prefHeight="31.0" prefWidth="145.0" text="[ +0 ]  INTIMIDATION">
                                                                <font>
                                                                   <Font size="11.0" />
                                                                </font>
@@ -531,7 +581,7 @@
                                                                   <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
                                                                </HBox.margin>
                                                             </Button>
-                                                            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="31.0" prefWidth="145.0" text="[ +0 ]  INSIGHT">
+                                                            <Label fx:id="investigation" alignment="CENTER" contentDisplay="CENTER" prefHeight="31.0" prefWidth="145.0" text="[ +0 ]  INVESTIGATION">
                                                                <font>
                                                                   <Font size="11.0" />
                                                                </font>
@@ -556,7 +606,7 @@
                                                                   <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
                                                                </HBox.margin>
                                                             </Button>
-                                                            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="31.0" prefWidth="145.0" text="[ +0 ]  INTIMIDATION">
+                                                            <Label fx:id="medicine" alignment="CENTER" contentDisplay="CENTER" prefHeight="31.0" prefWidth="145.0" text="[ +0 ]  MEDICINE">
                                                                <font>
                                                                   <Font size="11.0" />
                                                                </font>
@@ -581,7 +631,7 @@
                                                                   <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
                                                                </HBox.margin>
                                                             </Button>
-                                                            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="31.0" prefWidth="145.0" text="[ +0 ]  INVESTIGATION">
+                                                            <Label fx:id="nature" alignment="CENTER" contentDisplay="CENTER" prefHeight="31.0" prefWidth="145.0" text="[ +0 ]  NATURE">
                                                                <font>
                                                                   <Font size="11.0" />
                                                                </font>
@@ -606,7 +656,7 @@
                                                                   <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
                                                                </HBox.margin>
                                                             </Button>
-                                                            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="31.0" prefWidth="145.0" text="[ +0 ]  MEDICINE">
+                                                            <Label fx:id="perception" alignment="CENTER" contentDisplay="CENTER" prefHeight="31.0" prefWidth="145.0" text="[ +0 ]  PERCEPTION">
                                                                <font>
                                                                   <Font size="11.0" />
                                                                </font>
@@ -631,7 +681,7 @@
                                                                   <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
                                                                </HBox.margin>
                                                             </Button>
-                                                            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="31.0" prefWidth="145.0" text="[ +0 ]  NATURE">
+                                                            <Label fx:id="performance" alignment="CENTER" contentDisplay="CENTER" prefHeight="31.0" prefWidth="145.0" text="[ +0 ]  PERFORMANCE">
                                                                <font>
                                                                   <Font size="11.0" />
                                                                </font>
@@ -656,7 +706,7 @@
                                                                   <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
                                                                </HBox.margin>
                                                             </Button>
-                                                            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="31.0" prefWidth="145.0" text="[ +0 ]  PERCEPTION">
+                                                            <Label fx:id="persuasion" alignment="CENTER" contentDisplay="CENTER" prefHeight="31.0" prefWidth="145.0" text="[ +0 ]  PERSUASION">
                                                                <font>
                                                                   <Font size="11.0" />
                                                                </font>
@@ -681,7 +731,7 @@
                                                                   <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
                                                                </HBox.margin>
                                                             </Button>
-                                                            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="31.0" prefWidth="145.0" text="[ +0 ]  PERFORMANCE">
+                                                            <Label fx:id="religion" alignment="CENTER" contentDisplay="CENTER" prefHeight="31.0" prefWidth="145.0" text="[ +0 ]  RELIGION">
                                                                <font>
                                                                   <Font size="11.0" />
                                                                </font>
@@ -706,7 +756,7 @@
                                                                   <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
                                                                </HBox.margin>
                                                             </Button>
-                                                            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="31.0" prefWidth="145.0" text="[ +0 ]  PERSUASION">
+                                                            <Label fx:id="sleight" alignment="CENTER" contentDisplay="CENTER" prefHeight="31.0" prefWidth="145.0" text="[ +0 ]  SLEIGHT OF HAND">
                                                                <font>
                                                                   <Font size="11.0" />
                                                                </font>
@@ -731,7 +781,7 @@
                                                                   <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
                                                                </HBox.margin>
                                                             </Button>
-                                                            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="31.0" prefWidth="145.0" text="[ +0 ]  RELIGION">
+                                                            <Label fx:id="stealth" alignment="CENTER" contentDisplay="CENTER" prefHeight="31.0" prefWidth="145.0" text="[ +0 ]  STEALTH">
                                                                <font>
                                                                   <Font size="11.0" />
                                                                </font>
@@ -756,57 +806,7 @@
                                                                   <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
                                                                </HBox.margin>
                                                             </Button>
-                                                            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="31.0" prefWidth="145.0" text="[ +0 ]  SLEIGHT OF HAND">
-                                                               <font>
-                                                                  <Font size="11.0" />
-                                                               </font>
-                                                            </Label>
-                                                            <Button mnemonicParsing="false" text="+">
-                                                               <font>
-                                                                  <Font size="10.0" />
-                                                               </font>
-                                                               <HBox.margin>
-                                                                  <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
-                                                               </HBox.margin>
-                                                            </Button>
-                                                         </children>
-                                                      </HBox>
-                                                      <HBox prefHeight="31.0" prefWidth="186.0">
-                                                         <children>
-                                                            <Button mnemonicParsing="false" text="-">
-                                                               <font>
-                                                                  <Font size="10.0" />
-                                                               </font>
-                                                               <HBox.margin>
-                                                                  <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
-                                                               </HBox.margin>
-                                                            </Button>
-                                                            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="31.0" prefWidth="145.0" text="[ +0 ]  STEALTH">
-                                                               <font>
-                                                                  <Font size="11.0" />
-                                                               </font>
-                                                            </Label>
-                                                            <Button mnemonicParsing="false" text="+">
-                                                               <font>
-                                                                  <Font size="10.0" />
-                                                               </font>
-                                                               <HBox.margin>
-                                                                  <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
-                                                               </HBox.margin>
-                                                            </Button>
-                                                         </children>
-                                                      </HBox>
-                                                      <HBox prefHeight="31.0" prefWidth="186.0">
-                                                         <children>
-                                                            <Button mnemonicParsing="false" text="-">
-                                                               <font>
-                                                                  <Font size="10.0" />
-                                                               </font>
-                                                               <HBox.margin>
-                                                                  <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
-                                                               </HBox.margin>
-                                                            </Button>
-                                                            <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="31.0" prefWidth="145.0" text="[ +0 ]  SURVIVAL">
+                                                            <Label fx:id="survival" alignment="CENTER" contentDisplay="CENTER" prefHeight="31.0" prefWidth="145.0" text="[ +0 ]  SURVIVAL">
                                                                <font>
                                                                   <Font size="11.0" />
                                                                </font>
@@ -886,17 +886,17 @@
                         </HBox>
                         <HBox prefHeight="85.0" prefWidth="393.0">
                            <children>
-                              <TextField alignment="CENTER" prefHeight="73.0" prefWidth="78.0" promptText="AC">
+                              <TextField fx:id="armor" alignment="CENTER" prefHeight="73.0" prefWidth="78.0" promptText="AC">
                                  <HBox.margin>
                                     <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
                                  </HBox.margin>
                               </TextField>
-                              <TextField alignment="CENTER" prefHeight="73.0" prefWidth="78.0" promptText="IN.">
+                              <TextField fx:id="initiative" alignment="CENTER" prefHeight="73.0" prefWidth="78.0" promptText="IN.">
                                  <HBox.margin>
                                     <Insets bottom="8.0" left="12.0" right="8.0" top="8.0" />
                                  </HBox.margin>
                               </TextField>
-                              <TextField alignment="CENTER" prefHeight="73.0" prefWidth="78.0" promptText="SPD">
+                              <TextField fx:id="speed" alignment="CENTER" prefHeight="73.0" prefWidth="78.0" promptText="SPD">
                                  <HBox.margin>
                                     <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
                                  </HBox.margin>
@@ -958,7 +958,7 @@
                               <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
                            </padding>
                         </Label>
-                        <TextArea prefHeight="187.0" prefWidth="268.0" promptText="None">
+                        <TextArea fx:id="equipment" prefHeight="187.0" prefWidth="268.0" promptText="None">
                            <VBox.margin>
                               <Insets bottom="8.0" left="8.0" right="8.0" top="3.0" />
                            </VBox.margin>
@@ -968,7 +968,7 @@
                               <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
                            </padding>
                         </Label>
-                        <TextArea prefHeight="184.0" prefWidth="268.0" promptText="None">
+                        <TextArea fx:id="misc" prefHeight="184.0" prefWidth="268.0" promptText="None">
                            <VBox.margin>
                               <Insets bottom="8.0" left="8.0" right="8.0" top="3.0" />
                            </VBox.margin>
@@ -980,7 +980,7 @@
                                     <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
                                  </HBox.margin>
                               </Button>
-                              <Button fx:id="save" alignment="CENTER" mnemonicParsing="false" onAction="#setAttri" prefHeight="39.0" prefWidth="123.0" text="SAVE!" textAlignment="CENTER">
+                              <Button fx:id="save" alignment="CENTER" mnemonicParsing="false" onAction="#save" prefHeight="39.0" prefWidth="123.0" text="SAVE!" textAlignment="CENTER">
                                  <HBox.margin>
                                     <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
                                  </HBox.margin>

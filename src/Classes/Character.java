@@ -65,7 +65,7 @@ public class Character {
 	
 	//Use example:
 	//		character.addStats(Skills.DECEPTION, 42);
-	public void addSkills(Skills s, int num) {
+	public void setSkills(Skills s, int num) {
 		charSkills.put(s,  num);
 	}
 	
@@ -91,6 +91,18 @@ public class Character {
 		//		deception.setText(character.getSkills(Skills.DECEPTION));
 	public int getSkills(Skills s) {
 		return charSkills.get(s);
+	}
+	
+	public void increaseSkills(Skills s) {
+		int number = charSkills.get(s);
+		number++;
+		charSkills.put(s, number);
+	}
+	
+	public void decreaseSkills(Skills s) {
+		int number = charSkills.get(s);
+		number--;
+		charSkills.put(s, number);
 	}
 
 }
