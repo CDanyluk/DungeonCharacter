@@ -32,7 +32,7 @@ public class CharacterFinder {
 		ArrayList<String> characterList = new ArrayList<>();
 
 		try {
-			connection = DriverManager.getConnection("jdbc:sqlite:dungeon.db");
+			connection = DriverManager.getConnection("jdbc:sqlite:Dungeon.db");
 			Statement statement = connection.createStatement();
 
 			ResultSet results = statement.executeQuery(this.query);
