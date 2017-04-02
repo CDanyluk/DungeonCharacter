@@ -58,7 +58,7 @@ public class Character {
 	}
 	
 	//Use example: 
-	//		character.addStats(Miscellaneous.EQUIPMENT, "My character carries a lot of junk, a gun, knife, & PB&J");
+	//		character.addExtra(Miscellaneous.EQUIPMENT, "My character carries a lot of junk, a gun, knife, & PB&J");
 	public void addExtra(Miscellaneous m, String text) {
 		charExtra.put(m, text);
 	}
