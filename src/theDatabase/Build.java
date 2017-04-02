@@ -6,7 +6,7 @@ import java.sql.*;
 
 
 public class Build {
-    public static void main(String[] args) throws ClassNotFoundException, SQLException, IOException {
+    public static void main() throws ClassNotFoundException, SQLException, IOException {
         Class.forName("org.sqlite.JDBC");
         Connection con = DriverManager.getConnection("jdbc:sqlite:Dungeon");
         Statement stat = con.createStatement();

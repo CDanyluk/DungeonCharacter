@@ -6,12 +6,17 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import theDatabase.Build;
+import theDatabase.Get;
 
 public class CharacterRun extends Application {
+
+	private Build build;
+	
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			new Build();
+			build = new Build();
+			build.main();
 			VBox root = (VBox)FXMLLoader.load(getClass().getResource("SearchAndCreate.fxml"));
 			Scene scene = new Scene(root);
 			primaryStage.setScene(scene);

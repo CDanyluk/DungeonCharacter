@@ -163,6 +163,7 @@ public class CharacterController {
 	@FXML
 	void initialize() {
 		character = new Character((name.getText()));
+		
 		character.setSkills(Skills.ACROBATS, 0);
 		character.setSkills(Skills.ANIMALS, 0);
 		character.setSkills(Skills.ARCANA, 0);
