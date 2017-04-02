@@ -56,21 +56,21 @@ public class CharacterFinder {
 		String toReturn = "SELECT * FROM Attributes WHERE ";
 		int numAttributes = 0;
 
-		if (!charName.equals(null)) {
+		if (!charName.equals("")) {
 			numAttributes++;
 			toReturn += "Name = '" + charName + "'";
 		}
-		if (!playerName.equals(null)) {
+		if (!playerName.equals("")) {
 			numAttributes++;
 			if (numAttributes >= 2) {toReturn += " AND ";}
 			toReturn += "PlayerName = '" + playerName + "'";
 		}
-		if (!charRace.equals(null)) {
+		if (!charRace.equals("")) {
 			numAttributes++;
 			if (numAttributes >= 2) {toReturn += " AND ";}
 			toReturn += "Race = '" + charRace + "'";
 		}
-		if (!charClass.equals(null)) {
+		if (!charClass.equals("")) {
 			numAttributes++;
 			if (numAttributes >= 2) {toReturn += " AND ";}
 			toReturn += "Class = '" + charClass + "'";

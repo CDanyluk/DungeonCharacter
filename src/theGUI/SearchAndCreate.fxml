@@ -1,12 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
-<?import javafx.scene.text.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
@@ -19,7 +12,7 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="463.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="theGUI.SearchController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="463.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="theGUI.SearchController">
    <children>
       <HBox prefHeight="75.0" prefWidth="600.0">
          <children>
@@ -32,7 +25,7 @@
                   </ImageView>
                   <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="137.0" prefWidth="525.0">
                      <children>
-                        <Label alignment="BOTTOM_CENTER" text="Click here to create a new character and begin your adventure!">
+                        <Label alignment="BOTTOM_CENTER" text="Click here to create a new character and begin your adventure!" translateX="-15.0">
                            <font>
                               <Font name="Bradley Hand Bold" size="18.0" />
                            </font>
@@ -42,11 +35,11 @@
                               <Image url="@../down-arrow.png" />
                            </image>
                         </ImageView>
-                        <HBox alignment="BOTTOM_CENTER" prefHeight="59.0" prefWidth="525.0">
+                        <HBox alignment="BOTTOM_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="59.0" prefWidth="431.0" translateX="-20.0">
                            <children>
                               <Label text="Character name:">
                                  <font>
-                                    <Font size="18.0" />
+                                    <Font name="Bradley Hand Bold" size="18.0" />
                                  </font>
                                  <HBox.margin>
                                     <Insets bottom="10.0" left="10.0" right="5.0" top="10.0" />
@@ -57,9 +50,9 @@
                                     <Insets bottom="10.0" right="5.0" top="10.0" />
                                  </HBox.margin>
                               </TextField>
-                              <Button fx:id="create" mnemonicParsing="false" onAction="#openBlankCharSheet" prefHeight="31.0" prefWidth="106.0" text="Create!">
+                              <Button fx:id="create" mnemonicParsing="false" onAction="#openBlankCharSheet" prefHeight="29.0" prefWidth="96.0" text="Create!" translateY="-5.0">
                                  <font>
-                                    <Font size="17.0" />
+                                    <Font name="Bradley Hand Bold" size="18.0" />
                                  </font>
                               </Button>
                            </children>
