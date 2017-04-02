@@ -17,6 +17,7 @@ public class CharacterRun extends Application {
 		try {
 			build = new Build();
 			build.main();
+			//send sumthin
 			VBox root = (VBox)FXMLLoader.load(getClass().getResource("SearchAndCreate.fxml"));
 			Scene scene = new Scene(root);
 			primaryStage.setScene(scene);
