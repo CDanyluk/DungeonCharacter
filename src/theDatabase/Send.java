@@ -8,7 +8,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class Get {
+public class Send {
 	//Class to send commands to database?
 	// SELECT Field1, Field2, ... FieldN FROM TableName
 	 public String Get() throws ClassNotFoundException, SQLException, IOException {
@@ -23,12 +23,9 @@ public class Get {
 		 Class.forName("org.sqlite.JDBC");
 	        Connection con = DriverManager.getConnection("jdbc:sqlite:Dungeon");
 	        Statement stat = con.createStatement();
-	        BufferedReader commands = new BufferedReader(new FileReader("resources/DnDdbcreation.txt"));
-	        String command;
-	        while ((command = commands.readLine()) != null) {
-	            System.out.println(command);
-	            stat.execute(command);
-	        }
+	        String command = s;
+	        System.out.println(command);
+	        stat.execute(command);
 	 }
 
 }

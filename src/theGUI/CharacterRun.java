@@ -6,7 +6,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import theDatabase.Build;
-import theDatabase.Get;
+import theDatabase.Send;
 
 public class CharacterRun extends Application {
 
