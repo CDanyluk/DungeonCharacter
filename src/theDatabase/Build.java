@@ -8,7 +8,7 @@ import java.sql.*;
 public class Build {
     public static void main(String[] args) throws ClassNotFoundException, SQLException, IOException {
         Class.forName("org.sqlite.JDBC");
-        Connection con = DriverManager.getConnection("jdbc:sqlite:DnDdb");
+        Connection con = DriverManager.getConnection("jdbc:sqlite:Dungeon");
         Statement stat = con.createStatement();
         BufferedReader commands = new BufferedReader(new FileReader("resources/DnDdbcreation.txt"));
         String command;

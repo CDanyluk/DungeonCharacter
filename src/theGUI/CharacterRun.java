@@ -5,11 +5,13 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import theDatabase.Build;
 
 public class CharacterRun extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
+			new Build();
 			VBox root = (VBox)FXMLLoader.load(getClass().getResource("SearchAndCreate.fxml"));
 			Scene scene = new Scene(root);
 			primaryStage.setScene(scene);
@@ -20,7 +22,5 @@ public class CharacterRun extends Application {
 		}
 	}
 	
-	public static void main(String[] args) {
-		launch(args);
-	}
+	public static void main(String[] args) {launch(args);}
 }
