@@ -16,6 +16,7 @@ import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import theDatabase.Send;
 import Classes.Character;
 import Classes.Skills;
 import Classes.Attributes;
@@ -159,11 +160,19 @@ public class CharacterController {
 //----------------------------------------------------------------
 
 	Character character;
+	Send send;
+	
 
 	@FXML
 	void initialize() {
 		character = new Character((name.getText()));
+		send = new Send();
+		try {
+			send.Send("INSERT INTO Statistics (CharID 214, Level 1, Strength 0, Dexterity 0, Consitution 0, Intelligence 0, Wisdom 0, Charisma 0)");
 		
+		}catch (Exception exc) {
+			
+		}
 		character.setSkills(Skills.ACROBATS, 0);
 		character.setSkills(Skills.ANIMALS, 0);
 		character.setSkills(Skills.ARCANA, 0);
