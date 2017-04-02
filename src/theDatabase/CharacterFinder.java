@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 public class CharacterFinder {
 
-	private String charName, playerName, charRace, charClass;
+	private String charName, playerName, charRace, charClass, query;
 
 	public CharacterFinder(String charName, String playerName, String charRace,
 			String charClass) {
@@ -17,20 +17,25 @@ public class CharacterFinder {
 		this.playerName = playerName;
 		this.charRace = charRace;
 		this.charClass = charClass;
+		this.query = buildQuery();
+	}
+
+	// For testing purposes
+	public String getQuery() {
+		return this.query;
 	}
 
 	public ArrayList<String> searchDatabase() throws ClassNotFoundException {
 		Class.forName("org.sqlite.JDBC");
 		Connection connection;
-		String query = buildQuery();
+
 		ArrayList<String> characterList = new ArrayList<>();
 
 		try {
-			// TODO change this to make sure it uses the appropriate filename
-			connection = DriverManager.getConnection("jdbc:sqlite:name.db");
+			connection = DriverManager.getConnection("jdbc:sqlite:Dungeon.db");
 			Statement statement = connection.createStatement();
 
-			ResultSet results = statement.executeQuery(query);
+			ResultSet results = statement.executeQuery(this.query);
 
 			while (results.next()) {
 				 characterList.add(buildCharacterString(results));
