@@ -32,20 +32,24 @@ public class SearchController {
 	 */
 	@FXML
 	void openBlankCharSheet() {
-		try {
-			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(CharacterRun.class.getResource("CharacterSheet.fxml"));
-			BorderPane root = (BorderPane) loader.load();
+		if (createName.getText().equals("")) {
+			getError("Please enter a name for your character");
+		} else {
+			try {
+				FXMLLoader loader = new FXMLLoader();
+				loader.setLocation(CharacterRun.class.getResource("CharacterSheet.fxml"));
+				BorderPane root = (BorderPane) loader.load();
 
-			CharacterController second = (CharacterController)loader.getController();
-			second.name.setText(createName.getText());
+				CharacterController second = (CharacterController)loader.getController();
+				second.name.setText(createName.getText());
 
-			Stage secondStage = new Stage();
-			Scene scene = new Scene(root);
-			secondStage.setScene(scene);
-			secondStage.show();
-		} catch (Exception exc) {
-			exc.printStackTrace();
+				Stage secondStage = new Stage();
+				Scene scene = new Scene(root);
+				secondStage.setScene(scene);
+				secondStage.show();
+			} catch (Exception exc) {
+				exc.printStackTrace();
+			}
 		}
 	}
 
@@ -87,9 +91,23 @@ public class SearchController {
 		alert.showAndWait();
 	}
 
-//	@FXML
-//	void openCharacterSheet() {
-//
-//	}
+	@FXML
+	void openCharacterSheet() {
+		try {
+			FXMLLoader loader = new FXMLLoader();
+			loader.setLocation(CharacterRun.class.getResource("CharacterSheet.fxml"));
+			BorderPane root = (BorderPane) loader.load();
+
+			CharacterController second = (CharacterController)loader.getController();
+			second.name.setText(createName.getText());
+
+			Stage secondStage = new Stage();
+			Scene scene = new Scene(root);
+			secondStage.setScene(scene);
+			secondStage.show();
+		} catch (Exception exc) {
+			exc.printStackTrace();
+		}
+	}
 
 }
