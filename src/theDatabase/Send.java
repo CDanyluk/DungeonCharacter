@@ -13,15 +13,15 @@ public class Send {
 	// SELECT Field1, Field2, ... FieldN FROM TableName
 	 public String Get() throws ClassNotFoundException, SQLException, IOException {
 	        Class.forName("org.sqlite.JDBC");
-	        Connection con = DriverManager.getConnection("jdbc:sqlite:Dungeon");
+	        Connection con = DriverManager.getConnection("jdbc:sqlite:Dungeon.db");
 	        Statement stat = con.createStatement();
 	       // String cmnd = s;
 	         return stat.toString();
 	    }
-	 
+
 	 public void Send(String s) throws ClassNotFoundException, SQLException, IOException {
 		 Class.forName("org.sqlite.JDBC");
-	        Connection con = DriverManager.getConnection("jdbc:sqlite:Dungeon");
+	        Connection con = DriverManager.getConnection("jdbc:sqlite:Dungeon.db");
 	        Statement stat = con.createStatement();
 	        String command = s;
 	        System.out.println(command);
