@@ -8,7 +8,9 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.text.Font;
@@ -60,7 +62,7 @@ public class LevelController {
 		if (Integer.parseInt(remainingPoints.getText()) == 0) {
 			eventPane.getChildren().clear();
 			eventPane.getChildren().add(rule);
-			
+			setStats();
 		}
 		
 		Random random = new Random();
@@ -156,7 +158,7 @@ public class LevelController {
 		back.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
-				setStats();
+//				character.addStats(Statistics.STRENGTH, strength);
 			}
 		});
 		
@@ -165,22 +167,19 @@ public class LevelController {
 	
 	void setStats() {
 		int strength = Integer.parseInt(str.getText());
-		character.addStats(Statistics.STRENGTH, str.getText());
+		character.addStats(Statistics.STRENGTH, strength);
 
 		int dexterity = Integer.parseInt(dex.getText());
-		character.addStats(Statistics.DEXTERITY, dex);
-
-		int constitution = Integer.parseInt(consti.getText());
-		character.addStats(Statistics.CONSTITUTION, con);
+		character.addStats(Statistics.DEXTERITY, dexterity);
 
 		int intelligence = Integer.parseInt(intelli.getText());
-		character.addStats(Statistics.INTELLIGENCE, inte);
+		character.addStats(Statistics.INTELLIGENCE, intelligence);
 
 		int wisdom = Integer.parseInt(wis.getText());
-		character.addStats(Statistics.WISDOM, wis);
+		character.addStats(Statistics.WISDOM, wisdom);
 
 		int charisma = Integer.parseInt(charis.getText());
-		character.addStats(Statistics.CHARISMA, ch);
+		character.addStats(Statistics.CHARISMA, charisma);
 	}
 
 	@FXML
@@ -293,6 +292,10 @@ public class LevelController {
 			confirm.setDisable(true);
 		}
 		
+	}
+	
+	public void getSheet(TextField level) {
+		AnchorPane sheet = ((AnchorPane) level.getParent());
 	}
 	
 	@FXML

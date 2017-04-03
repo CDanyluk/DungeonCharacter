@@ -208,6 +208,7 @@ public class CharacterController {
 		levelUpScreen();
 		int currentlvl = Integer.parseInt(level.getText());
 		level.setText(Integer.toString(currentlvl + 1));
+		
 	}
 	
 	void levelUpScreen() {
@@ -218,6 +219,7 @@ public class CharacterController {
 
 			LevelController second = (LevelController)loader.getController();
 			second.grabStats(character);
+			second.getSheet(this.level);
 
 			Stage secondStage = new Stage();
 			Scene scene = new Scene(root);
