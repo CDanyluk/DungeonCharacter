@@ -269,28 +269,6 @@ public class CharacterController {
 			getError("Str, dex, con, int, wis, char, or exp not a number!");
 		}
 	}
-	
-	@FXML
-	void resetStats() {
-			int str = character.getStats(Statistics.STRENGTH);
-			strength.setText(str+ "");
-			
-			int dex = character.getStats(Statistics.DEXTERITY);
-			dexterity.setText(dex+ "");
-			
-			int con = character.getStats(Statistics.CONSTITUTION);
-			constitution.setText(con+ "");
-
-			int inte = character.getStats(Statistics.INTELLIGENCE);
-			intelligence.setText(inte + "");
-
-			int wis = character.getStats(Statistics.WISDOM);
-			wisdom.setText(wis + "");
-
-			int ch = character.getStats(Statistics.CHARISMA);
-			charisma.setText(ch + "");
-	
-	}
 
 	@FXML
 	void increaseStr() {
