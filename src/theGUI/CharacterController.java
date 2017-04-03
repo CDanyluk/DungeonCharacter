@@ -574,6 +574,7 @@ public class CharacterController {
 		}else {
 			history.setText("[ -" + change + " ]  HISTORY");
 		}
+		//nooo
 	}
 	
 	
