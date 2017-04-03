@@ -25,7 +25,10 @@ public class LevelController {
 	@FXML
 	Label charis;
 	@FXML
+	Button button;
+	@FXML
 	Label remainingPoints; 
+	
 	Character character;
 	
 	@FXML
@@ -43,17 +46,22 @@ public class LevelController {
 		
 	}
 	
+	
+	@FXML
+	void initialize(Character ch) {
+		this.character = ch;
+	}
 	@FXML
 	void populate() {
 		// This is set to run when you click the second button on the level up screen, always throws an error
+		int s = character.getStats(Statistics.STRENGTH);
+		str.setText(s + "");
+		//dex.setText(Integer.toString(character.getStats(Statistics.DEXTERITY)));
+		//intelli.setText(Integer.toString(character.getStats(Statistics.INTELLIGENCE)));
+		//wis.setText(Integer.toString(character.getStats(Statistics.WISDOM)));
+		//charis.setText(Integer.toString(character.getStats(Statistics.CHARISMA)));
 		
-		str.setText(Integer.toString(character.getStats(Statistics.STRENGTH)));
-		dex.setText(Integer.toString(character.getStats(Statistics.DEXTERITY)));
-		intelli.setText(Integer.toString(character.getStats(Statistics.INTELLIGENCE)));
-		wis.setText(Integer.toString(character.getStats(Statistics.WISDOM)));
-		charis.setText(Integer.toString(character.getStats(Statistics.CHARISMA)));
-		
-		System.out.println(character.charStats.size());
+		System.out.println(character.getStats(Statistics.WISDOM));
 	}
 
 	public void grabStats(Character stats) {

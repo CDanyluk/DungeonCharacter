@@ -196,11 +196,32 @@ public class CharacterController {
 	@FXML
 	void open() {
 		try {
+			int str = Integer.parseInt(strength.getText());
+			character.addStats(Statistics.STRENGTH, str);
+			int dex = Integer.parseInt(dexterity.getText());
+			character.addStats(Statistics.DEXTERITY, dex);
+			int con = Integer.parseInt(constitution.getText());
+			character.addStats(Statistics.CONSTITUTION, con);
+			int inte = Integer.parseInt(intelligence.getText());
+			character.addStats(Statistics.INTELLIGENCE, inte);
+			int wis = Integer.parseInt(wisdom.getText());
+			character.addStats(Statistics.WISDOM, wis);
+			int ch = Integer.parseInt(charisma.getText());
+			character.addStats(Statistics.CHARISMA, ch);
+			openLevel();
+		} catch (Exception exc) {
+			getError("Str, dex, con, int, wis, char, or exp not a number!");
+		}
+	}
+	
+	void openLevel() {
+		try {
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(CharacterRun.class.getResource("LevelUp.fxml"));
 			Pane root = (Pane)loader.load();
 
 			LevelController second = (LevelController)loader.getController();
+			second.initialize(character);
 
 			Stage secondStage = new Stage();
 			Scene scene = new Scene(root);
