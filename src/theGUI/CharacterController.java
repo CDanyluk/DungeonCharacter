@@ -40,16 +40,25 @@ public class CharacterController {
 	@FXML TextField race;
 	@FXML TextField alignment;
 
+	@FXML TextField level;
+	@FXML TextField proficiency;
+
 //Statistic ----------------------------------------
 	@FXML TextField experience;
 
 //Left segment: Statistics--------------------------
-	@FXML TextField strength;
-	@FXML TextField dexterity;
-	@FXML TextField constitution;
-	@FXML TextField intelligence;
-	@FXML TextField wisdom;
-	@FXML TextField charisma;
+@FXML TextField strength;
+@FXML Label strengthMod;
+@FXML TextField dexterity;
+@FXML Label dexterityMod;
+@FXML TextField constitution;
+@FXML Label constitutionMod;
+@FXML TextField intelligence;
+@FXML Label intelligenceMod;
+@FXML TextField wisdom;
+@FXML Label wisdomMod;
+@FXML TextField charisma;
+@FXML Label charismaMod;
 
 //Saving throws ------------------------------------
 	@FXML Label savingstr;
@@ -194,34 +203,21 @@ public class CharacterController {
 	}
 
 	@FXML
-	void open() {
-		try {
-			int str = Integer.parseInt(strength.getText());
-			character.addStats(Statistics.STRENGTH, str);
-			int dex = Integer.parseInt(dexterity.getText());
-			character.addStats(Statistics.DEXTERITY, dex);
-			int con = Integer.parseInt(constitution.getText());
-			character.addStats(Statistics.CONSTITUTION, con);
-			int inte = Integer.parseInt(intelligence.getText());
-			character.addStats(Statistics.INTELLIGENCE, inte);
-			int wis = Integer.parseInt(wisdom.getText());
-			character.addStats(Statistics.WISDOM, wis);
-			int ch = Integer.parseInt(charisma.getText());
-			character.addStats(Statistics.CHARISMA, ch);
-			openLevel();
-		} catch (Exception exc) {
-			getError("Str, dex, con, int, wis, char, or exp not a number!");
-		}
+	void advlvl() {
+		save();
+		levelUpScreen();
+		int currentlvl = Integer.parseInt(level.getText());
+		level.setText(Integer.toString(currentlvl + 1));
 	}
 	
-	void openLevel() {
+	void levelUpScreen() {
 		try {
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(CharacterRun.class.getResource("LevelUp.fxml"));
 			Pane root = (Pane)loader.load();
 
 			LevelController second = (LevelController)loader.getController();
-			second.initialize(character);
+			second.grabStats(character);
 
 			Stage secondStage = new Stage();
 			Scene scene = new Scene(root);
@@ -267,6 +263,64 @@ public class CharacterController {
 
 		} catch (Exception exc) {
 			getError("Str, dex, con, int, wis, char, or exp not a number!");
+		}
+	}
+	
+	@FXML
+	void calculateStrModifier() {
+		int ability = Integer.parseInt(strength.getText());
+		int modifier = (int) Math.floor((ability / 2) - 5); 
+		strengthMod.setText("(" + modifier + ")");
+	}	
+	@FXML
+	void calculateDexModifier() {
+		int ability = Integer.parseInt(dexterity.getText());
+		int modifier = (int) Math.floor((ability / 2) - 5); 
+		dexterityMod.setText("(" + modifier + ")");
+	}	
+	@FXML
+	void calculateConstitModifier() {
+		int ability = Integer.parseInt(constitution.getText());
+		int modifier = (int) Math.floor((ability / 2) - 5); 
+		constitutionMod.setText("(" + modifier + ")");
+	}	
+	@FXML
+	void calculateIntelliModifier() {
+		int ability = Integer.parseInt(intelligence.getText());
+		int modifier = (int) Math.floor((ability / 2) - 5); 
+		intelligenceMod.setText("(" + modifier + ")");
+	}	
+	@FXML
+	void calculateWisModifier() {
+		int ability = Integer.parseInt(wisdom.getText());
+		int modifier = (int) Math.floor((ability / 2) - 5); 
+		wisdomMod.setText("(" + modifier + ")");
+	}	
+	@FXML
+	void calculateCharisModifier() {
+		int ability = Integer.parseInt(charisma.getText());
+		int modifier = (int) Math.floor((ability / 2) - 5); 
+		charismaMod.setText("(" + modifier + ")");
+	}	
+
+	
+	@FXML
+	void calculateProficiency() {
+		int lvl = Integer.parseInt(level.getText());
+		if (0 <= lvl && lvl <= 4) {
+			proficiency.setText(Integer.toString(2));
+		}
+		if (5 <= lvl && lvl <= 8) {
+			proficiency.setText(Integer.toString(3));
+		}
+		if (9 <= lvl && lvl <= 12) {
+			proficiency.setText(Integer.toString(4));
+		}
+		if (13 <= lvl && lvl <= 16) {
+			proficiency.setText(Integer.toString(5));
+		}
+		if (17 <= lvl && lvl <= 20) {
+			proficiency.setText(Integer.toString(6));
 		}
 	}
 

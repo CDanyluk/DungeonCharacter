@@ -45,26 +45,13 @@ public class LevelController {
 	void decrementAbility() {
 		
 	}
-	
-	
-	@FXML
-	void initialize(Character ch) {
-		this.character = ch;
-	}
-	@FXML
-	void populate() {
-		// This is set to run when you click the second button on the level up screen, always throws an error
-		int s = character.getStats(Statistics.STRENGTH);
-		str.setText(s + "");
-		//dex.setText(Integer.toString(character.getStats(Statistics.DEXTERITY)));
-		//intelli.setText(Integer.toString(character.getStats(Statistics.INTELLIGENCE)));
-		//wis.setText(Integer.toString(character.getStats(Statistics.WISDOM)));
-		//charis.setText(Integer.toString(character.getStats(Statistics.CHARISMA)));
-		
-		System.out.println(character.getStats(Statistics.WISDOM));
-	}
 
 	public void grabStats(Character stats) {
-		character = stats;
+		str.setText(Integer.toString(stats.getStats(Statistics.STRENGTH)));
+		dex.setText(Integer.toString(stats.getStats(Statistics.DEXTERITY)));
+		intelli.setText(Integer.toString(stats.getStats(Statistics.INTELLIGENCE)));
+		wis.setText(Integer.toString(stats.getStats(Statistics.WISDOM)));
+		charis.setText(Integer.toString(stats.getStats(Statistics.CHARISMA)));
+		
 	}
 }
