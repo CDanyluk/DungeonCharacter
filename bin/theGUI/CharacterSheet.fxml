@@ -178,7 +178,7 @@
                                  <children>
                                     <HBox prefHeight="55.0" prefWidth="202.0">
                                        <children>
-                                          <TextField editable="false" prefHeight="35.0" prefWidth="31.0" promptText="0">
+                                          <TextField fx:id="proficiency" editable="false" prefHeight="35.0" prefWidth="31.0" promptText="0">
                                              <HBox.margin>
                                                 <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
                                              </HBox.margin>
@@ -842,7 +842,7 @@
                               <Font size="30.0" />
                            </font>
                         </Label>
-                        <TextField alignment="CENTER" onKeyReleased="#calculateProficiency" prefHeight="82.0" prefWidth="85.0" promptText="LVL">
+                        <TextField fx:id="level" alignment="CENTER" onKeyReleased="#calculateProficiency" prefHeight="82.0" prefWidth="85.0" promptText="LVL">
                            <VBox.margin>
                               <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
                            </VBox.margin>
