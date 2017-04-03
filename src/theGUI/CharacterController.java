@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 
 
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -14,8 +15,10 @@ import javafx.scene.control.ProgressBar;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import theDatabase.Send;
 import Classes.Character;
@@ -181,7 +184,11 @@ public class CharacterController {
 	void initialize() {
 		character = new Character((name.getText()));
 		send = new Send();
-		
+		try {
+			send.Send("INSERT INTO Statistics VALUES (214, 0, 0, 0, 0, 0, 0, 0)");
+		} catch (Exception e) {
+			System.out.println("Could no insert blank stats!");
+		}
 		character.setSkills(Skills.ACROBATS, 0);
 		character.setSkills(Skills.ANIMALS, 0);
 		character.setSkills(Skills.ARCANA, 0);
@@ -204,29 +211,48 @@ public class CharacterController {
 
 	@FXML
 	void advlvl() {
-		save();
-		levelUpScreen();
-		int currentlvl = Integer.parseInt(level.getText());
-		level.setText(Integer.toString(currentlvl + 1));
+		try {
+			int lvl = Integer.parseInt(level.getText());
+			int str = Integer.parseInt(strength.getText());
+			int dex = Integer.parseInt(dexterity.getText());
+			int con = Integer.parseInt(constitution.getText());
+			int inte = Integer.parseInt(intelligence.getText());
+			int wis = Integer.parseInt(wisdom.getText());
+			int ch = Integer.parseInt(charisma.getText());
+			
+			save();
+			levelUpScreen();
+			int currentlvl = Integer.parseInt(level.getText());
+			level.setText(Integer.toString(currentlvl + 1));
+
+		} catch (Exception exc) {
+			getError("Str, dex, con, int, wis, char, or lvl not a number!");
+		}
 		
 	}
 	
 	void levelUpScreen() {
 		try {
+			//FXMLLoader loader = new FXMLLoader();
+			//loader.setLocation(CharacterRun.class.getResource("LevelUp.fxml"));
+			//Pane root = (Pane)loader.load();
+			
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(CharacterRun.class.getResource("LevelUp.fxml"));
+			loader.setLocation(CharacterController.class.getResource("LevelUp.fxml"));
 			Pane root = (Pane)loader.load();
 
 			LevelController second = (LevelController)loader.getController();
 			second.grabStats(character);
 			second.getSheet(this.level);
-
+			
 			Stage secondStage = new Stage();
 			Scene scene = new Scene(root);
 			secondStage.setScene(scene);
 			secondStage.show();
+
 		} catch (Exception exc) {
 			exc.printStackTrace();
+			System.out.println("wtf");
 		}
 	}
 

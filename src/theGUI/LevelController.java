@@ -13,6 +13,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
@@ -270,16 +271,16 @@ public class LevelController {
 	
 	public void grabStats(Character stats) {
 		this.character = stats;
-		str.setText(Integer.toString(stats.getStats(Statistics.STRENGTH)));
-		startingStr = stats.getStats(Statistics.STRENGTH);
-		dex.setText(Integer.toString(stats.getStats(Statistics.DEXTERITY)));
-		startingDex = stats.getStats(Statistics.DEXTERITY);
-		intelli.setText(Integer.toString(stats.getStats(Statistics.INTELLIGENCE)));
-		startingIntelli = stats.getStats(Statistics.INTELLIGENCE);
-		wis.setText(Integer.toString(stats.getStats(Statistics.WISDOM)));
-		startingWis = stats.getStats(Statistics.WISDOM);
-		charis.setText(Integer.toString(stats.getStats(Statistics.CHARISMA)));
-		startingCharis = stats.getStats(Statistics.CHARISMA);
+		str.setText(Integer.toString(character.getStats(Statistics.STRENGTH)));
+		startingStr = character.getStats(Statistics.STRENGTH);
+		dex.setText(Integer.toString(character.getStats(Statistics.DEXTERITY)));
+		startingDex = character.getStats(Statistics.DEXTERITY);
+		intelli.setText(Integer.toString(character.getStats(Statistics.INTELLIGENCE)));
+		startingIntelli = character.getStats(Statistics.INTELLIGENCE);
+		wis.setText(Integer.toString(character.getStats(Statistics.WISDOM)));
+		startingWis = character.getStats(Statistics.WISDOM);
+		charis.setText(Integer.toString(character.getStats(Statistics.CHARISMA)));
+		startingCharis = character.getStats(Statistics.CHARISMA);
 		Pane eventPane = ((Pane) confirm.getParent());
 		eventPane.getChildren().remove(rule);
 		confirm.setDisable(true);
@@ -295,7 +296,7 @@ public class LevelController {
 	}
 	
 	public void getSheet(TextField level) {
-		AnchorPane sheet = ((AnchorPane) level.getParent());
+		VBox sheet = ((VBox) level.getParent());
 	}
 	
 	@FXML
