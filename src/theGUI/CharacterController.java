@@ -174,6 +174,7 @@ public class CharacterController {
 		send = new Send();
 		try {
 			send.Send("INSERT INTO Statistics VALUES (214, 0, 0, 0, 0, 0, 0, 0)");
+			String s = 
 		} catch (Exception e) {
 			System.out.println("Could not set character stats");
 		}
@@ -574,7 +575,7 @@ public class CharacterController {
 		}else {
 			history.setText("[ -" + change + " ]  HISTORY");
 		}
-		//nooo
+		//nooo+
 	}
 	
 	
