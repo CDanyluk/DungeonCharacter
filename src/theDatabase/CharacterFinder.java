@@ -6,10 +6,14 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
+
+import Classes.Attributes;
 
 public class CharacterFinder {
 
 	private String charName, playerName, charRace, charClass, query;
+	private int charID;
 
 	public CharacterFinder(String charName, String playerName, String charRace,
 			String charClass) {
@@ -18,6 +22,58 @@ public class CharacterFinder {
 		this.charRace = charRace;
 		this.charClass = charClass;
 		this.query = buildQuery();
+	}
+
+	public CharacterFinder(String charName) throws ClassNotFoundException {
+		this.charName = charName;
+		getID();
+	}
+
+	private void getID() throws ClassNotFoundException {
+		Class.forName("org.sqlite.JDBC");
+		Connection connection;
+
+		try {
+			connection = DriverManager.getConnection("jdbc:sqlite:Dungeon.db");
+			Statement statement = connection.createStatement();
+
+			ResultSet rs = statement.executeQuery("SELECT CharID FROM Attributes WHERE Name = '" + this.charName + "'");
+			this.charID = rs.getInt("CharID");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+	public HashMap<String, Integer> getAttributes() throws ClassNotFoundException, SQLException {
+		ResultSet results = getStuff("Attributes");
+		HashMap<String, Integer> attributes = new HashMap<>();
+		if (!results.equals(null)) {
+			for (Attributes a : Attributes.values()) {
+				attributes.put(a.toString(), results.getInt(a.toString()));
+			}
+		}
+		return attributes;
+	}
+
+	private ResultSet getStuff(String tableName) throws ClassNotFoundException {
+		Class.forName("org.sqlite.JDBC");
+		Connection connection;
+		ResultSet results = null;
+
+
+		try {
+			connection = DriverManager.getConnection("jdbc:sqlite:Dungeon.db");
+			Statement statement = connection.createStatement();
+
+			results = statement.executeQuery("SELECT * FROM " + tableName + " WHERE CharID = " + this.charID);
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return results;
 	}
 
 	// For testing purposes
