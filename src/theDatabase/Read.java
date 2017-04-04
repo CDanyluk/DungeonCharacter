@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Read {
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
         Class.forName("org.sqlite.JDBC");
-        Connection con = DriverManager.getConnection("jdbc:sqlite:testdb");
+        Connection con = DriverManager.getConnection("jdbc:sqlite:Dungeon.db");
         Statement stat = con.createStatement();
 
         boolean done = false;

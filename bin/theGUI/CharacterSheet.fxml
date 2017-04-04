@@ -991,7 +991,7 @@
                                     <Font size="14.0" />
                                  </font>
                               </Button>
-                              <Button mnemonicParsing="false" prefHeight="34.0" prefWidth="121.0" text="EXPORT!">
+                              <Button fx:id="export" mnemonicParsing="false" onAction="#exportFile" prefHeight="34.0" prefWidth="121.0" text="EXPORT!">
                                  <HBox.margin>
                                     <Insets bottom="8.0" left="8.0" right="8.0" top="8.0" />
                                  </HBox.margin>

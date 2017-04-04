@@ -20,6 +20,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import theDatabase.Read;
 import theDatabase.Send;
 import Classes.Character;
 import Classes.Skills;
@@ -188,12 +189,6 @@ public class CharacterController {
 		character = new Character((name.getText()));
 		exporter = new Export(character);
 		send = new Send();
-		try {
-			send.Send("INSERT INTO Statistics VALUES (214, 0, 0, 0, 0, 0, 0, 0)");
-			send.Send("INSERT INTO Statistics VALUES (215, OviNoir, Barbarian, Tiefling, Outlander, ChaoticGood, ChantalDanyluk, 0)");
-		} catch (Exception e) {
-			System.out.println("Could no insert blank stats!");
-		}
 		character.setSkills(Skills.ACROBATS, 0);
 		character.setSkills(Skills.ANIMALS, 0);
 		character.setSkills(Skills.ARCANA, 0);
@@ -557,6 +552,14 @@ public class CharacterController {
 	void save() {
 		setAttri();
 		setStats();
+		System.out.println("Directly access the database in the console!");
+		//Trying printing the database
+		try {
+			//SELECT * FROM Statistics
+			Read.main(null);
+		} catch (Exception e) {
+			System.out.println("Could not read!");
+		}
 	}
 
 	@FXML
