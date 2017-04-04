@@ -23,6 +23,7 @@ import javafx.stage.Stage;
 import theDatabase.Send;
 import Classes.Character;
 import Classes.Skills;
+import Classes.Export;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -34,6 +35,7 @@ public class CharacterController {
 
 	@FXML Button levelup;
 	@FXML Button save;
+	@FXML Button export;
 
 //Top segment: Attributes --------------------------
 	@FXML TextField name;
@@ -178,14 +180,17 @@ public class CharacterController {
 
 	Character character;
 	Send send;
+	Export exporter;
 	
 
 	@FXML
 	void initialize() {
 		character = new Character((name.getText()));
+		exporter = new Export(character);
 		send = new Send();
 		try {
 			send.Send("INSERT INTO Statistics VALUES (214, 0, 0, 0, 0, 0, 0, 0)");
+			send.Send("INSERT INTO Statistics VALUES (215, OviNoir, Barbarian, Tiefling, Outlander, ChaoticGood, ChantalDanyluk, 0)");
 		} catch (Exception e) {
 			System.out.println("Could no insert blank stats!");
 		}
@@ -314,6 +319,11 @@ public class CharacterController {
 			int ch = character.getStats(Statistics.CHARISMA);
 			charisma.setText(ch + "");
 	
+	}
+	
+	@FXML
+	void exportFile() {
+		exporter.main();
 	}
 
 	@FXML
