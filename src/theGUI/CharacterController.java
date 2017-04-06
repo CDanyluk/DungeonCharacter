@@ -569,7 +569,7 @@ public class CharacterController {
 		if (change >= 0) {
 			acrobatics.setText("[ +" + change + " ]  ACROBATICS");
 		}else {
-			acrobatics.setText("[ -" + change + " ]  ACROBATICS");
+			acrobatics.setText("[ " + change + " ]  ACROBATICS");
 		}
 
 	}
@@ -580,7 +580,7 @@ public class CharacterController {
 		if (change >= 0) {
 			acrobatics.setText("[ +" + change + " ]  ACROBATICS");
 		}else {
-			acrobatics.setText("[ -" + change + " ]  ACROBATICS");
+			acrobatics.setText("[ " + change + " ]  ACROBATICS");
 		}
 
 	}
@@ -590,24 +590,393 @@ public class CharacterController {
 		character.decreaseSkills(Skills.ANIMALS);
 		int change = character.getSkills(Skills.ANIMALS);
 		if (change >= 0) {
-			acrobatics.setText("[ +" + change + " ]  ANIMALS");
+			animals.setText("[ +" + change + " ]  ANIMALS");
 		}else {
-			acrobatics.setText("[ -" + change + " ]  ANIMALS");
+			animals.setText("[ " + change + " ]  ANIMALS");
 		}
 
 	}
-
 	@FXML
 	void increaseAnimals() {
 		character.increaseSkills(Skills.ANIMALS);
 		int change = character.getSkills(Skills.ANIMALS);
 		if (change >= 0) {
-			acrobatics.setText("[ +" + change + " ]  ANIMALS");
+			animals.setText("[ +" + change + " ]  ANIMALS");
 		}else {
-			acrobatics.setText("[ -" + change + " ]  ANIMALS");
+			animals.setText("[ " + change + " ]  ANIMALS");
 		}
 
 	}
+	
+	@FXML
+	void decreaseArcana() {
+		character.decreaseSkills(Skills.ARCANA);
+		int change = character.getSkills(Skills.ARCANA);
+		if (change >= 0) {
+			arcana.setText("[ +" + change + " ]  ARCANA");
+		}else {
+			arcana.setText("[ " + change + " ]  ARCANA");
+		}
+
+	}
+	@FXML
+	void increaseArcana() {
+		character.increaseSkills(Skills.ARCANA);
+		int change = character.getSkills(Skills.ARCANA);
+		if (change >= 0) {
+			arcana.setText("[ +" + change + " ]  ARCANA");
+		}else {
+			arcana.setText("[ " + change + " ]  ARCANA");
+		}
+
+	}
+	
+	@FXML
+	void decreaseAthletics() {
+		character.decreaseSkills(Skills.ATHLETICS);
+		int change = character.getSkills(Skills.ATHLETICS);
+		if (change >= 0) {
+			athletics.setText("[ +" + change + " ]  ATHLETICS");
+		}else {
+			athletics.setText("[ " + change + " ]  ATHLETICS");
+		}
+
+	}
+	@FXML
+	void increaseAthletics() {
+		character.increaseSkills(Skills.ATHLETICS);
+		int change = character.getSkills(Skills.ATHLETICS);
+		if (change >= 0) {
+			athletics.setText("[ +" + change + " ]  ATHLETICS");
+		}else {
+			athletics.setText("[ " + change + " ]  ATHLETICS");
+		}
+
+	}
+	
+	@FXML
+	void decreaseDeception() {
+		character.decreaseSkills(Skills.DECEPTION);
+		int change = character.getSkills(Skills.DECEPTION);
+		if (change >= 0) {
+			deception.setText("[ +" + change + " ]  DECEPTION");
+		}else {
+			deception.setText("[ " + change + " ]  DECEPTION");
+		}
+
+	}
+	@FXML
+	void increaseDeception() {
+		character.increaseSkills(Skills.DECEPTION);
+		int change = character.getSkills(Skills.DECEPTION);
+		if (change >= 0) {
+			deception.setText("[ +" + change + " ]  DECEPTION");
+		}else {
+			deception.setText("[ " + change + " ]  DECEPTION");
+		}
+
+	}
+	
+	@FXML
+	void decreaseHistory() {
+		character.decreaseSkills(Skills.HISTORY);
+		int change = character.getSkills(Skills.HISTORY);
+		if (change >= 0) {
+			history.setText("[ +" + change + " ]  HISTORY");
+		}else {
+			history.setText("[ " + change + " ]  HISTORY");
+		}
+
+	}
+	@FXML
+	void increaseHistory() {
+		character.increaseSkills(Skills.HISTORY);
+		int change = character.getSkills(Skills.HISTORY);
+		if (change >= 0) {
+			history.setText("[ +" + change + " ]  HISTORY");
+		}else {
+			history.setText("[ " + change + " ]  HISTORY");
+		}
+
+	}
+	
+	@FXML
+	void decreaseInsight() {
+		character.decreaseSkills(Skills.INSIGHT);
+		int change = character.getSkills(Skills.INSIGHT);
+		if (change >= 0) {
+			insight.setText("[ +" + change + " ]  INSIGHT");
+		}else {
+			insight.setText("[ " + change + " ]  INSIGHT");
+		}
+
+	}
+	@FXML
+	void increaseInsight() {
+		character.increaseSkills(Skills.INSIGHT);
+		int change = character.getSkills(Skills.INSIGHT);
+		if (change >= 0) {
+			insight.setText("[ +" + change + " ]  INSIGHT");
+		}else {
+			insight.setText("[ " + change + " ]  INSIGHT");
+		}
+
+	}
+	
+	@FXML
+	void decreaseIntimidation() {
+		character.decreaseSkills(Skills.INTIMIDATION);
+		int change = character.getSkills(Skills.INTIMIDATION);
+		if (change >= 0) {
+			intimidation.setText("[ +" + change + " ]  INTIMIDATION");
+		}else {
+			intimidation.setText("[ " + change + " ]  INTIMIDATION");
+		}
+
+	}
+	@FXML
+	void increaseIntimidation() {
+		character.increaseSkills(Skills.INTIMIDATION);
+		int change = character.getSkills(Skills.INTIMIDATION);
+		if (change >= 0) {
+			intimidation.setText("[ +" + change + " ]  INTIMIDATION");
+		}else {
+			intimidation.setText("[ " + change + " ]  INTIMIDATION");
+		}
+
+	}
+
+	@FXML
+	void decreaseInvestigation() {
+		character.decreaseSkills(Skills.INVESTIGATION);
+		int change = character.getSkills(Skills.INVESTIGATION);
+		if (change >= 0) {
+			investigation.setText("[ +" + change + " ]  INVESTIGATION");
+		}else {
+			investigation.setText("[ " + change + " ]  INVESTIGATION");
+		}
+
+	}
+	@FXML
+	void increaseInvestigation() {
+		character.increaseSkills(Skills.INVESTIGATION);
+		int change = character.getSkills(Skills.INVESTIGATION);
+		if (change >= 0) {
+			investigation.setText("[ +" + change + " ]  INVESTIGATION");
+		}else {
+			investigation.setText("[ " + change + " ]  INVESTIGATION");
+		}
+
+	}
+	
+	@FXML
+	void decreaseMedicine() {
+		character.decreaseSkills(Skills.MEDICINE);
+		int change = character.getSkills(Skills.MEDICINE);
+		if (change >= 0) {
+			medicine.setText("[ +" + change + " ]  MEDICINE");
+		}else {
+			medicine.setText("[ " + change + " ]  MEDICINE");
+		}
+
+	}
+	@FXML
+	void increaseMedicine() {
+		character.increaseSkills(Skills.MEDICINE);
+		int change = character.getSkills(Skills.MEDICINE);
+		if (change >= 0) {
+			medicine.setText("[ +" + change + " ]  MEDICINE");
+		}else {
+			medicine.setText("[ " + change + " ]  MEDICINE");
+		}
+
+	}
+	
+	@FXML
+	void decreaseNature() {
+		character.decreaseSkills(Skills.NATURE);
+		int change = character.getSkills(Skills.NATURE);
+		if (change >= 0) {
+			nature.setText("[ +" + change + " ]  NATURE");
+		}else {
+			nature.setText("[ " + change + " ]  NATURE");
+		}
+
+	}
+	@FXML
+	void increaseNature() {
+		character.increaseSkills(Skills.NATURE);
+		int change = character.getSkills(Skills.NATURE);
+		if (change >= 0) {
+			nature.setText("[ +" + change + " ]  NATURE");
+		}else {
+			nature.setText("[ " + change + " ]  NATURE");
+		}
+
+	}
+	
+	@FXML
+	void decreasePerception() {
+		character.decreaseSkills(Skills.PERCEPTION);
+		int change = character.getSkills(Skills.PERCEPTION);
+		if (change >= 0) {
+			perception.setText("[ +" + change + " ]  PERCEPTION");
+		}else {
+			perception.setText("[ " + change + " ]  PERCEPTION");
+		}
+
+	}
+	@FXML
+	void increasePerception() {
+		character.increaseSkills(Skills.PERCEPTION);
+		int change = character.getSkills(Skills.PERCEPTION);
+		if (change >= 0) {
+			perception.setText("[ +" + change + " ]  PERCEPTION");
+		}else {
+			perception.setText("[ " + change + " ]  PERCEPTION");
+		}
+
+	}
+	
+	@FXML
+	void decreasePerformance() {
+		character.decreaseSkills(Skills.PERFORMANCE);
+		int change = character.getSkills(Skills.PERFORMANCE);
+		if (change >= 0) {
+			performance.setText("[ +" + change + " ]  PERFORMANCE");
+		}else {
+			performance.setText("[ " + change + " ]  PERFORMANCE");
+		}
+
+	}
+	@FXML
+	void increasePerformance() {
+		character.increaseSkills(Skills.PERFORMANCE);
+		int change = character.getSkills(Skills.PERFORMANCE);
+		if (change >= 0) {
+			performance.setText("[ +" + change + " ]  PERFORMANCE");
+		}else {
+			performance.setText("[ " + change + " ]  PERFORMANCE");
+		}
+
+	}
+	
+	@FXML
+	void decreasePersuasion() {
+		character.decreaseSkills(Skills.PERSUASION);
+		int change = character.getSkills(Skills.PERSUASION);
+		if (change >= 0) {
+			persuasion.setText("[ +" + change + " ]  PERSUASION");
+		}else {
+			persuasion.setText("[ " + change + " ]  PERSUASION");
+		}
+
+	}
+	@FXML
+	void increasePersuasion() {
+		character.increaseSkills(Skills.PERSUASION);
+		int change = character.getSkills(Skills.PERSUASION);
+		if (change >= 0) {
+			persuasion.setText("[ +" + change + " ]  PERSUASION");
+		}else {
+			persuasion.setText("[ " + change + " ]  PERSUASION");
+		}
+
+	}
+	
+	
+	@FXML
+	void decreaseReligion() {
+		character.decreaseSkills(Skills.RELIGION);
+		int change = character.getSkills(Skills.RELIGION);
+		if (change >= 0) {
+			religion.setText("[ +" + change + " ]  RELIGION");
+		}else {
+			religion.setText("[ " + change + " ]  RELIGION");
+		}
+
+	}
+	@FXML
+	void increaseReligion() {
+		character.increaseSkills(Skills.RELIGION);
+		int change = character.getSkills(Skills.RELIGION);
+		if (change >= 0) {
+			religion.setText("[ +" + change + " ]  RELIGION");
+		}else {
+			religion.setText("[ " + change + " ]  RELIGION");
+		}
+
+	}
+	
+	@FXML
+	void decreaseSleight() {
+		character.decreaseSkills(Skills.SLEIGHT);
+		int change = character.getSkills(Skills.SLEIGHT);
+		if (change >= 0) {
+			sleight.setText("[ +" + change + " ]  SLEIGHT");
+		}else {
+			sleight.setText("[ " + change + " ]  SLEIGHT");
+		}
+
+	}
+	@FXML
+	void increaseSleight() {
+		character.increaseSkills(Skills.SLEIGHT);
+		int change = character.getSkills(Skills.SLEIGHT);
+		if (change >= 0) {
+			sleight.setText("[ +" + change + " ]  SLEIGHT");
+		}else {
+			sleight.setText("[ " + change + " ]  SLEIGHT");
+		}
+
+	}
+	
+	@FXML
+	void decreaseStealth() {
+		character.decreaseSkills(Skills.STEALTH);
+		int change = character.getSkills(Skills.STEALTH);
+		if (change >= 0) {
+			stealth.setText("[ +" + change + " ]  STEALTH");
+		}else {
+			stealth.setText("[ " + change + " ]  STEALTH");
+		}
+
+	}
+	@FXML
+	void increaseStealth() {
+		character.increaseSkills(Skills.STEALTH);
+		int change = character.getSkills(Skills.STEALTH);
+		if (change >= 0) {
+			stealth.setText("[ +" + change + " ]  STEALTH");
+		}else {
+			stealth.setText("[ " + change + " ]  STEALTH");
+		}
+
+	}
+	
+	@FXML
+	void decreaseSurvival() {
+		character.decreaseSkills(Skills.SURVIVAL);
+		int change = character.getSkills(Skills.SURVIVAL);
+		if (change >= 0) {
+			survival.setText("[ +" + change + " ]  SURVIVAL");
+		}else {
+			survival.setText("[ " + change + " ]  SURVIVAL");
+		}
+
+	}
+	@FXML
+	void increaseSurvival() {
+		character.increaseSkills(Skills.SURVIVAL);
+		int change = character.getSkills(Skills.SURVIVAL);
+		if (change >= 0) {
+			survival.setText("[ +" + change + " ]  SURVIVAL");
+		}else {
+			survival.setText("[ " + change + " ]  SURVIVAL");
+		}
+
+	}
+	
 
 	//----WIP-----
 

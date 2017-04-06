@@ -423,7 +423,7 @@
                                                       </HBox>
                                                       <HBox prefHeight="31.0" prefWidth="186.0">
                                                          <children>
-                                                            <Button mnemonicParsing="false" text="-">
+                                                            <Button fx:id="arcanadown" mnemonicParsing="false" onAction="#decreaseArcana" text="-">
                                                                <font>
                                                                   <Font size="10.0" />
                                                                </font>
@@ -436,7 +436,7 @@
                                                                   <Font size="11.0" />
                                                                </font>
                                                             </Label>
-                                                            <Button mnemonicParsing="false" text="+">
+                                                            <Button fx:id="arcanaup" mnemonicParsing="false" onAction="#increaseArcana" text="+">
                                                                <font>
                                                                   <Font size="10.0" />
                                                                </font>
@@ -448,7 +448,7 @@
                                                       </HBox>
                                                       <HBox prefHeight="31.0" prefWidth="186.0">
                                                          <children>
-                                                            <Button mnemonicParsing="false" text="-">
+                                                            <Button fx:id="athleticsdown" mnemonicParsing="false" onAction="#decreaseAthletics" text="-">
                                                                <font>
                                                                   <Font size="10.0" />
                                                                </font>
@@ -461,7 +461,7 @@
                                                                   <Font size="11.0" />
                                                                </font>
                                                             </Label>
-                                                            <Button mnemonicParsing="false" text="+">
+                                                            <Button fx:id="athleticsup" mnemonicParsing="false" onAction="#increaseAthletics" text="+">
                                                                <font>
                                                                   <Font size="10.0" />
                                                                </font>
@@ -473,7 +473,7 @@
                                                       </HBox>
                                                       <HBox prefHeight="31.0" prefWidth="186.0">
                                                          <children>
-                                                            <Button mnemonicParsing="false" text="-">
+                                                            <Button fx:id="deceptiondown" mnemonicParsing="false" onAction="#decreaseDeception" text="-">
                                                                <font>
                                                                   <Font size="10.0" />
                                                                </font>
@@ -486,7 +486,7 @@
                                                                   <Font size="11.0" />
                                                                </font>
                                                             </Label>
-                                                            <Button mnemonicParsing="false" text="+">
+                                                            <Button fx:id="deceptionup" mnemonicParsing="false" onAction="#increaseDeception" text="+">
                                                                <font>
                                                                   <Font size="10.0" />
                                                                </font>
@@ -498,7 +498,7 @@
                                                       </HBox>
                                                       <HBox prefHeight="31.0" prefWidth="186.0">
                                                          <children>
-                                                            <Button mnemonicParsing="false" text="-">
+                                                            <Button fx:id="historydown" mnemonicParsing="false" onAction="#decreaseHistory" text="-">
                                                                <font>
                                                                   <Font size="10.0" />
                                                                </font>
@@ -511,7 +511,7 @@
                                                                   <Font size="11.0" />
                                                                </font>
                                                             </Label>
-                                                            <Button mnemonicParsing="false" text="+">
+                                                            <Button fx:id="historyup" mnemonicParsing="false" onAction="#increaseHistory" text="+">
                                                                <font>
                                                                   <Font size="10.0" />
                                                                </font>
@@ -523,7 +523,7 @@
                                                       </HBox>
                                                       <HBox prefHeight="31.0" prefWidth="186.0">
                                                          <children>
-                                                            <Button mnemonicParsing="false" text="-">
+                                                            <Button fx:id="insightdown" mnemonicParsing="false" onAction="#decreaseInsight" text="-">
                                                                <font>
                                                                   <Font size="10.0" />
                                                                </font>
@@ -536,7 +536,7 @@
                                                                   <Font size="11.0" />
                                                                </font>
                                                             </Label>
-                                                            <Button mnemonicParsing="false" text="+">
+                                                            <Button fx:id="insightup" mnemonicParsing="false" onAction="#increaseInsight" text="+">
                                                                <font>
                                                                   <Font size="10.0" />
                                                                </font>
@@ -548,7 +548,7 @@
                                                       </HBox>
                                                       <HBox prefHeight="31.0" prefWidth="186.0">
                                                          <children>
-                                                            <Button mnemonicParsing="false" text="-">
+                                                            <Button fx:id="intimidationdown" mnemonicParsing="false" onAction="#decreaseIntimidation" text="-">
                                                                <font>
                                                                   <Font size="10.0" />
                                                                </font>
@@ -561,7 +561,7 @@
                                                                   <Font size="11.0" />
                                                                </font>
                                                             </Label>
-                                                            <Button mnemonicParsing="false" text="+">
+                                                            <Button fx:id="intimidationup" mnemonicParsing="false" onAction="#increaseIntimidation" text="+">
                                                                <font>
                                                                   <Font size="10.0" />
                                                                </font>
@@ -573,7 +573,7 @@
                                                       </HBox>
                                                       <HBox prefHeight="31.0" prefWidth="186.0">
                                                          <children>
-                                                            <Button mnemonicParsing="false" text="-">
+                                                            <Button fx:id="investigationdown" mnemonicParsing="false" onAction="#decreaseInvestigation" text="-">
                                                                <font>
                                                                   <Font size="10.0" />
                                                                </font>
@@ -586,7 +586,7 @@
                                                                   <Font size="11.0" />
                                                                </font>
                                                             </Label>
-                                                            <Button mnemonicParsing="false" text="+">
+                                                            <Button fx:id="investigationup" mnemonicParsing="false" onAction="#increaseInvestigation" text="+">
                                                                <font>
                                                                   <Font size="10.0" />
                                                                </font>
@@ -598,7 +598,7 @@
                                                       </HBox>
                                                       <HBox prefHeight="31.0" prefWidth="186.0">
                                                          <children>
-                                                            <Button mnemonicParsing="false" text="-">
+                                                            <Button fx:id="medicinedown" mnemonicParsing="false" onAction="#decreaseMedicine" text="-">
                                                                <font>
                                                                   <Font size="10.0" />
                                                                </font>
@@ -611,7 +611,7 @@
                                                                   <Font size="11.0" />
                                                                </font>
                                                             </Label>
-                                                            <Button mnemonicParsing="false" text="+">
+                                                            <Button fx:id="medicineup" mnemonicParsing="false" onAction="#increaseMedicine" text="+">
                                                                <font>
                                                                   <Font size="10.0" />
                                                                </font>
@@ -623,7 +623,7 @@
                                                       </HBox>
                                                       <HBox prefHeight="31.0" prefWidth="186.0">
                                                          <children>
-                                                            <Button mnemonicParsing="false" text="-">
+                                                            <Button fx:id="naturedown" mnemonicParsing="false" onAction="#decreaseNature" text="-">
                                                                <font>
                                                                   <Font size="10.0" />
                                                                </font>
@@ -636,7 +636,7 @@
                                                                   <Font size="11.0" />
                                                                </font>
                                                             </Label>
-                                                            <Button mnemonicParsing="false" text="+">
+                                                            <Button fx:id="natureup" mnemonicParsing="false" onAction="#increaseNature" text="+">
                                                                <font>
                                                                   <Font size="10.0" />
                                                                </font>
@@ -648,7 +648,7 @@
                                                       </HBox>
                                                       <HBox prefHeight="31.0" prefWidth="186.0">
                                                          <children>
-                                                            <Button mnemonicParsing="false" text="-">
+                                                            <Button fx:id="perceptiondown" mnemonicParsing="false" onAction="#decreasePerception" text="-">
                                                                <font>
                                                                   <Font size="10.0" />
                                                                </font>
@@ -661,7 +661,7 @@
                                                                   <Font size="11.0" />
                                                                </font>
                                                             </Label>
-                                                            <Button mnemonicParsing="false" text="+">
+                                                            <Button fx:id="perceptionup" mnemonicParsing="false" onAction="#increasePerception" text="+">
                                                                <font>
                                                                   <Font size="10.0" />
                                                                </font>
@@ -673,7 +673,7 @@
                                                       </HBox>
                                                       <HBox prefHeight="31.0" prefWidth="186.0">
                                                          <children>
-                                                            <Button mnemonicParsing="false" text="-">
+                                                            <Button fx:id="performancedown" mnemonicParsing="false" onAction="#decreasePerformance" text="-">
                                                                <font>
                                                                   <Font size="10.0" />
                                                                </font>
@@ -686,7 +686,7 @@
                                                                   <Font size="11.0" />
                                                                </font>
                                                             </Label>
-                                                            <Button mnemonicParsing="false" text="+">
+                                                            <Button fx:id="performanceup" mnemonicParsing="false" onAction="#increasePerformance" text="+">
                                                                <font>
                                                                   <Font size="10.0" />
                                                                </font>
@@ -698,7 +698,7 @@
                                                       </HBox>
                                                       <HBox prefHeight="31.0" prefWidth="186.0">
                                                          <children>
-                                                            <Button mnemonicParsing="false" text="-">
+                                                            <Button fx:id="persuasiondown" mnemonicParsing="false" onAction="#decreasePersuasion" text="-">
                                                                <font>
                                                                   <Font size="10.0" />
                                                                </font>
@@ -711,7 +711,7 @@
                                                                   <Font size="11.0" />
                                                                </font>
                                                             </Label>
-                                                            <Button mnemonicParsing="false" text="+">
+                                                            <Button fx:id="persuasionup" mnemonicParsing="false" onAction="#increasePersuasion" text="+">
                                                                <font>
                                                                   <Font size="10.0" />
                                                                </font>
@@ -723,7 +723,7 @@
                                                       </HBox>
                                                       <HBox prefHeight="31.0" prefWidth="186.0">
                                                          <children>
-                                                            <Button mnemonicParsing="false" text="-">
+                                                            <Button fx:id="religiondown" mnemonicParsing="false" onAction="#decreaseReligion" text="-">
                                                                <font>
                                                                   <Font size="10.0" />
                                                                </font>
@@ -736,7 +736,7 @@
                                                                   <Font size="11.0" />
                                                                </font>
                                                             </Label>
-                                                            <Button mnemonicParsing="false" text="+">
+                                                            <Button fx:id="religionup" mnemonicParsing="false" onAction="#increaseReligion" text="+">
                                                                <font>
                                                                   <Font size="10.0" />
                                                                </font>
@@ -748,7 +748,7 @@
                                                       </HBox>
                                                       <HBox prefHeight="31.0" prefWidth="186.0">
                                                          <children>
-                                                            <Button mnemonicParsing="false" text="-">
+                                                            <Button fx:id="sleightdown" mnemonicParsing="false" onAction="#decreaseSleight" text="-">
                                                                <font>
                                                                   <Font size="10.0" />
                                                                </font>
@@ -761,7 +761,7 @@
                                                                   <Font size="11.0" />
                                                                </font>
                                                             </Label>
-                                                            <Button mnemonicParsing="false" text="+">
+                                                            <Button fx:id="sleightup" mnemonicParsing="false" onAction="#increaseSleight" text="+">
                                                                <font>
                                                                   <Font size="10.0" />
                                                                </font>
@@ -773,7 +773,7 @@
                                                       </HBox>
                                                       <HBox prefHeight="31.0" prefWidth="186.0">
                                                          <children>
-                                                            <Button mnemonicParsing="false" text="-">
+                                                            <Button fx:id="stealthdown" mnemonicParsing="false" onAction="#decreaseStealth" text="-">
                                                                <font>
                                                                   <Font size="10.0" />
                                                                </font>
@@ -786,7 +786,7 @@
                                                                   <Font size="11.0" />
                                                                </font>
                                                             </Label>
-                                                            <Button mnemonicParsing="false" text="+">
+                                                            <Button fx:id="stealthup" mnemonicParsing="false" onAction="#increaseStealth" text="+">
                                                                <font>
                                                                   <Font size="10.0" />
                                                                </font>
@@ -798,7 +798,7 @@
                                                       </HBox>
                                                       <HBox prefHeight="31.0" prefWidth="186.0">
                                                          <children>
-                                                            <Button mnemonicParsing="false" text="-">
+                                                            <Button fx:id="survivaldown" mnemonicParsing="false" onAction="#decreaseSurvival" text="-">
                                                                <font>
                                                                   <Font size="10.0" />
                                                                </font>
@@ -811,7 +811,7 @@
                                                                   <Font size="11.0" />
                                                                </font>
                                                             </Label>
-                                                            <Button mnemonicParsing="false" text="+">
+                                                            <Button fx:id="survivalup" mnemonicParsing="false" onAction="#increaseSurvival" text="+">
                                                                <font>
                                                                   <Font size="10.0" />
                                                                </font>
