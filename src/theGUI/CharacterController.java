@@ -552,14 +552,14 @@ public class CharacterController {
 	void save() {
 		setAttri();
 		setStats();
-		System.out.println("Directly access the database in the console!");
+		//System.out.println("Directly access the database in the console!");
 		//Trying printing the database
-		try {
+		//try {
 			//SELECT * FROM Statistics
-			Read.main(null);
-		} catch (Exception e) {
-			System.out.println("Could not read!");
-		}
+		//	Read.main(null);
+		//} catch (Exception e) {
+		//	System.out.println("Could not read!");
+		//}
 	}
 
 	@FXML
