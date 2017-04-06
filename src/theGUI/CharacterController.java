@@ -25,6 +25,7 @@ import theDatabase.Send;
 import Classes.Character;
 import Classes.Skills;
 import Classes.Export;
+import Classes.Miscellaneous;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -182,6 +183,7 @@ public class CharacterController {
 	Character character;
 	Send send;
 	Export exporter;
+	private CharacterController iam;
 	
 
 	@FXML
@@ -233,17 +235,14 @@ public class CharacterController {
 	
 	void levelUpScreen() {
 		try {
-			//FXMLLoader loader = new FXMLLoader();
-			//loader.setLocation(CharacterRun.class.getResource("LevelUp.fxml"));
-			//Pane root = (Pane)loader.load();
-			
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(CharacterController.class.getResource("LevelUp.fxml"));
 			Pane root = (Pane)loader.load();
 
 			LevelController second = (LevelController)loader.getController();
 			second.grabStats(character);
-			second.getSheet(this.level);
+			
+			second.grabController(iam);
 			
 			Stage secondStage = new Stage();
 			Scene scene = new Scene(root);
@@ -252,7 +251,7 @@ public class CharacterController {
 
 		} catch (Exception exc) {
 			exc.printStackTrace();
-			System.out.println("wtf");
+			System.out.println("Level Up screen failed");
 		}
 	}
 
@@ -313,6 +312,8 @@ public class CharacterController {
 
 			int ch = character.getStats(Statistics.CHARISMA);
 			charisma.setText(ch + "");
+			
+//			int fullhp = character.getExtra(Miscellaneous.TOTALHP);
 	
 	}
 	
@@ -983,6 +984,16 @@ public class CharacterController {
 	void getError (String msg) {
 		Alert alert = new Alert(AlertType.ERROR, msg, ButtonType.OK);
 		alert.showAndWait();
+	}
+
+	public void testMethod() {
+		System.out.println("Wuppee, it worked");
+		
+	}
+
+	public void whoami(CharacterController second) {
+		iam = second;
+		
 	}
 
 

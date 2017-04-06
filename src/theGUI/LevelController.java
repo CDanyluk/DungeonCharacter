@@ -49,16 +49,20 @@ public class LevelController {
 	ImageView rule;
 	@FXML
 	Label remainingPoints; 
-	
+	@FXML
+	Label header;
+	CharacterController sheet;
 	Character character;
 	
 	@FXML
 	void close() {
-		confirm.getScene().getWindow().hide();
+		sheet.resetStats();
+		header.getScene().getWindow().hide();
 	}
 	
 	@FXML
 	void confirm() {
+		updateStats();
 		Pane eventPane = ((Pane) confirm.getParent());
 		if (Integer.parseInt(remainingPoints.getText()) == 0) {
 			eventPane.getChildren().clear();
@@ -159,13 +163,28 @@ public class LevelController {
 		back.setOnAction(new EventHandler<ActionEvent>() {
 			@Override
 			public void handle(ActionEvent event) {
-//				character.addStats(Statistics.STRENGTH, strength);
+				close();
 			}
 		});
 		
 		eventPane.getChildren().addAll(roller,hitDie,ConMod,MaxHP,NewHP,ConModVal,MaxHPVal,NewHPVal,back);
 	}
 	
+	private void updateStats() {
+		int str = Integer.parseInt(this.str.getText());
+		int dex = Integer.parseInt(this.dex.getText());
+		int wis = Integer.parseInt(this.wis.getText());
+		int intelli = Integer.parseInt(this.intelli.getText());
+		int charis = Integer.parseInt(this.charis.getText());
+		
+		this.character.addStats(Statistics.STRENGTH, str);
+		this.character.addStats(Statistics.DEXTERITY, dex);
+		this.character.addStats(Statistics.WISDOM, wis);
+		this.character.addStats(Statistics.INTELLIGENCE, intelli);
+		this.character.addStats(Statistics.CHARISMA, charis);
+		
+	}
+
 	void setStats() {
 		int strength = Integer.parseInt(str.getText());
 		character.addStats(Statistics.STRENGTH, strength);
@@ -269,6 +288,10 @@ public class LevelController {
 		}
 	}
 	
+	public void grabController(CharacterController sheet) {
+		this.sheet = sheet;
+	}
+	
 	public void grabStats(Character stats) {
 		this.character = stats;
 		str.setText(Integer.toString(character.getStats(Statistics.STRENGTH)));
@@ -293,10 +316,6 @@ public class LevelController {
 			confirm.setDisable(true);
 		}
 		
-	}
-	
-	public void getSheet(TextField level) {
-		VBox sheet = ((VBox) level.getParent());
 	}
 	
 	@FXML
