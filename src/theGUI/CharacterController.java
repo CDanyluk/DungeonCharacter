@@ -213,24 +213,10 @@ public class CharacterController {
 
 	@FXML
 	void advlvl() {
-		try {
-			int lvl = Integer.parseInt(level.getText());
-			int str = Integer.parseInt(strength.getText());
-			int dex = Integer.parseInt(dexterity.getText());
-			int con = Integer.parseInt(constitution.getText());
-			int inte = Integer.parseInt(intelligence.getText());
-			int wis = Integer.parseInt(wisdom.getText());
-			int ch = Integer.parseInt(charisma.getText());
-			
-			save();
-			levelUpScreen();
-			int currentlvl = Integer.parseInt(level.getText());
-			level.setText(Integer.toString(currentlvl + 1));
-
-		} catch (Exception exc) {
-			getError("Str, dex, con, int, wis, char, or lvl not a number!");
-		}
-		
+		save();
+		levelUpScreen();
+		int currentlvl = Integer.parseInt(level.getText());
+		level.setText(Integer.toString(currentlvl + 1));
 	}
 	
 	void levelUpScreen() {
@@ -287,6 +273,12 @@ public class CharacterController {
 
 			int ch = Integer.parseInt(charisma.getText());
 			character.addStats(Statistics.CHARISMA, ch);
+			
+			int curHP = Integer.parseInt(currentHP.getText());
+			character.addStats(Statistics.CURRENTHP, curHP);
+			
+			int totHP = Integer.parseInt(totalHP.getText());
+			character.addStats(Statistics.TOTALHP, totHP);
 
 		} catch (Exception exc) {
 			getError("Str, dex, con, int, wis, char, or exp not a number!");
@@ -314,6 +306,7 @@ public class CharacterController {
 			charisma.setText(ch + "");
 			
 //			int fullhp = character.getExtra(Miscellaneous.TOTALHP);
+			
 	
 	}
 	
@@ -538,15 +531,24 @@ public class CharacterController {
 
 	@FXML
 	void setHP() {
-		String currHP = currentHP.getText();
-		String totHP = totalHP.getText();
 		try {
+			int currHP = Integer.parseInt(currentHP.getText());
+			int totHP  = Integer.parseInt(totalHP.getText());
+			currentHP.setText(Integer.toString(currHP));
+			totalHP.setText(Integer.toString(totHP));
 			double current = Integer.parseInt(currentHP.getText());
 			double total = Integer.parseInt(totalHP.getText());
 			HP.setProgress(current/total);
 		} catch (Exception exc) {
 			getError("HP not number!");
 		}
+	}
+	
+	void updateHP () {
+		int curHP = character.getStats(Statistics.CURRENTHP);
+		int totHP = character.getStats(Statistics.TOTALHP);
+		currentHP.setText(Integer.toString(curHP));
+		totalHP.setText(Integer.toString(totHP));
 	}
 
 	@FXML

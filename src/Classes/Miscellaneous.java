@@ -11,9 +11,9 @@ public enum Miscellaneous {
 
 	}, SPEED {
 
-	}, CURRENTHP {
+//	}, CURRENTHP {
 
-	}, TOTALHP {
+//	}, TOTALHP {
 
 	}, EQUIPMENT {
 		

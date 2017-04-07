@@ -17,9 +17,11 @@ public enum Statistics {
 
 	}, EXPERIENCE {
 		
+	}, CURRENTHP {
+		
+	}, TOTALHP {
 
-	};
-
+	}
 	
 }
 
