@@ -35,6 +35,20 @@ public class Character {
 		this.charStats = new EnumMap<>(Statistics.class);
 		this.charExtra = new EnumMap<>(Miscellaneous.class);
 		this.charSkills = new EnumMap<>(Skills.class);
+		for (Attributes att : Attributes.values()) {
+			  addAttri(att, "none");
+		}
+		for (Statistics sta : Statistics.values()) {
+			  addStats(sta, 0);
+		}
+		for (Miscellaneous mis : Miscellaneous.values()) {
+			  addExtra(mis, "0");
+		}
+		for (Skills ski : Skills.values()) {
+			  setSkills(ski, 0);
+		}
+		addExtra(Miscellaneous.EQUIPMENT, " ");
+		addExtra(Miscellaneous.MISC, " ");
 		
 	}
 	

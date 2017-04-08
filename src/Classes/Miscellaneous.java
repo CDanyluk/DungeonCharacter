@@ -19,6 +19,8 @@ public enum Miscellaneous {
 		
 	}, MISC {
 		
+	}, PROFICIENCY {
+		
 	};
 
 }

@@ -14,10 +14,10 @@ public enum Statistics {
 
 	}, CHARISMA {
 
-
 	}, EXPERIENCE {
 		
-
+	}, LEVEL {
+		
 	};
 
 	

@@ -257,11 +257,21 @@ public class CharacterController {
 
 	@FXML
 	void setAttri() {
-		character.addAttri(Attributes.CLASS, clas.getText());
-		character.addAttri(Attributes.BACKGROUND, background.getText());
-		character.addAttri(Attributes.PLAYER, player.getText());
-		character.addAttri(Attributes.RACE, race.getText());
-		character.addAttri(Attributes.ALIGNMENT, alignment.getText());
+		if (clas.getText() != "") {
+			character.addAttri(Attributes.CLASS, clas.getText());
+		}
+		if (background.getText() != "") {
+			character.addAttri(Attributes.BACKGROUND, background.getText());
+		}
+		if (player.getText() != "") {
+			character.addAttri(Attributes.PLAYER, player.getText());
+		}
+		if (race.getText() != "") {
+			character.addAttri(Attributes.RACE, race.getText());
+		}
+		if (alignment.getText() != "") {
+			character.addAttri(Attributes.ALIGNMENT, alignment.getText());
+		}
 	}
 
 	@FXML
@@ -324,39 +334,70 @@ public class CharacterController {
 
 	@FXML
 	void calculateStrModifier() {
-		int ability = Integer.parseInt(strength.getText());
-		int modifier = (int) Math.floor((ability / 2) - 5); 
-		strengthMod.setText("(" + modifier + ")");
+		try {
+			int ability = Integer.parseInt(strength.getText());
+			int modifier = (int) Math.floor((ability / 2) - 5); 
+			strengthMod.setText("(" + modifier + ")");
+		} catch (Exception e) {
+			strength.setText("");
+			getError("Strength must be a positive number!");
+		}
 	}	
 	@FXML
 	void calculateDexModifier() {
-		int ability = Integer.parseInt(dexterity.getText());
-		int modifier = (int) Math.floor((ability / 2) - 5); 
-		dexterityMod.setText("(" + modifier + ")");
+		try {
+			int ability = Integer.parseInt(dexterity.getText());
+			int modifier = (int) Math.floor((ability / 2) - 5); 
+			dexterityMod.setText("(" + modifier + ")");
+		} catch (Exception e) {
+			dexterity.setText("");
+			getError("Dexterity must be a positive number!");
+		}
 	}	
 	@FXML
 	void calculateConstitModifier() {
-		int ability = Integer.parseInt(constitution.getText());
-		int modifier = (int) Math.floor((ability / 2) - 5); 
-		constitutionMod.setText("(" + modifier + ")");
+		try {
+			int ability = Integer.parseInt(constitution.getText());
+			int modifier = (int) Math.floor((ability / 2) - 5); 
+			constitutionMod.setText("(" + modifier + ")");
+		} catch (Exception e) {
+			constitution.setText("");
+			getError("Constitution must be a positive number!");
+		}
 	}	
 	@FXML
 	void calculateIntelliModifier() {
-		int ability = Integer.parseInt(intelligence.getText());
-		int modifier = (int) Math.floor((ability / 2) - 5); 
-		intelligenceMod.setText("(" + modifier + ")");
+		try {
+			int ability = Integer.parseInt(intelligence.getText());
+			int modifier = (int) Math.floor((ability / 2) - 5); 
+			intelligenceMod.setText("(" + modifier + ")");
+		} catch (Exception e) {
+			intelligence.setText("");
+			getError("Intelligence must be a positive number!");
+		}
 	}	
 	@FXML
 	void calculateWisModifier() {
-		int ability = Integer.parseInt(wisdom.getText());
-		int modifier = (int) Math.floor((ability / 2) - 5); 
-		wisdomMod.setText("(" + modifier + ")");
+		try {
+			int ability = Integer.parseInt(wisdom.getText());
+			int modifier = (int) Math.floor((ability / 2) - 5); 
+			wisdomMod.setText("(" + modifier + ")");
+		} catch (Exception e) {
+			wisdom.setText("");
+			getError("Wisdom must be a positive number!");
+		}
+		
 	}	
 	@FXML
 	void calculateCharisModifier() {
-		int ability = Integer.parseInt(charisma.getText());
-		int modifier = (int) Math.floor((ability / 2) - 5); 
-		charismaMod.setText("(" + modifier + ")");
+		try {
+			int ability = Integer.parseInt(charisma.getText());
+			int modifier = (int) Math.floor((ability / 2) - 5); 
+			charismaMod.setText("(" + modifier + ")");
+		} catch (Exception e) {
+			charisma.setText("");
+			getError("Charisma must be a positive number!");
+		}
 	}	
 
 	
@@ -553,14 +594,8 @@ public class CharacterController {
 	void save() {
 		setAttri();
 		setStats();
-		//System.out.println("Directly access the database in the console!");
-		//Trying printing the database
-		//try {
-			//SELECT * FROM Statistics
-		//	Read.main(null);
-		//} catch (Exception e) {
-		//	System.out.println("Could not read!");
-		//}
+		
+		send.SendChar(character);
 	}
 
 	@FXML
