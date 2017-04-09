@@ -1,12 +1,15 @@
 package theGUI;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
-
+import java.util.HashMap;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
@@ -76,7 +79,7 @@ public class SearchController {
 		// maybe get a reference to each character sheet before displaying, to access the sheet faster?
 		CharacterFinder cf = new CharacterFinder(charName.getText(), playerName.getText(),
 				charRace.getText(), charClass.getText());
-		ArrayList<String> characterList = cf.searchDatabase();
+		ArrayList<String> characterList = cf.getMatchingCharacters();
 		displayCharacters(characterList);
 
 	}
@@ -87,8 +90,14 @@ public class SearchController {
 		} else {
 			for (String character : charList) {
 				Label label = new Label(character);
-				// TODO
-				// label.onMouseClickedProperty() = openCharacterSheet();
+				label.setOnMouseClicked(new EventHandler<MouseEvent>() {
+
+					@Override
+					public void handle(MouseEvent event) {
+						String charName = character.substring(character.indexOf("Character: "), character.indexOf(" -"));
+						openCharacterSheet(charName);
+					}
+				});
 				this.charList.getChildren().add(label);
 			}
 		}
@@ -100,22 +109,89 @@ public class SearchController {
 	}
 
 	@FXML
-	void openCharacterSheet() {
+	void openCharacterSheet(String charName) {
 		try {
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(CharacterRun.class.getResource("CharacterSheet.fxml"));
 			BorderPane root = (BorderPane) loader.load();
 
 			CharacterController second = (CharacterController)loader.getController();
-			second.name.setText(createName.getText());
+			characterSheetSetup(second, charName);
 
 			Stage secondStage = new Stage();
 			Scene scene = new Scene(root);
 			secondStage.setScene(scene);
 			secondStage.show();
 		} catch (Exception exc) {
+			getError("Error loading character sheet, please try again.");
 			exc.printStackTrace();
 		}
+	}
+
+	void characterSheetSetup(CharacterController sheet, String charName) throws ClassNotFoundException, SQLException {
+		CharacterFinder cf = new CharacterFinder(charName);
+		int ATTRIBUTES_COLUMNS = 8;
+		int STATS_COLUMNS = 7;
+		int SKILLZ_COLUMNS = 19;
+		int MISC_COLUMNS = 8;
+
+		HashMap attributes = cf.getCharacterInfoFrom("Attributes", ATTRIBUTES_COLUMNS);
+		HashMap<String, Integer> statistics = cf.getCharacterInfoFrom("Statistics", STATS_COLUMNS);
+		HashMap<String, Integer> skills = cf.getCharacterInfoFrom("Skills", SKILLZ_COLUMNS);
+		HashMap misc = cf.getCharacterInfoFrom("Misc", MISC_COLUMNS);
+
+		fillTextFields(attributes, statistics, skills, misc, sheet);
+	}
+
+	void fillTextFields(HashMap attributes, HashMap<String, Integer> statistics, HashMap<String, Integer> skills,
+			HashMap misc, CharacterController sheet) {
+		// Attributes
+		sheet.name.setText(attributes.get("Name").toString());
+		sheet.clas.setText(attributes.get("Class").toString());
+		sheet.background.setText(attributes.get("Background").toString());
+		sheet.player.setText(attributes.get("PlayerName").toString());
+		sheet.race.setText(attributes.get("Race").toString());
+		sheet.alignment.setText(attributes.get("Alignment").toString());
+		sheet.experience.setText(attributes.get("Experience").toString());
+
+		// Statistics
+		sheet.level.setText(statistics.get("Level").toString());
+		sheet.strength.setText(statistics.get("Strength").toString());
+		sheet.dexterity.setText(statistics.get("Dexterity").toString());
+		sheet.constitution.setText(statistics.get("Constitution").toString());
+		sheet.intelligence.setText(statistics.get("Intelligence").toString());
+		sheet.wisdom.setText(statistics.get("Wisdom").toString());
+		sheet.charisma.setText(statistics.get("Charisma").toString());
+
+		// Skills
+		sheet.acrobatics.setText("[" + skills.get("Acrobatics") + "] ACROBATICS");
+		sheet.animals.setText("[" + skills.get("Animals") + "] ANIMALS");
+		sheet.arcana.setText("[" + skills.get("Arcana") + "] ARCANA");
+		sheet.athletics.setText("[" + skills.get("Athletics") + "] ATHLETICS");
+		sheet.deception.setText("[" + skills.get("Deception") + "] DECEPTION");
+		sheet.history.setText("[" + skills.get("History") + "] HISTORY");
+		sheet.insight.setText("[" + skills.get("Insight") + "] INSIGHT");
+		sheet.intimidation.setText("[" + skills.get("Intimidation") + "] INTIMIDATION");
+		sheet.investigation.setText("[" + skills.get("Investigation") + "] INVESTIGATION");
+		sheet.medicine.setText("[" + skills.get("Medicine") + "] MEDICINE");
+		sheet.nature.setText("[" + skills.get("Nature") + "] NATURE");
+		sheet.perception.setText("[" + skills.get("Perception") + "] PERCEPTION");
+		sheet.performance.setText("[" + skills.get("Performance") + "] PERFORMANCE");
+		sheet.persuasion.setText("[" + skills.get("Persuasion") + "] PERSUASION");
+		sheet.religion.setText("[" + skills.get("Religion") + "] RELIGION");
+		sheet.sleight.setText("[" + skills.get("SleightOfHand") + "] SLEIGHT OF HAND");
+		sheet.stealth.setText("[" + skills.get("Stealth") + "] STEALTH");
+		sheet.survival.setText("[" + skills.get("Survival") + "] SURVIVAL");
+
+		// Misc.
+		sheet.proficiency.setText(misc.get("ProficiencyBonus").toString());
+		sheet.armor.setText(misc.get("ArmorClass").toString());
+		sheet.initiative.setText(misc.get("Initiative").toString());
+		sheet.speed.setText(misc.get("Speed").toString());
+		sheet.currentHP.setText(misc.get("CurrentHP").toString());
+		sheet.totalHP.setText(misc.get("TotalHP").toString());
+		sheet.equipment.setText(misc.get("WeaponsAndEquipment").toString());
+		sheet.misc.setText(misc.get("Misc").toString());
 	}
 
 }

@@ -185,13 +185,13 @@ public class CharacterController {
 	Export exporter;
 	private CharacterController iam;
 	
-	
 	@FXML
 	void initialize(Character chara) {
 		//character = new Character((name.getText()));
 		character = chara;
 		exporter = new Export(character);
 		send = new Send();
+
 		character.setSkills(Skills.ACROBATS, 0);
 		character.setSkills(Skills.ANIMALS, 0);
 		character.setSkills(Skills.ARCANA, 0);
@@ -232,8 +232,12 @@ public class CharacterController {
 			getError("Str, dex, con, int, wis, char, or lvl not a number!");
 		}
 		
+		save();
+		levelUpScreen();
+		int currentlvl = Integer.parseInt(level.getText());
+		level.setText(Integer.toString(currentlvl + 1));
 	}
-	
+
 	void levelUpScreen() {
 		try {
 			FXMLLoader loader = new FXMLLoader();
@@ -306,7 +310,7 @@ public class CharacterController {
 			getError("Str, dex, con, int, wis, char, or exp not a number!");
 		}
 	}
-	
+
 	@FXML
 	void setMisc() {
 		//ArmorClass INTEGER, Initiative INTEGER, Speed INTEGER, CurrentHP INTEGER, TotalHP INTEGER, 
@@ -352,10 +356,10 @@ public class CharacterController {
 	void resetStats() {
 			int str = character.getStats(Statistics.STRENGTH);
 			strength.setText(str+ "");
-			
+
 			int dex = character.getStats(Statistics.DEXTERITY);
 			dexterity.setText(dex+ "");
-			
+
 			int con = character.getStats(Statistics.CONSTITUTION);
 			constitution.setText(con+ "");
 
@@ -444,8 +448,41 @@ public class CharacterController {
 			getError("Charisma must be a positive number!");
 		}
 	}	
+		int ability = Integer.parseInt(strength.getText());
+		int modifier = (int) Math.floor((ability / 2) - 5);
+		strengthMod.setText("(" + modifier + ")");
+	}
+	@FXML
+	void calculateDexModifier() {
+		int ability = Integer.parseInt(dexterity.getText());
+		int modifier = (int) Math.floor((ability / 2) - 5);
+		dexterityMod.setText("(" + modifier + ")");
+	}
+	@FXML
+	void calculateConstitModifier() {
+		int ability = Integer.parseInt(constitution.getText());
+		int modifier = (int) Math.floor((ability / 2) - 5);
+		constitutionMod.setText("(" + modifier + ")");
+	}
+	@FXML
+	void calculateIntelliModifier() {
+		int ability = Integer.parseInt(intelligence.getText());
+		int modifier = (int) Math.floor((ability / 2) - 5);
+		intelligenceMod.setText("(" + modifier + ")");
+	}
+	@FXML
+	void calculateWisModifier() {
+		int ability = Integer.parseInt(wisdom.getText());
+		int modifier = (int) Math.floor((ability / 2) - 5);
+		wisdomMod.setText("(" + modifier + ")");
+	}
+	@FXML
+	void calculateCharisModifier() {
+		int ability = Integer.parseInt(charisma.getText());
+		int modifier = (int) Math.floor((ability / 2) - 5);
+		charismaMod.setText("(" + modifier + ")");
+	}
 
-	
 	@FXML
 	void calculateProficiency() {
 		int lvl = Integer.parseInt(level.getText());
