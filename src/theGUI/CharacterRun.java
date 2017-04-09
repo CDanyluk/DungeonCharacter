@@ -18,7 +18,7 @@ public class CharacterRun extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 			
-			//preBuild();
+			preBuild();
 			
 			VBox root;
 			try {
