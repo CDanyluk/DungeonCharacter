@@ -187,8 +187,9 @@ public class CharacterController {
 	
 
 	@FXML
-	void initialize() {
-		character = new Character((name.getText()));
+	void initialize(Character chara) {
+		//character = new Character((name.getText()));
+		character = chara;
 		exporter = new Export(character);
 		send = new Send();
 		character.setSkills(Skills.ACROBATS, 0);
