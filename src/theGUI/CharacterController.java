@@ -185,7 +185,7 @@ public class CharacterController {
 	Export exporter;
 	private CharacterController iam;
 	
-
+	
 	@FXML
 	void initialize(Character chara) {
 		//character = new Character((name.getText()));

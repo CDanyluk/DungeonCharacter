@@ -15,6 +15,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import theDatabase.CharacterFinder;
+import Classes.Character;
 
 public class SearchController {
 
@@ -30,6 +31,9 @@ public class SearchController {
 	/*
 	 * Called when the create button is pressed
 	 */
+	
+	Character character;
+	
 	@FXML
 	void openBlankCharSheet() {
 		if (createName.getText().equals("")) {
@@ -42,6 +46,9 @@ public class SearchController {
 
 				CharacterController second = (CharacterController)loader.getController();
 				second.name.setText(createName.getText());
+				String s = createName.getText();
+				character = new Character(s);
+				second.initialize(character);
 				second.whoami(second);
 
 				Stage secondStage = new Stage();
