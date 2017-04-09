@@ -298,10 +298,53 @@ public class CharacterController {
 
 			int ch = Integer.parseInt(charisma.getText());
 			character.addStats(Statistics.CHARISMA, ch);
+			
+			int lvl = Integer.parseInt(level.getText());
+			character.addStats(Statistics.LEVEL, lvl);
 
 		} catch (Exception exc) {
 			getError("Str, dex, con, int, wis, char, or exp not a number!");
 		}
+	}
+	
+	@FXML
+	void setMisc() {
+		//ArmorClass INTEGER, Initiative INTEGER, Speed INTEGER, CurrentHP INTEGER, TotalHP INTEGER, 
+		//WeaponsAndEquipment TEXT, Misc TEXT
+		
+			String ac = armor.getText();	
+			String ini = initiative.getText();
+			String sped = speed.getText();
+			String curhp = currentHP.getText();
+			String tothp = totalHP.getText();
+			String prof = proficiency.getText();
+			
+			String eq = equipment.getText();
+			character.addExtra(Miscellaneous.EQUIPMENT, eq);
+			
+			String mis = misc.getText();
+			character.addExtra(Miscellaneous.MISC, mis);
+			
+		try {
+			Integer.parseInt(ac);
+			Integer.parseInt(ini);
+			Integer.parseInt(sped);
+			Integer.parseInt(curhp);
+			Integer.parseInt(tothp);
+			Integer.parseInt(prof);
+			
+			character.addExtra(Miscellaneous.ARMORCLASS, ac);
+			character.addExtra(Miscellaneous.INITIATIVE, ini);
+			character.addExtra(Miscellaneous.SPEED,  sped);
+			character.addExtra(Miscellaneous.CURRENTHP, curhp);
+			character.addExtra(Miscellaneous.TOTALHP, tothp);
+			character.addExtra(Miscellaneous.PROFICIENCY, prof);
+	
+		} catch (Exception e) {
+			System.out.println("Armorclass. initiative, speed, or hp must be positive number!");
+		}
+		
+		
 	}
 	
 	@FXML
@@ -595,6 +638,8 @@ public class CharacterController {
 	void save() {
 		setAttri();
 		setStats();
+		setMisc();
+		
 		
 		send.SendChar(character);
 	}
