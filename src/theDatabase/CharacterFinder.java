@@ -3,13 +3,19 @@ package theDatabase;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Optional;
+
+import Classes.Attributes;
 
 public class CharacterFinder {
 
 	private String charName, playerName, charRace, charClass, query;
+	private int charID;
 
 	public CharacterFinder(String charName, String playerName, String charRace,
 			String charClass) {
@@ -20,12 +26,71 @@ public class CharacterFinder {
 		this.query = buildQuery();
 	}
 
+	public CharacterFinder(String charName) throws ClassNotFoundException {
+		this.charName = charName;
+		getID();
+	}
+
+	private void getID() throws ClassNotFoundException {
+		Class.forName("org.sqlite.JDBC");
+		Connection connection;
+
+		try {
+			connection = DriverManager.getConnection("jdbc:sqlite:Dungeon.db");
+			Statement statement = connection.createStatement();
+
+			ResultSet rs = statement.executeQuery("SELECT CharID FROM Attributes WHERE Name = '" +
+													this.charName + "'");
+			this.charID = rs.getInt("CharID");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+	public HashMap getCharacterInfoFrom(String tableName, int numColumns) throws ClassNotFoundException,
+	SQLException {
+
+		Optional<ResultSet> optionalRS = getFromDB(tableName);
+		HashMap<String, Integer> characterInfo = new HashMap<>();
+
+		if (optionalRS.isPresent()) {
+			ResultSet results = optionalRS.get();
+			if (results.next()) {
+				for (int c = 1; c <= numColumns; c++) {
+					ResultSetMetaData soMetaBro = results.getMetaData();
+					String columnName = soMetaBro.getColumnLabel(c);
+					characterInfo.put(columnName, results.getInt(c));
+				}
+			}
+		}
+		return characterInfo;
+	}
+
+	private Optional<ResultSet> getFromDB(String tableName) throws ClassNotFoundException {
+		Class.forName("org.sqlite.JDBC");
+		Connection connection;
+
+		try {
+			connection = DriverManager.getConnection("jdbc:sqlite:Dungeon.db");
+			Statement statement = connection.createStatement();
+
+			return Optional.of(statement.executeQuery("SELECT * FROM " + tableName + " WHERE CharID = " + this.charID));
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return Optional.empty();
+	}
+
 	// For testing purposes
 	public String getQuery() {
 		return this.query;
 	}
 
-	public ArrayList<String> searchDatabase() throws ClassNotFoundException {
+	public ArrayList<String> getMatchingCharacters() throws ClassNotFoundException {
 		Class.forName("org.sqlite.JDBC");
 		Connection connection;
 
