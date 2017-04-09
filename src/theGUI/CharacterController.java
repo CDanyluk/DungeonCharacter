@@ -318,6 +318,7 @@ public class CharacterController {
 			String curhp = currentHP.getText();
 			String tothp = totalHP.getText();
 			String prof = proficiency.getText();
+			System.out.println("Hitpoints found to be "+curhp+" out of "+tothp);
 			
 			String eq = equipment.getText();
 			character.addExtra(Miscellaneous.EQUIPMENT, eq);
@@ -341,7 +342,7 @@ public class CharacterController {
 			character.addExtra(Miscellaneous.PROFICIENCY, prof);
 	
 		} catch (Exception e) {
-			System.out.println("Armorclass. initiative, speed, or hp must be positive number!");
+			getError("Armorclass. initiative, speed, or hp must be positive number!");
 		}
 		
 		
@@ -634,6 +635,17 @@ public class CharacterController {
 		}
 	}
 
+	void updateHP () {
+		try {
+		int curHP = Integer.parseInt(character.getExtra(Miscellaneous.CURRENTHP));
+		int totHP = Integer.parseInt(character.getExtra(Miscellaneous.TOTALHP));
+		currentHP.setText(Integer.toString(curHP));
+		totalHP.setText(Integer.toString(totHP));
+		} catch (Exception exc) {
+			getError("Please enter a value for both current and total HP. ");
+		}
+	}
+	
 	@FXML
 	void save() {
 		setAttri();

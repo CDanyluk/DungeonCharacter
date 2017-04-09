@@ -57,6 +57,8 @@ public class LevelController {
 	@FXML
 	void close() {
 		sheet.resetStats();
+		sheet.updateHP();
+		sheet.setHP();
 		header.getScene().getWindow().hide();
 	}
 	
@@ -118,10 +120,9 @@ public class LevelController {
 		ConModVal.setAlignment(Pos.CENTER_RIGHT);
 		
 		Label MaxHPVal = new Label();
-//		String totalhp = (this.character.getExtra(Miscellaneous.TOTALHP));
-//		int hitpoints = Integer.parseInt(totalhp);
-		int hitpoints = 10;
-		MaxHPVal.setText(Integer.toString(hitpoints));
+		String hitpoints = (this.character.getExtra(Miscellaneous.TOTALHP));
+		int totalhp = Integer.parseInt(hitpoints);
+		MaxHPVal.setText(Integer.toString(totalhp));
 		MaxHPVal.setLayoutX(314);
 		MaxHPVal.setLayoutY(229);
 		MaxHPVal.setPrefWidth(50);
@@ -129,7 +130,7 @@ public class LevelController {
 		MaxHPVal.setAlignment(Pos.CENTER_RIGHT);
 		
 		Label NewHPVal = new Label();
-		NewHPVal.setText(Integer.toString(hitpoints + modifier + roll));
+		NewHPVal.setText(Integer.toString(totalhp + modifier + roll));
 		NewHPVal.setLayoutX(314);
 		NewHPVal.setLayoutY(353);
 		NewHPVal.setPrefWidth(50);
@@ -148,11 +149,13 @@ public class LevelController {
 			@Override
 			public void handle(ActionEvent event) {
 				int randroll = random.nextInt(10);
-				roller.setText(Integer.toString(randroll));
+				roller.setText(Integer.toString(randroll+1));
 				roller.setFont(Font.font(24));
-				NewHPVal.setText(Integer.toString(hitpoints + modifier + randroll));
+				NewHPVal.setText(Integer.toString(totalhp + modifier + randroll+1));
 				roller.setDisable(true);
 				back.setDisable(false);
+				updateHitpoints(Integer.parseInt(NewHPVal.getText()));
+				eventPane.getChildren().add(NewHPVal);
 			}
 		});
 		
@@ -167,7 +170,7 @@ public class LevelController {
 			}
 		});
 		
-		eventPane.getChildren().addAll(roller,hitDie,ConMod,MaxHP,NewHP,ConModVal,MaxHPVal,NewHPVal,back);
+		eventPane.getChildren().addAll(roller,hitDie,ConMod,MaxHP,NewHP,ConModVal,MaxHPVal,back);
 	}
 	
 	private void updateStats() {
@@ -183,6 +186,12 @@ public class LevelController {
 		this.character.addStats(Statistics.INTELLIGENCE, intelli);
 		this.character.addStats(Statistics.CHARISMA, charis);
 		
+	}
+	
+	void updateHitpoints(int newValue) {
+		int totHP = newValue;
+		character.addExtra(Miscellaneous.TOTALHP, Integer.toString(totHP));
+		character.addExtra(Miscellaneous.CURRENTHP, Integer.toString(totHP));
 	}
 
 	void setStats() {
