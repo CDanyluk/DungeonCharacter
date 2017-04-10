@@ -68,6 +68,7 @@ public class Export {
 		for (Attributes a : Attributes.values()) {
 			fileWriter.write("\t" + a.toString() + ": ");
 			fileWriter.write("\t" + character.charAttri.get(a) + "; ");
+			fileWriter.write(String.format("%n"));
 		}
 	}
 
@@ -76,6 +77,7 @@ public class Export {
 		for (Statistics s : Statistics.values()) {
 			fileWriter.write("\t" + s.toString() + ": ");
 			fileWriter.write("\t" + character.charStats.get(s) + "; ");
+			fileWriter.write(String.format("%n"));
 		}
 	}
 
@@ -84,6 +86,7 @@ public class Export {
 		for (Miscellaneous m : Miscellaneous.values()) {
 			fileWriter.write("\t" + m.toString() + ": ");
 			fileWriter.write("\t" + character.charExtra.get(m) + "; ");
+			fileWriter.write(String.format("%n"));
 		}
 	}
 
