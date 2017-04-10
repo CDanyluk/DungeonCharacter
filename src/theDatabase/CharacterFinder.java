@@ -43,6 +43,7 @@ public class CharacterFinder {
 													this.charName + "'");
 			this.charID = rs.getInt("CharID");
 			rs.close();
+			connection.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -52,8 +53,11 @@ public class CharacterFinder {
 
 	public HashMap<String, String> getCharacterInfoFrom(String tableName, int numColumns) throws ClassNotFoundException,
 	SQLException {
+		Class.forName("org.sqlite.JDBC");
+		Connection connection;
+		connection = DriverManager.getConnection("jdbc:sqlite:Dungeon.db");
 
-		Optional<ResultSet> optionalRS = getFromDB(tableName);
+		Optional<ResultSet> optionalRS = getFromDB(tableName, connection);
 		HashMap<String, String> characterInfo = new HashMap<>();
 
 		if (optionalRS.isPresent()) {
@@ -66,18 +70,17 @@ public class CharacterFinder {
 				}
 			}
 		}
+		connection.close();
 		return characterInfo;
 	}
 
-	private Optional<ResultSet> getFromDB(String tableName) throws ClassNotFoundException {
-		Class.forName("org.sqlite.JDBC");
-		Connection connection;
+	private Optional<ResultSet> getFromDB(String tableName, Connection connection) throws ClassNotFoundException {
 
 		try {
-			connection = DriverManager.getConnection("jdbc:sqlite:Dungeon.db");
 			Statement statement = connection.createStatement();
 
-			return Optional.of(statement.executeQuery("SELECT * FROM " + tableName + " WHERE CharID = " + this.charID));
+			Optional<ResultSet> toReturn = Optional.of(statement.executeQuery("SELECT * FROM " + tableName + " WHERE CharID = " + this.charID));
+			return toReturn;
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -106,6 +109,7 @@ public class CharacterFinder {
 			while (results.next()) {
 				 characterList.add(buildCharacterString(results));
 			}
+			connection.close();
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
