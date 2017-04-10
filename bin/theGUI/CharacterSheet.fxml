@@ -215,7 +215,7 @@
                                                          <children>
                                                             <HBox prefHeight="31.0" prefWidth="186.0">
                                                                <children>
-                                                                  <Button fx:id="strdown" mnemonicParsing="false" onAction="#decreaseStr" text="-">
+                                                                  <Button fx:id="throwSTRdown" mnemonicParsing="false" onAction="#decreaseThrowSTR" text="-">
                                                                      <font>
                                                                         <Font size="10.0" />
                                                                      </font>
@@ -223,12 +223,12 @@
                                                                         <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
                                                                      </HBox.margin>
                                                                   </Button>
-                                                                  <Label fx:id="savingstr" alignment="CENTER" contentDisplay="CENTER" prefHeight="31.0" prefWidth="145.0" text="[ +0 ]  STRENGTH">
+                                                                  <Label fx:id="throwSTR" alignment="CENTER" contentDisplay="CENTER" prefHeight="31.0" prefWidth="145.0" text="[ +0 ]  STRENGTH">
                                                                      <font>
                                                                         <Font size="11.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <Button fx:id="strup" mnemonicParsing="false" onAction="#increaseStr" text="+">
+                                                                  <Button fx:id="throwSTup" mnemonicParsing="false" onAction="#increaseThrowSTR" text="+">
                                                                      <font>
                                                                         <Font size="10.0" />
                                                                      </font>
@@ -240,7 +240,7 @@
                                                             </HBox>
                                                             <HBox prefHeight="29.0" prefWidth="186.0">
                                                                <children>
-                                                                  <Button fx:id="dexdown" mnemonicParsing="false" onAction="#decreaseDex" text="-">
+                                                                  <Button fx:id="throwDexdown" mnemonicParsing="false" onAction="#decreaseThrowDEX" text="-">
                                                                      <font>
                                                                         <Font size="10.0" />
                                                                      </font>
@@ -248,12 +248,12 @@
                                                                         <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
                                                                      </HBox.margin>
                                                                   </Button>
-                                                                  <Label fx:id="savingdex" alignment="CENTER" contentDisplay="CENTER" prefHeight="25.0" prefWidth="151.0" text="[ +0 ]  DEXTERITY">
+                                                                  <Label fx:id="throwDEX" alignment="CENTER" contentDisplay="CENTER" prefHeight="25.0" prefWidth="151.0" text="[ +0 ]  DEXTERITY">
                                                                      <font>
                                                                         <Font size="11.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <Button fx:id="dexup" mnemonicParsing="false" onAction="#increaseDex" text="+">
+                                                                  <Button fx:id="throwDEXup" mnemonicParsing="false" onAction="#increaseThrowDEX" text="+">
                                                                      <font>
                                                                         <Font size="10.0" />
                                                                      </font>
@@ -265,7 +265,7 @@
                                                             </HBox>
                                                             <HBox prefHeight="27.0" prefWidth="186.0">
                                                                <children>
-                                                                  <Button fx:id="condown" mnemonicParsing="false" onAction="#decreaseCon" text="-">
+                                                                  <Button fx:id="throwCONdown" mnemonicParsing="false" onAction="#decreaseThrowCON" text="-">
                                                                      <font>
                                                                         <Font size="10.0" />
                                                                      </font>
@@ -273,12 +273,12 @@
                                                                         <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
                                                                      </HBox.margin>
                                                                   </Button>
-                                                                  <Label fx:id="savingcon" alignment="CENTER" contentDisplay="CENTER" prefHeight="25.0" prefWidth="151.0" text="[ +0 ]  CONSTITUTION">
+                                                                  <Label fx:id="throwCON" alignment="CENTER" contentDisplay="CENTER" prefHeight="25.0" prefWidth="151.0" text="[ +0 ]  CONSTITUTION">
                                                                      <font>
                                                                         <Font size="11.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <Button fx:id="conup" mnemonicParsing="false" onAction="#increaseCon" text="+">
+                                                                  <Button fx:id="throwCONup" mnemonicParsing="false" onAction="#increaseThrowCON" text="+">
                                                                      <font>
                                                                         <Font size="10.0" />
                                                                      </font>
@@ -290,7 +290,7 @@
                                                             </HBox>
                                                             <HBox prefHeight="29.0" prefWidth="186.0">
                                                                <children>
-                                                                  <Button fx:id="intdown" mnemonicParsing="false" onAction="#decreaseInt" text="-">
+                                                                  <Button fx:id="throwINTdown" mnemonicParsing="false" onAction="#decreaseThrowINT" text="-">
                                                                      <font>
                                                                         <Font size="10.0" />
                                                                      </font>
@@ -298,12 +298,12 @@
                                                                         <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
                                                                      </HBox.margin>
                                                                   </Button>
-                                                                  <Label fx:id="savingint" alignment="CENTER" contentDisplay="CENTER" prefHeight="28.0" prefWidth="151.0" text="[ +0 ]  INTELLIGENCE">
+                                                                  <Label fx:id="throwINT" alignment="CENTER" contentDisplay="CENTER" prefHeight="28.0" prefWidth="151.0" text="[ +0 ]  INTELLIGENCE">
                                                                      <font>
                                                                         <Font size="11.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <Button fx:id="intup" mnemonicParsing="false" onAction="#increaseInt" text="+">
+                                                                  <Button fx:id="throwINTup" mnemonicParsing="false" onAction="#increaseThrowINT" text="+">
                                                                      <font>
                                                                         <Font size="10.0" />
                                                                      </font>
@@ -315,7 +315,7 @@
                                                             </HBox>
                                                             <HBox prefHeight="29.0" prefWidth="186.0">
                                                                <children>
-                                                                  <Button fx:id="wisdown" mnemonicParsing="false" onAction="#decreaseWis" text="-">
+                                                                  <Button fx:id="throwWISdown" mnemonicParsing="false" onAction="#decreaseThrowWIS" text="-">
                                                                      <font>
                                                                         <Font size="10.0" />
                                                                      </font>
@@ -323,12 +323,12 @@
                                                                         <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
                                                                      </HBox.margin>
                                                                   </Button>
-                                                                  <Label fx:id="savingwis" alignment="CENTER" contentDisplay="CENTER" prefHeight="28.0" prefWidth="151.0" text="[ +0 ]  WISDOM">
+                                                                  <Label fx:id="throwWIS" alignment="CENTER" contentDisplay="CENTER" prefHeight="28.0" prefWidth="151.0" text="[ +0 ]  WISDOM">
                                                                      <font>
                                                                         <Font size="11.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <Button fx:id="wisup" mnemonicParsing="false" onAction="#increaseWis" text="+">
+                                                                  <Button fx:id="throwWISup" mnemonicParsing="false" onAction="#increaseThrowWIS" text="+">
                                                                      <font>
                                                                         <Font size="10.0" />
                                                                      </font>

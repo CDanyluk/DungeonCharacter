@@ -1195,6 +1195,7 @@ public class CharacterController {
 			throwINT.setText("[ " + change + " ]  INTELLIGENCE");
 		}
 	}
+	//what the fuck github!!!!
 	@FXML
 	void increaseThrowINT() {
 		character.increaseThrows(Throws.INTELLIGENCE);
