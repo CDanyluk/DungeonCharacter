@@ -57,6 +57,7 @@ public class Character {
 		addExtra(Miscellaneous.MISC, " ");
 		
 	}
+	//whqataa
 
 	public String getName() {return name;}
 
