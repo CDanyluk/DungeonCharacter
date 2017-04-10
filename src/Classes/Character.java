@@ -49,6 +49,9 @@ public class Character {
 		for (Skills ski : Skills.values()) {
 			  setSkills(ski, 0);
 		}
+		for (Throws th : Throws.values()) {
+			setThrows(th, 0);
+		}
 		addExtra(Miscellaneous.EQUIPMENT, " ");
 		addExtra(Miscellaneous.MISC, " ");
 		

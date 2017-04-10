@@ -178,6 +178,23 @@ public class CharacterController {
 	@FXML Label survival;
 	@FXML Button survivalup;
 	@FXML Button survivaldown;
+	
+//Throws -------------------------------------------
+	@FXML Label throwSTR;
+	@FXML Button throwSTup;
+	@FXML Button throwSTRdown;
+	
+	@FXML Label throwDEX;
+	@FXML Button throwDEXup;
+	@FXML Button throwDexdown;
+	
+	@FXML Label throwCON;
+	@FXML Button throwCONup;
+	@FXML Button throwCONdown;
+
+	
+	
+	
 //----------------------------------------------------------------
 
 	Character character;
@@ -190,8 +207,9 @@ public class CharacterController {
 		this.character = new Character(this.name.getText());
 		//exporter = new Export(character);
 		send = new Send();
+		
 
-		character.setSkills(Skills.ACROBATS, 0);
+		/*character.setSkills(Skills.ACROBATS, 0);
 		character.setSkills(Skills.ANIMALS, 0);
 		character.setSkills(Skills.ARCANA, 0);
 		character.setSkills(Skills.ATHLETICS, 0);
@@ -208,7 +226,7 @@ public class CharacterController {
 		character.setSkills(Skills.RELIGION, 0);
 		character.setSkills(Skills.SLEIGHT, 0);
 		character.setSkills(Skills.STEALTH, 0);
-		character.setSkills(Skills.SURVIVAL, 0);
+		character.setSkills(Skills.SURVIVAL, 0);*/
 	}
 
 	@FXML
