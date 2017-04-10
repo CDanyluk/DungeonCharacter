@@ -248,6 +248,9 @@ public class CharacterController {
 			int inte = Integer.parseInt(intelligence.getText());
 			int wis = Integer.parseInt(wisdom.getText());
 			int ch = Integer.parseInt(charisma.getText());
+			int xp = Integer.parseInt(experience.getText());
+			int current = Integer.parseInt(currentHP.getText());
+			int total = Integer.parseInt(totalHP.getText());
 
 			saveHP();
 			setStats();
@@ -256,7 +259,7 @@ public class CharacterController {
 			level.setText(Integer.toString(currentlvl + 1));
 
 		} catch (Exception exc) {
-			getError("Str, dex, con, int, wis, char, or lvl not a number!");
+			getError("You must have appropriate values in all stats, level, experience, and HP in order to level up. ");
 		}
 	}
 
