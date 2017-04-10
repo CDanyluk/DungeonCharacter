@@ -130,9 +130,6 @@ public class Character {
 		charThrows.put(th, num);
 	}
 
-	//yo delete later
-	///whatatata
-
 	public int getThrows(Throws th) {
 		return charThrows.get(th);
 	}

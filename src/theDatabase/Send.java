@@ -31,6 +31,7 @@ public class Send {
 	        String command = s;
 	        System.out.println(command);
 	        stat.execute(command);
+	        con.close();
 	 }
 	 
 	 public void SendChar(Character chara) {
