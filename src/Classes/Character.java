@@ -129,6 +129,7 @@ public class Character {
 	}
 	
 	//yo delete later
+	///whatatata
 	
 	public int getThrows(Throws th) {
 		return charThrows.get(th);
