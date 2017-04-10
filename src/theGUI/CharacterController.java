@@ -440,6 +440,7 @@ public class CharacterController {
 		int modifier = (int) Math.floor((ability / 2) - 5);
 		charismaMod.setText("(" + modifier + ")");
 	}
+	//heyeyeye
 
 	@FXML
 	void calculateProficiency() {
