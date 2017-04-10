@@ -13,6 +13,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
@@ -34,9 +35,9 @@ public class SearchController {
 	/*
 	 * Called when the create button is pressed
 	 */
-	
+
 	Character character;
-	
+
 	@FXML
 	void openBlankCharSheet() {
 		if (createName.getText().equals("")) {
@@ -45,7 +46,8 @@ public class SearchController {
 			try {
 				FXMLLoader loader = new FXMLLoader();
 				loader.setLocation(CharacterRun.class.getResource("CharacterSheet.fxml"));
-				BorderPane root = (BorderPane) loader.load();
+				//BorderPane root = (BorderPane) loader.load();
+				ScrollPane root = (ScrollPane) loader.load();
 
 				CharacterController second = (CharacterController)loader.getController();
 				second.name.setText(createName.getText());
@@ -94,7 +96,7 @@ public class SearchController {
 
 					@Override
 					public void handle(MouseEvent event) {
-						String charName = character.substring(character.indexOf("Character: "), character.indexOf(" -"));
+						String charName = character.substring(character.indexOf("Character: ") + 11, character.indexOf(" -"));
 						openCharacterSheet(charName);
 					}
 				});
@@ -113,7 +115,8 @@ public class SearchController {
 		try {
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(CharacterRun.class.getResource("CharacterSheet.fxml"));
-			BorderPane root = (BorderPane) loader.load();
+			//BorderPane root = (BorderPane) loader.load();
+			ScrollPane root = (ScrollPane) loader.load();
 
 			CharacterController second = (CharacterController)loader.getController();
 			characterSheetSetup(second, charName);
@@ -123,7 +126,7 @@ public class SearchController {
 			secondStage.setScene(scene);
 			secondStage.show();
 		} catch (Exception exc) {
-			getError("Error loading character sheet, please try again.");
+			getError("Error loading character sheet.");
 			exc.printStackTrace();
 		}
 	}
@@ -135,15 +138,15 @@ public class SearchController {
 		int SKILLZ_COLUMNS = 19;
 		int MISC_COLUMNS = 8;
 
-		HashMap attributes = cf.getCharacterInfoFrom("Attributes", ATTRIBUTES_COLUMNS);
-		HashMap<String, Integer> statistics = cf.getCharacterInfoFrom("Statistics", STATS_COLUMNS);
-		HashMap<String, Integer> skills = cf.getCharacterInfoFrom("Skills", SKILLZ_COLUMNS);
+		HashMap<String, String> attributes = cf.getCharacterInfoFrom("Attributes", ATTRIBUTES_COLUMNS);
+		HashMap<String, String> statistics = cf.getCharacterInfoFrom("Statistics", STATS_COLUMNS);
+		HashMap<String, String> skills = cf.getCharacterInfoFrom("Skills", SKILLZ_COLUMNS);
 		HashMap misc = cf.getCharacterInfoFrom("Misc", MISC_COLUMNS);
 
 		fillTextFields(attributes, statistics, skills, misc, sheet);
 	}
 
-	void fillTextFields(HashMap attributes, HashMap<String, Integer> statistics, HashMap<String, Integer> skills,
+	void fillTextFields(HashMap<String, String> attributes, HashMap<String, String> statistics, HashMap<String, String> skills,
 			HashMap misc, CharacterController sheet) {
 		// Attributes
 		sheet.name.setText(attributes.get("Name").toString());
@@ -158,10 +161,10 @@ public class SearchController {
 		sheet.level.setText(statistics.get("Level").toString());
 		sheet.strength.setText(statistics.get("Strength").toString());
 		sheet.dexterity.setText(statistics.get("Dexterity").toString());
-		sheet.constitution.setText(statistics.get("Constitution").toString());
+		sheet.constitution.setText(statistics.get("Consitution").toString());
 		sheet.intelligence.setText(statistics.get("Intelligence").toString());
 		sheet.wisdom.setText(statistics.get("Wisdom").toString());
-		sheet.charisma.setText(statistics.get("Charisma").toString());
+//		sheet.charisma.setText(statistics.get("Charisma").toString());
 
 		// Skills
 		sheet.acrobatics.setText("[" + skills.get("Acrobatics") + "] ACROBATICS");
@@ -191,7 +194,7 @@ public class SearchController {
 		sheet.currentHP.setText(misc.get("CurrentHP").toString());
 		sheet.totalHP.setText(misc.get("TotalHP").toString());
 		sheet.equipment.setText(misc.get("WeaponsAndEquipment").toString());
-		sheet.misc.setText(misc.get("Misc").toString());
+//		sheet.misc.setText(misc.get("Misc").toString());
 	}
 
 }

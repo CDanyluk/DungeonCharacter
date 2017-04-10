@@ -184,7 +184,7 @@ public class CharacterController {
 	Send send;
 	Export exporter;
 	private CharacterController iam;
-	
+
 	@FXML
 	void initialize(Character chara) {
 		//character = new Character((name.getText()));
@@ -222,7 +222,7 @@ public class CharacterController {
 			int inte = Integer.parseInt(intelligence.getText());
 			int wis = Integer.parseInt(wisdom.getText());
 			int ch = Integer.parseInt(charisma.getText());
-			
+
 			save();
 			levelUpScreen();
 			int currentlvl = Integer.parseInt(level.getText());
@@ -231,7 +231,7 @@ public class CharacterController {
 		} catch (Exception exc) {
 			getError("Str, dex, con, int, wis, char, or lvl not a number!");
 		}
-		
+
 		save();
 		levelUpScreen();
 		int currentlvl = Integer.parseInt(level.getText());
@@ -246,9 +246,9 @@ public class CharacterController {
 
 			LevelController second = (LevelController)loader.getController();
 			second.grabStats(character);
-			
+
 			second.grabController(iam);
-			
+
 			Stage secondStage = new Stage();
 			Scene scene = new Scene(root);
 			secondStage.setScene(scene);
@@ -302,7 +302,7 @@ public class CharacterController {
 
 			int ch = Integer.parseInt(charisma.getText());
 			character.addStats(Statistics.CHARISMA, ch);
-			
+
 			int lvl = Integer.parseInt(level.getText());
 			character.addStats(Statistics.LEVEL, lvl);
 
@@ -313,23 +313,23 @@ public class CharacterController {
 
 	@FXML
 	void setMisc() {
-		//ArmorClass INTEGER, Initiative INTEGER, Speed INTEGER, CurrentHP INTEGER, TotalHP INTEGER, 
+		//ArmorClass INTEGER, Initiative INTEGER, Speed INTEGER, CurrentHP INTEGER, TotalHP INTEGER,
 		//WeaponsAndEquipment TEXT, Misc TEXT
-		
-			String ac = armor.getText();	
+
+			String ac = armor.getText();
 			String ini = initiative.getText();
 			String sped = speed.getText();
 			String curhp = currentHP.getText();
 			String tothp = totalHP.getText();
 			String prof = proficiency.getText();
 			System.out.println("Hitpoints found to be "+curhp+" out of "+tothp);
-			
+
 			String eq = equipment.getText();
 			character.addExtra(Miscellaneous.EQUIPMENT, eq);
-			
+
 			String mis = misc.getText();
 			character.addExtra(Miscellaneous.MISC, mis);
-			
+
 		try {
 			Integer.parseInt(ac);
 			Integer.parseInt(ini);
@@ -337,21 +337,21 @@ public class CharacterController {
 			Integer.parseInt(curhp);
 			Integer.parseInt(tothp);
 			Integer.parseInt(prof);
-			
+
 			character.addExtra(Miscellaneous.ARMORCLASS, ac);
 			character.addExtra(Miscellaneous.INITIATIVE, ini);
 			character.addExtra(Miscellaneous.SPEED,  sped);
 			character.addExtra(Miscellaneous.CURRENTHP, curhp);
 			character.addExtra(Miscellaneous.TOTALHP, tothp);
 			character.addExtra(Miscellaneous.PROFICIENCY, prof);
-	
+
 		} catch (Exception e) {
 			getError("Armorclass. initiative, speed, or hp must be positive number!");
 		}
-		
-		
+
+
 	}
-	
+
 	@FXML
 	void resetStats() {
 			int str = character.getStats(Statistics.STRENGTH);
@@ -371,11 +371,11 @@ public class CharacterController {
 
 			int ch = character.getStats(Statistics.CHARISMA);
 			charisma.setText(ch + "");
-			
+
 //			int fullhp = character.getExtra(Miscellaneous.TOTALHP);
-	
+
 	}
-	
+
 	@FXML
 	void exportFile() {
 		exporter.main();
@@ -385,73 +385,73 @@ public class CharacterController {
 	void calculateStrModifier() {
 		try {
 			int ability = Integer.parseInt(strength.getText());
-			int modifier = (int) Math.floor((ability / 2) - 5); 
+			int modifier = (int) Math.floor((ability / 2) - 5);
 			strengthMod.setText("(" + modifier + ")");
 		} catch (Exception e) {
 			strength.setText("");
 			getError("Strength must be a positive number!");
 		}
-	}	
-	@FXML
-	void calculateDexModifier() {
-		try {
-			int ability = Integer.parseInt(dexterity.getText());
-			int modifier = (int) Math.floor((ability / 2) - 5); 
-			dexterityMod.setText("(" + modifier + ")");
-		} catch (Exception e) {
-			dexterity.setText("");
-			getError("Dexterity must be a positive number!");
-		}
-	}	
-	@FXML
-	void calculateConstitModifier() {
-		try {
-			int ability = Integer.parseInt(constitution.getText());
-			int modifier = (int) Math.floor((ability / 2) - 5); 
-			constitutionMod.setText("(" + modifier + ")");
-		} catch (Exception e) {
-			constitution.setText("");
-			getError("Constitution must be a positive number!");
-		}
-	}	
-	@FXML
-	void calculateIntelliModifier() {
-		try {
-			int ability = Integer.parseInt(intelligence.getText());
-			int modifier = (int) Math.floor((ability / 2) - 5); 
-			intelligenceMod.setText("(" + modifier + ")");
-		} catch (Exception e) {
-			intelligence.setText("");
-			getError("Intelligence must be a positive number!");
-		}
-	}	
-	@FXML
-	void calculateWisModifier() {
-		try {
-			int ability = Integer.parseInt(wisdom.getText());
-			int modifier = (int) Math.floor((ability / 2) - 5); 
-			wisdomMod.setText("(" + modifier + ")");
-		} catch (Exception e) {
-			wisdom.setText("");
-			getError("Wisdom must be a positive number!");
-		}
-		
-	}	
-	@FXML
-	void calculateCharisModifier() {
-		try {
-			int ability = Integer.parseInt(charisma.getText());
-			int modifier = (int) Math.floor((ability / 2) - 5); 
-			charismaMod.setText("(" + modifier + ")");
-		} catch (Exception e) {
-			charisma.setText("");
-			getError("Charisma must be a positive number!");
-		}
-	}	
-		int ability = Integer.parseInt(strength.getText());
-		int modifier = (int) Math.floor((ability / 2) - 5);
-		strengthMod.setText("(" + modifier + ")");
 	}
+//	@FXML
+//	void calculateDexModifier() {
+//		try {
+//			int ability = Integer.parseInt(dexterity.getText());
+//			int modifier = (int) Math.floor((ability / 2) - 5);
+//			dexterityMod.setText("(" + modifier + ")");
+//		} catch (Exception e) {
+//			dexterity.setText("");
+//			getError("Dexterity must be a positive number!");
+//		}
+//	}
+//	@FXML
+//	void calculateConstitModifier() {
+//		try {
+//			int ability = Integer.parseInt(constitution.getText());
+//			int modifier = (int) Math.floor((ability / 2) - 5);
+//			constitutionMod.setText("(" + modifier + ")");
+//		} catch (Exception e) {
+//			constitution.setText("");
+//			getError("Constitution must be a positive number!");
+//		}
+//	}
+//	@FXML
+//	void calculateIntelliModifier() {
+//		try {
+//			int ability = Integer.parseInt(intelligence.getText());
+//			int modifier = (int) Math.floor((ability / 2) - 5);
+//			intelligenceMod.setText("(" + modifier + ")");
+//		} catch (Exception e) {
+//			intelligence.setText("");
+//			getError("Intelligence must be a positive number!");
+//		}
+//	}
+//	@FXML
+//	void calculateWisModifier() {
+//		try {
+//			int ability = Integer.parseInt(wisdom.getText());
+//			int modifier = (int) Math.floor((ability / 2) - 5);
+//			wisdomMod.setText("(" + modifier + ")");
+//		} catch (Exception e) {
+//			wisdom.setText("");
+//			getError("Wisdom must be a positive number!");
+//		}
+//
+//	}
+//	@FXML
+//	void calculateCharisModifier() {
+//		try {
+//			int ability = Integer.parseInt(charisma.getText());
+//			int modifier = (int) Math.floor((ability / 2) - 5);
+//			charismaMod.setText("(" + modifier + ")");
+//		} catch (Exception e) {
+//			charisma.setText("");
+//			getError("Charisma must be a positive number!");
+//		}
+//	}
+//		int ability = Integer.parseInt(strength.getText());
+//		int modifier = (int) Math.floor((ability / 2) - 5);
+//		strengthMod.setText("(" + modifier + ")");
+//	}
 	@FXML
 	void calculateDexModifier() {
 		int ability = Integer.parseInt(dexterity.getText());
@@ -682,14 +682,14 @@ public class CharacterController {
 			getError("Please enter a value for both current and total HP. ");
 		}
 	}
-	
+
 	@FXML
 	void save() {
 		setAttri();
 		setStats();
 		setMisc();
-		
-		
+
+
 		send.SendChar(character);
 	}
 
@@ -738,7 +738,7 @@ public class CharacterController {
 		}
 
 	}
-	
+
 	@FXML
 	void decreaseArcana() {
 		character.decreaseSkills(Skills.ARCANA);
@@ -761,7 +761,7 @@ public class CharacterController {
 		}
 
 	}
-	
+
 	@FXML
 	void decreaseAthletics() {
 		character.decreaseSkills(Skills.ATHLETICS);
@@ -784,7 +784,7 @@ public class CharacterController {
 		}
 
 	}
-	
+
 	@FXML
 	void decreaseDeception() {
 		character.decreaseSkills(Skills.DECEPTION);
@@ -807,7 +807,7 @@ public class CharacterController {
 		}
 
 	}
-	
+
 	@FXML
 	void decreaseHistory() {
 		character.decreaseSkills(Skills.HISTORY);
@@ -830,7 +830,7 @@ public class CharacterController {
 		}
 
 	}
-	
+
 	@FXML
 	void decreaseInsight() {
 		character.decreaseSkills(Skills.INSIGHT);
@@ -853,7 +853,7 @@ public class CharacterController {
 		}
 
 	}
-	
+
 	@FXML
 	void decreaseIntimidation() {
 		character.decreaseSkills(Skills.INTIMIDATION);
@@ -899,7 +899,7 @@ public class CharacterController {
 		}
 
 	}
-	
+
 	@FXML
 	void decreaseMedicine() {
 		character.decreaseSkills(Skills.MEDICINE);
@@ -922,7 +922,7 @@ public class CharacterController {
 		}
 
 	}
-	
+
 	@FXML
 	void decreaseNature() {
 		character.decreaseSkills(Skills.NATURE);
@@ -945,7 +945,7 @@ public class CharacterController {
 		}
 
 	}
-	
+
 	@FXML
 	void decreasePerception() {
 		character.decreaseSkills(Skills.PERCEPTION);
@@ -968,7 +968,7 @@ public class CharacterController {
 		}
 
 	}
-	
+
 	@FXML
 	void decreasePerformance() {
 		character.decreaseSkills(Skills.PERFORMANCE);
@@ -991,7 +991,7 @@ public class CharacterController {
 		}
 
 	}
-	
+
 	@FXML
 	void decreasePersuasion() {
 		character.decreaseSkills(Skills.PERSUASION);
@@ -1014,8 +1014,8 @@ public class CharacterController {
 		}
 
 	}
-	
-	
+
+
 	@FXML
 	void decreaseReligion() {
 		character.decreaseSkills(Skills.RELIGION);
@@ -1038,7 +1038,7 @@ public class CharacterController {
 		}
 
 	}
-	
+
 	@FXML
 	void decreaseSleight() {
 		character.decreaseSkills(Skills.SLEIGHT);
@@ -1061,7 +1061,7 @@ public class CharacterController {
 		}
 
 	}
-	
+
 	@FXML
 	void decreaseStealth() {
 		character.decreaseSkills(Skills.STEALTH);
@@ -1084,7 +1084,7 @@ public class CharacterController {
 		}
 
 	}
-	
+
 	@FXML
 	void decreaseSurvival() {
 		character.decreaseSkills(Skills.SURVIVAL);
@@ -1107,7 +1107,7 @@ public class CharacterController {
 		}
 
 	}
-	
+
 
 	//----WIP-----
 
@@ -1118,12 +1118,12 @@ public class CharacterController {
 
 	public void testMethod() {
 		System.out.println("Wuppee, it worked");
-		
+
 	}
 
 	public void whoami(CharacterController second) {
 		iam = second;
-		
+
 	}
 
 

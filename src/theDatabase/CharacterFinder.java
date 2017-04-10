@@ -42,6 +42,7 @@ public class CharacterFinder {
 			ResultSet rs = statement.executeQuery("SELECT CharID FROM Attributes WHERE Name = '" +
 													this.charName + "'");
 			this.charID = rs.getInt("CharID");
+			rs.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -49,11 +50,11 @@ public class CharacterFinder {
 
 	}
 
-	public HashMap getCharacterInfoFrom(String tableName, int numColumns) throws ClassNotFoundException,
+	public HashMap<String, String> getCharacterInfoFrom(String tableName, int numColumns) throws ClassNotFoundException,
 	SQLException {
 
 		Optional<ResultSet> optionalRS = getFromDB(tableName);
-		HashMap<String, Integer> characterInfo = new HashMap<>();
+		HashMap<String, String> characterInfo = new HashMap<>();
 
 		if (optionalRS.isPresent()) {
 			ResultSet results = optionalRS.get();
@@ -61,7 +62,7 @@ public class CharacterFinder {
 				for (int c = 1; c <= numColumns; c++) {
 					ResultSetMetaData soMetaBro = results.getMetaData();
 					String columnName = soMetaBro.getColumnLabel(c);
-					characterInfo.put(columnName, results.getInt(c));
+					characterInfo.put(columnName, results.getString(c));
 				}
 			}
 		}
