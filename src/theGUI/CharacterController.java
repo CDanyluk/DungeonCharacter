@@ -182,13 +182,13 @@ public class CharacterController {
 
 	Character character;
 	Send send;
-	//Export exporter;
+	Export exporter;
 	private CharacterController iam;
 
 	@FXML
 	void initialize() {
 		this.character = new Character(this.name.getText());
-		//exporter = new Export(character);
+
 		send = new Send();
 
 		character.setSkills(Skills.ACROBATS, 0);
@@ -377,7 +377,12 @@ public class CharacterController {
 
 	@FXML
 	void exportFile() {
-//		exporter.main();
+		exporter = new Export(character);
+		try {
+			exporter.main(export.getScene().getWindow());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@FXML
