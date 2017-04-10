@@ -99,15 +99,7 @@ public class LevelController {
 		NewHP.setLayoutX(37);
 		NewHP.setLayoutY(353);
 		NewHP.setFont(Font.font(28));
-		
-//		Label hitDieVal = new Label();
-//		int roll = 0;
-//		hitDieVal.setText(Integer.toString(roll));
-//		hitDieVal.setLayoutX(314);
-//		hitDieVal.setLayoutY(111);
-//		hitDieVal.setPrefWidth(25);
-//		hitDieVal.setFont(Font.font(24));
-//		hitDieVal.setAlignment(Pos.CENTER_RIGHT);
+
 		
 		Label ConModVal = new Label();
 		int mod = this.character.getStats(Statistics.CONSTITUTION);

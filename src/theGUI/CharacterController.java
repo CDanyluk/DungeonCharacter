@@ -249,7 +249,8 @@ public class CharacterController {
 			int wis = Integer.parseInt(wisdom.getText());
 			int ch = Integer.parseInt(charisma.getText());
 
-			save();
+			saveHP();
+			setStats();
 			levelUpScreen();
 			int currentlvl = Integer.parseInt(level.getText());
 			level.setText(Integer.toString(currentlvl + 1));
@@ -257,11 +258,13 @@ public class CharacterController {
 		} catch (Exception exc) {
 			getError("Str, dex, con, int, wis, char, or lvl not a number!");
 		}
+	}
 
-		save();
-		levelUpScreen();
-		int currentlvl = Integer.parseInt(level.getText());
-		level.setText(Integer.toString(currentlvl + 1));
+	private void saveHP() {
+		String current = currentHP.getText();
+		String total = totalHP.getText();
+		character.addExtra(Miscellaneous.CURRENTHP, current);
+		character.addExtra(Miscellaneous.TOTALHP, total);
 	}
 
 	void levelUpScreen() {
@@ -397,9 +400,6 @@ public class CharacterController {
 
 			int ch = character.getStats(Statistics.CHARISMA);
 			charisma.setText(ch + "");
-
-//			int fullhp = character.getExtra(Miscellaneous.TOTALHP);
-
 	}
 
 	@FXML
