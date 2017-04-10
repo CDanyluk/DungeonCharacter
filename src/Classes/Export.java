@@ -69,7 +69,6 @@ public class Export {
 			fileWriter.write("\t" + a.toString() + ": ");
 			fileWriter.write("\t" + character.charAttri.get(a) + "; ");
 			fileWriter.write(String.format("%n"));
-
 		}
 	}
 
