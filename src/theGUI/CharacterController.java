@@ -23,10 +23,12 @@ import javafx.stage.Stage;
 import theDatabase.Read;
 import theDatabase.Send;
 import Classes.Character;
+import Classes.Export;
 import Classes.Skills;
 //import Classes.Export;
 import Classes.Miscellaneous;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
@@ -199,7 +201,7 @@ public class CharacterController {
 
 	Character character;
 	Send send;
-	//Export exporter;
+	Export exporter;
 	private CharacterController iam;
 
 	@FXML
@@ -404,7 +406,15 @@ public class CharacterController {
 
 	@FXML
 	void exportFile() {
-//		exporter.main();
+		setStats();
+		setMisc();
+		setAttri();
+		exporter = new Export(character);
+		try {
+			exporter.main(export.getScene().getWindow());
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@FXML

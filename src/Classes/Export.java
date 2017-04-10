@@ -12,13 +12,13 @@ import java.io.IOException;
 import java.util.logging.Logger;
 
 public class Export {
-
+	
 	Character character;
 	StringBuilder charStringToExport;
 	FileWriter fileWriter;
 	public File destination;
 
-
+	
 	// Takes in the character for exporting purposes
 	public Export(Character chara) {
 		this.character = chara;
@@ -36,13 +36,14 @@ public class Export {
 		System.out.println(charStringToExport.toString());
 		return charStringToExport.toString();
 	}
-
+	
 	//This is the function that is called in the character controller
 	public void main(Window window) throws IOException {
 		chooseDestination(window);
 		try {
 			if (destination != null) {
 				fileWriter = new FileWriter(destination);
+				fileWriter.write(character.getName() + String.format("%n"));
 				writeSkills();
 				writeAttributes();
  				writeStatistics();
@@ -68,6 +69,7 @@ public class Export {
 		for (Attributes a : Attributes.values()) {
 			fileWriter.write("\t" + a.toString() + ": ");
 			fileWriter.write("\t" + character.charAttri.get(a) + "; ");
+			fileWriter.write(String.format("%n"));
 		}
 	}
 
@@ -76,6 +78,7 @@ public class Export {
 		for (Statistics s : Statistics.values()) {
 			fileWriter.write("\t" + s.toString() + ": ");
 			fileWriter.write("\t" + character.charStats.get(s) + "; ");
+			fileWriter.write(String.format("%n"));
 		}
 	}
 
@@ -84,6 +87,7 @@ public class Export {
 		for (Miscellaneous m : Miscellaneous.values()) {
 			fileWriter.write("\t" + m.toString() + ": ");
 			fileWriter.write("\t" + character.charExtra.get(m) + "; ");
+			fileWriter.write(String.format("%n"));
 		}
 	}
 
@@ -99,3 +103,4 @@ public class Export {
 	}
 
 }
+

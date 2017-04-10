@@ -133,9 +133,9 @@ public class SearchController {
 	void characterSheetSetup(CharacterController sheet, String charName) throws ClassNotFoundException, SQLException {
 		CharacterFinder cf = new CharacterFinder(charName);
 		int ATTRIBUTES_COLUMNS = 8;
-		int STATS_COLUMNS = 8;
+		int STATS_COLUMNS = 7;
 		int SKILLZ_COLUMNS = 19;
-		int MISC_COLUMNS = 9;
+		int MISC_COLUMNS = 8;
 
 		HashMap<String, String> attributes = cf.getCharacterInfoFrom("Attributes", ATTRIBUTES_COLUMNS);
 		HashMap<String, String> statistics = cf.getCharacterInfoFrom("Statistics", STATS_COLUMNS);
@@ -189,7 +189,7 @@ public class SearchController {
 		sheet.constitution.setText(statistics.get("Consitution").toString());
 		sheet.intelligence.setText(statistics.get("Intelligence").toString());
 		sheet.wisdom.setText(statistics.get("Wisdom").toString());
-		sheet.charisma.setText(statistics.get("Charisma").toString());
+//		sheet.charisma.setText(statistics.get("Charisma").toString());
 
 		// Skills
 		sheet.acrobatics.setText("[" + skills.get("Acrobatics") + "] ACROBATICS");
@@ -219,7 +219,7 @@ public class SearchController {
 		sheet.currentHP.setText(misc.get("CurrentHP").toString());
 		sheet.totalHP.setText(misc.get("TotalHP").toString());
 		sheet.equipment.setText(misc.get("WeaponsAndEquipment").toString());
-		sheet.misc.setText(misc.get("Misc").toString());
+//		sheet.misc.setText(misc.get("Misc").toString());
 	}
 
 }
