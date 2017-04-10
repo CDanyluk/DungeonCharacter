@@ -24,7 +24,7 @@ import theDatabase.Read;
 import theDatabase.Send;
 import Classes.Character;
 import Classes.Skills;
-import Classes.Export;
+//import Classes.Export;
 import Classes.Miscellaneous;
 
 import java.sql.Connection;
@@ -182,13 +182,13 @@ public class CharacterController {
 
 	Character character;
 	Send send;
-	Export exporter;
+	//Export exporter;
 	private CharacterController iam;
 
 	@FXML
 	void initialize() {
 		this.character = new Character(this.name.getText());
-		exporter = new Export(character);
+		//exporter = new Export(character);
 		send = new Send();
 
 		character.setSkills(Skills.ACROBATS, 0);
@@ -375,10 +375,10 @@ public class CharacterController {
 
 	}
 
-	@FXML
-	void exportFile() {
-		exporter.main();
-	}
+//	@FXML
+//	void exportFile() {
+//		exporter.main();
+//	}
 
 	@FXML
 	void calculateStrModifier() {

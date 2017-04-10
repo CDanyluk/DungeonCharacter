@@ -1,5 +1,6 @@
 package theGUI;
 
+import java.io.File;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -31,6 +32,8 @@ public class SearchController {
 	@FXML TextField charRace;
 	@FXML TextField charClass;
 	@FXML VBox charList;
+
+	String sep = File.separator;
 
 	/*
 	 * Called when the create button is pressed
@@ -110,7 +113,7 @@ public class SearchController {
 	void openCharacterSheet(String charName) {
 		try {
 			FXMLLoader loader = new FXMLLoader();
-			loader.setLocation(CharacterRun.class.getResource("CharacterSheet.fxml"));
+			loader.setLocation(CharacterRun.class.getResource(sep + "theGui" + sep + "CharacterSheet.fxml"));
 			//BorderPane root = (BorderPane) loader.load();
 			ScrollPane root = (ScrollPane) loader.load();
 
