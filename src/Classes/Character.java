@@ -128,6 +128,8 @@ public class Character {
 		charThrows.put(th, num);
 	}
 	
+	//yo delete later
+	
 	public int getThrows(Throws th) {
 		return charThrows.get(th);
 	}
