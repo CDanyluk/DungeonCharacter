@@ -36,6 +36,7 @@ public class Character {
 		this.charStats = new EnumMap<>(Statistics.class);
 		this.charExtra = new EnumMap<>(Miscellaneous.class);
 		this.charSkills = new EnumMap<>(Skills.class);
+		this.charThrows = new EnumMap<>(Throws.class);
 
 		for (Attributes att : Attributes.values()) {
 			  addAttri(att, "none");
@@ -54,7 +55,7 @@ public class Character {
 		}
 		addExtra(Miscellaneous.EQUIPMENT, " ");
 		addExtra(Miscellaneous.MISC, " ");
-		
+
 	}
 
 	public String getName() {return name;}
@@ -123,18 +124,18 @@ public class Character {
 		number--;
 		charSkills.put(s, number);
 	}
-	
+
 	public void setThrows(Throws th, int num) {
 		charThrows.put(th, num);
 	}
-	
+
 	//yo delete later
 	///whatatata
-	
+
 	public int getThrows(Throws th) {
 		return charThrows.get(th);
 	}
-	
+
 	public void increaseThrows(Throws th) {
 		int number = charThrows.get(th);
 		number++;
