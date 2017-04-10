@@ -25,7 +25,7 @@ import theDatabase.Send;
 import Classes.Character;
 import Classes.Export;
 import Classes.Skills;
-//import Classes.Export;
+import Classes.Export;
 import Classes.Miscellaneous;
 
 import java.io.IOException;
@@ -207,7 +207,6 @@ public class CharacterController {
 	@FXML
 	void initialize() {
 		this.character = new Character(this.name.getText());
-		//exporter = new Export(character);
 		send = new Send();
 
 
@@ -458,7 +457,6 @@ public class CharacterController {
 		int modifier = (int) Math.floor((ability / 2) - 5);
 		charismaMod.setText("(" + modifier + ")");
 	}
-	//heyeyeye
 
 	@FXML
 	void calculateProficiency() {

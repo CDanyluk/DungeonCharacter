@@ -55,7 +55,7 @@ public class Character {
 		}
 		addExtra(Miscellaneous.EQUIPMENT, " ");
 		addExtra(Miscellaneous.MISC, " ");
-		
+
 	}
 	//whqataa
 
@@ -125,18 +125,18 @@ public class Character {
 		number--;
 		charSkills.put(s, number);
 	}
-	
+
 	public void setThrows(Throws th, int num) {
 		charThrows.put(th, num);
 	}
-	
+
 	//yo delete later
 	///whatatata
-	
+
 	public int getThrows(Throws th) {
 		return charThrows.get(th);
 	}
-	
+
 	public void increaseThrows(Throws th) {
 		int number = charThrows.get(th);
 		number++;

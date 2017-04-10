@@ -59,6 +59,7 @@ public class SearchController {
 				Scene scene = new Scene(root);
 				secondStage.setScene(scene);
 				secondStage.show();
+				this.createName.setText("");
 			} catch (Exception exc) {
 				exc.printStackTrace();
 			}
@@ -70,14 +71,6 @@ public class SearchController {
 	 */
 	@FXML
 	void search() throws ClassNotFoundException {
-		// gonna need to do database lookups
-		// will lookup using all fields which contain text
-		// if no fields contain text, display an alert box
-		// pull player name, char name, race, and class from each char that fits the search criteria
-		// create a label that contains the above info
-		// add label to VBox using charList.getChildren.add(newLabel)
-		// set label to have a click event which pulls the character sheet of that particular character
-		// maybe get a reference to each character sheet before displaying, to access the sheet faster?
 		CharacterFinder cf = new CharacterFinder(charName.getText(), playerName.getText(),
 				charRace.getText(), charClass.getText());
 		ArrayList<String> characterList = cf.getMatchingCharacters();
@@ -97,11 +90,21 @@ public class SearchController {
 					public void handle(MouseEvent event) {
 						String charName = character.substring(character.indexOf("Character: ") + 11, character.indexOf(" -"));
 						openCharacterSheet(charName);
+						resetSearch();
 					}
 				});
 				this.charList.getChildren().add(label);
 			}
 		}
+	}
+
+	void resetSearch() {
+		this.playerName.setText("");
+		this.charName.setText("");
+		this.charClass.setText("");
+		this.charRace.setText("");
+		this.createName.setText("");
+		this.charList.getChildren().clear();
 	}
 
 	void getError (String msg) {
@@ -133,9 +136,9 @@ public class SearchController {
 	void characterSheetSetup(CharacterController sheet, String charName) throws ClassNotFoundException, SQLException {
 		CharacterFinder cf = new CharacterFinder(charName);
 		int ATTRIBUTES_COLUMNS = 8;
-		int STATS_COLUMNS = 7;
+		int STATS_COLUMNS = 8;
 		int SKILLZ_COLUMNS = 19;
-		int MISC_COLUMNS = 8;
+		int MISC_COLUMNS = 9;
 
 		HashMap<String, String> attributes = cf.getCharacterInfoFrom("Attributes", ATTRIBUTES_COLUMNS);
 		HashMap<String, String> statistics = cf.getCharacterInfoFrom("Statistics", STATS_COLUMNS);
@@ -144,9 +147,9 @@ public class SearchController {
 
 		fillTextFields(attributes, statistics, skills, misc, sheet);
 
-//		sheet.setAttri();
-//		sheet.setMisc();
-//		sheet.setStats();
+		sheet.setAttri();
+		sheet.setMisc();
+		sheet.setStats();
 		sheet.setHP();
 		sheet.calculateCharisModifier();
 		sheet.calculateConstitModifier();
@@ -156,17 +159,31 @@ public class SearchController {
 		sheet.calculateStrModifier();
 		sheet.calculateWisModifier();
 
-		//addCharacterSkills(sheet, skills);
+		addCharacterSkills(sheet, skills);
 	}
 
 	void addCharacterSkills(CharacterController sheet, HashMap<String, String> skills) {
 		Character character = sheet.getCharacter();
-		String[] skillsList = {"Acrobatics", "Animals", "Arcana", "Athletics", "Deception", "History",
-							"Insight", "Intimidation", "Investigation", "Medicine", "Nature", "Perception",
-							"Performance", "Persuasion", "Religion", "SleightOfHand", "Stealth", "Survival"};
-		for (String skill : skillsList) {
-			character.setSkills(Skills.skill, Integer.parseInt(skills.get(skill)));
-		}
+
+		character.setSkills(Skills.ACROBATS, Integer.parseInt(skills.get("Acrobatics")));
+		character.setSkills(Skills.ANIMALS, Integer.parseInt(skills.get("Animals")));
+		character.setSkills(Skills.ARCANA, Integer.parseInt(skills.get("Arcana")));
+		character.setSkills(Skills.ATHLETICS, Integer.parseInt(skills.get("Athletics")));
+		character.setSkills(Skills.DECEPTION, Integer.parseInt(skills.get("Deception")));
+		character.setSkills(Skills.HISTORY, Integer.parseInt(skills.get("History")));
+		character.setSkills(Skills.INSIGHT, Integer.parseInt(skills.get("Insight")));
+		character.setSkills(Skills.INTIMIDATION, Integer.parseInt(skills.get("Intimidation")));
+		character.setSkills(Skills.INVESTIGATION, Integer.parseInt(skills.get("Investigation")));
+		character.setSkills(Skills.MEDICINE, Integer.parseInt(skills.get("Medicine")));
+		character.setSkills(Skills.NATURE, Integer.parseInt(skills.get("Nature")));
+		character.setSkills(Skills.PERCEPTION, Integer.parseInt(skills.get("Perception")));
+		character.setSkills(Skills.PERFORMANCE, Integer.parseInt(skills.get("Performance")));
+		character.setSkills(Skills.PERSUASION, Integer.parseInt(skills.get("Persuasion")));
+		character.setSkills(Skills.RELIGION, Integer.parseInt(skills.get("Religion")));
+		character.setSkills(Skills.SLEIGHT, Integer.parseInt(skills.get("SleightOfHand")));
+		character.setSkills(Skills.STEALTH, Integer.parseInt(skills.get("Stealth")));
+		character.setSkills(Skills.SURVIVAL, Integer.parseInt(skills.get("Survival")));
+
 		sheet.setCharacter(character);
 	}
 
@@ -189,7 +206,7 @@ public class SearchController {
 		sheet.constitution.setText(statistics.get("Consitution").toString());
 		sheet.intelligence.setText(statistics.get("Intelligence").toString());
 		sheet.wisdom.setText(statistics.get("Wisdom").toString());
-//		sheet.charisma.setText(statistics.get("Charisma").toString());
+		sheet.charisma.setText(statistics.get("Charisma").toString());
 
 		// Skills
 		sheet.acrobatics.setText("[" + skills.get("Acrobatics") + "] ACROBATICS");
@@ -219,7 +236,9 @@ public class SearchController {
 		sheet.currentHP.setText(misc.get("CurrentHP").toString());
 		sheet.totalHP.setText(misc.get("TotalHP").toString());
 		sheet.equipment.setText(misc.get("WeaponsAndEquipment").toString());
-//		sheet.misc.setText(misc.get("Misc").toString());
+		sheet.misc.setText(misc.get("Misc").toString());
+
+		// TODO Add Saving Throws
 	}
 
 }
