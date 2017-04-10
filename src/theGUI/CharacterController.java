@@ -34,6 +34,7 @@ import java.sql.DriverManager;
 
 import Classes.Attributes;
 import Classes.Statistics;
+import Classes.Throws;
 
 public class CharacterController {
 
@@ -193,8 +194,18 @@ public class CharacterController {
 	@FXML Label throwCON;
 	@FXML Button throwCONup;
 	@FXML Button throwCONdown;
-
-
+	
+	@FXML Label throwINT;
+	@FXML Button throwINTup;
+	@FXML Button throwINTdown;
+	
+	@FXML Label throwWIS;
+	@FXML Button throwWISup;
+	@FXML Button throwWISdown;
+	
+	@FXML Label throwCHAR;
+	@FXML Button throwCharup;
+	@FXML Button throwCHARdown;
 
 
 //----------------------------------------------------------------
@@ -1107,9 +1118,137 @@ public class CharacterController {
 		}
 
 	}
+	
+	
+	// Throws -------------------------------------
 
+	@FXML
+	void decreaseThrowSTR() {
+		character.decreaseThrows(Throws.STRENGTH);
+		int change = character.getThrows(Throws.STRENGTH);
+		if (change >= 0) {
+			throwSTR.setText("[ +" + change + " ]  STRENGTH");
+		}else {
+			throwSTR.setText("[ " + change + " ]  STRENGTH");
+		}
+	}
+	@FXML
+	void increaseThrowSTR() {
+		character.increaseThrows(Throws.STRENGTH);
+		int change = character.getThrows(Throws.STRENGTH);
+		if (change >= 0) {
+			throwSTR.setText("[ +" + change + " ]  STRENGTH");
+		}else {
+			throwSTR.setText("[ " + change + " ]  STRENGTH");
+		}
+	}
+	
+	@FXML
+	void decreaseThrowDEX() {
+		character.decreaseThrows(Throws.DEXTERITY);
+		int change = character.getThrows(Throws.DEXTERITY);
+		if (change >= 0) {
+			throwDEX.setText("[ +" + change + " ]  DEXTERITY");
+		}else {
+			throwDEX.setText("[ " + change + " ]  DEXTERITY");
+		}
+	}
+	@FXML
+	void increaseThrowCON() {
+		character.increaseThrows(Throws.CONSITUTION);
+		int change = character.getThrows(Throws.CONSITUTION);
+		if (change >= 0) {
+			throwCON.setText("[ +" + change + " ]  CONSTITUTION");
+		}else {
+			throwCON.setText("[ " + change + " ]  CONSTITUTION");
+		}
+	}
+	
+	@FXML
+	void decreaseThrowCON() {
+		character.decreaseThrows(Throws.CONSITUTION);
+		int change = character.getThrows(Throws.CONSITUTION);
+		if (change >= 0) {
+			throwCON.setText("[ +" + change + " ]  CONSTITUTION");
+		}else {
+			throwCON.setText("[ " + change + " ]  CONSTITUTION");
+		}
+	}
+	@FXML
+	void increaseThrowDEX() {
+		character.increaseThrows(Throws.DEXTERITY);
+		int change = character.getThrows(Throws.DEXTERITY);
+		if (change >= 0) {
+			throwDEX.setText("[ +" + change + " ]  DEXTERITY");
+		}else {
+			throwDEX.setText("[ " + change + " ]  DEXTERITY");
+		}
+	}
+	
+	@FXML
+	void decreaseThrowINT() {
+		character.decreaseThrows(Throws.INTELLIGENCE);
+		int change = character.getThrows(Throws.INTELLIGENCE);
+		if (change >= 0) {
+			throwINT.setText("[ +" + change + " ]  INTELLIGENCE");
+		}else {
+			throwINT.setText("[ " + change + " ]  INTELLIGENCE");
+		}
+	}
+	@FXML
+	void increaseThrowINT() {
+		character.increaseThrows(Throws.INTELLIGENCE);
+		int change = character.getThrows(Throws.INTELLIGENCE);
+		if (change >= 0) {
+			throwINT.setText("[ +" + change + " ]  INTELLIGENCE");
+		}else {
+			throwINT.setText("[ " + change + " ]  INTELLIGENCE");
+		}
+	}
+	
+	@FXML
+	void decreaseThrowWIS() {
+		character.decreaseThrows(Throws.WISDOM);
+		int change = character.getThrows(Throws.WISDOM);
+		if (change >= 0) {
+			throwWIS.setText("[ +" + change + " ]  WISDOM");
+		}else {
+			throwWIS.setText("[ " + change + " ]  WISDOM");
+		}
+	}
+	@FXML
+	void increaseThrowWIS() {
+		character.increaseThrows(Throws.WISDOM);
+		int change = character.getThrows(Throws.WISDOM);
+		if (change >= 0) {
+			throwWIS.setText("[ +" + change + " ]  WISDOM");
+		}else {
+			throwWIS.setText("[ " + change + " ]  WISDOM");
+		}
+	}
+	
+	@FXML
+	void decreaseThrowCHAR() {
+		character.decreaseThrows(Throws.CHARISMA);
+		int change = character.getThrows(Throws.CHARISMA);
+		if (change >= 0) {
+			throwCHAR.setText("[ +" + change + " ]  CHARISMA");
+		}else {
+			throwCHAR.setText("[ " + change + " ]  CHARISMA");
+		}
+	}
+	@FXML
+	void increaseThrowCHAR() {
+		character.increaseThrows(Throws.CHARISMA);
+		int change = character.getThrows(Throws.CHARISMA);
+		if (change >= 0) {
+			throwCHAR.setText("[ +" + change + " ]  CHARISMA");
+		}else {
+			throwCHAR.setText("[ " + change + " ]  CHARISMA");
+		}
+	}
 
-	//----WIP-----
+	//---------
 
 	void getError (String msg) {
 		Alert alert = new Alert(AlertType.ERROR, msg, ButtonType.OK);
