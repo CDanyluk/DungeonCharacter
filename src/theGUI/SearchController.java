@@ -60,6 +60,8 @@ public class SearchController {
 				Scene scene = new Scene(root);
 				secondStage.setScene(scene);
 				secondStage.show();
+
+				this.createName.setText("");
 			} catch (Exception exc) {
 				exc.printStackTrace();
 			}
@@ -71,14 +73,6 @@ public class SearchController {
 	 */
 	@FXML
 	void search() throws ClassNotFoundException {
-		// gonna need to do database lookups
-		// will lookup using all fields which contain text
-		// if no fields contain text, display an alert box
-		// pull player name, char name, race, and class from each char that fits the search criteria
-		// create a label that contains the above info
-		// add label to VBox using charList.getChildren.add(newLabel)
-		// set label to have a click event which pulls the character sheet of that particular character
-		// maybe get a reference to each character sheet before displaying, to access the sheet faster?
 		CharacterFinder cf = new CharacterFinder(charName.getText(), playerName.getText(),
 				charRace.getText(), charClass.getText());
 		ArrayList<String> characterList = cf.getMatchingCharacters();
@@ -96,6 +90,7 @@ public class SearchController {
 
 					@Override
 					public void handle(MouseEvent event) {
+						clearSearch();
 						String charName = character.substring(character.indexOf("Character: ") + 11, character.indexOf(" -"));
 						openCharacterSheet(charName);
 					}
@@ -108,6 +103,14 @@ public class SearchController {
 	void getError (String msg) {
 		Alert alert = new Alert(AlertType.ERROR, msg, ButtonType.OK);
 		alert.showAndWait();
+	}
+
+	void clearSearch() {
+		this.charName.setText("");
+		this.playerName.setText("");
+		this.charClass.setText("");
+		this.charRace.setText("");
+		this.charList.getChildren().clear();
 	}
 
 	@FXML
@@ -152,6 +155,7 @@ public class SearchController {
 		sheet.calculateProficiency();
 		sheet.calculateStrModifier();
 		sheet.calculateWisModifier();
+		sheet.setHP();
 	}
 
 	void fillTextFields(HashMap<String, String> attributes, HashMap<String, String> statistics, HashMap<String, String> skills,
