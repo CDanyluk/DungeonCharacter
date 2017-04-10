@@ -250,8 +250,6 @@ public class CharacterController {
 		} catch (Exception exc) {
 			getError("Str, dex, con, int, wis, char, or lvl not a number!");
 		}
-		int currentlvl = Integer.parseInt(level.getText());
-		level.setText(Integer.toString(currentlvl + 1));
 	}
 
 	private void saveHP() {
