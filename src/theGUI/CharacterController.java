@@ -24,10 +24,9 @@ import theDatabase.Read;
 import theDatabase.Send;
 import Classes.Character;
 import Classes.Skills;
-import Classes.Export;
+//import Classes.Export;
 import Classes.Miscellaneous;
 
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
@@ -179,35 +178,36 @@ public class CharacterController {
 	@FXML Label survival;
 	@FXML Button survivalup;
 	@FXML Button survivaldown;
-
+	
 //Throws -------------------------------------------
 	@FXML Label throwSTR;
 	@FXML Button throwSTup;
 	@FXML Button throwSTRdown;
-
+	
 	@FXML Label throwDEX;
 	@FXML Button throwDEXup;
 	@FXML Button throwDexdown;
-
+	
 	@FXML Label throwCON;
 	@FXML Button throwCONup;
 	@FXML Button throwCONdown;
 
-
-
-
+	
+	
+	
 //----------------------------------------------------------------
 
 	Character character;
 	Send send;
-	Export exporter;
+	//Export exporter;
 	private CharacterController iam;
 
 	@FXML
 	void initialize() {
 		this.character = new Character(this.name.getText());
+		//exporter = new Export(character);
 		send = new Send();
-
+		
 
 		/*character.setSkills(Skills.ACROBATS, 0);
 		character.setSkills(Skills.ANIMALS, 0);
@@ -395,12 +395,7 @@ public class CharacterController {
 
 	@FXML
 	void exportFile() {
-		exporter = new Export(character);
-		try {
-			exporter.main(export.getScene().getWindow());
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+//		exporter.main();
 	}
 
 	@FXML
@@ -445,6 +440,7 @@ public class CharacterController {
 		int modifier = (int) Math.floor((ability / 2) - 5);
 		charismaMod.setText("(" + modifier + ")");
 	}
+	//heyeyeye
 
 	@FXML
 	void calculateProficiency() {
