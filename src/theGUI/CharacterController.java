@@ -429,33 +429,58 @@ public class CharacterController {
 
 	@FXML
 	void calculateDexModifier() {
-		int ability = Integer.parseInt(dexterity.getText());
-		int modifier = (int) Math.floor((ability / 2) - 5);
-		dexterityMod.setText("(" + modifier + ")");
+		try {
+			int ability = Integer.parseInt(dexterity.getText());
+			int modifier = (int) Math.floor((ability / 2) - 5);
+			dexterityMod.setText("(" + modifier + ")");
+		} catch (Exception e) {
+			dexterity.setText("");
+			getError("Dexterity must be a positive number!");
+		}
 	}
 	@FXML
 	void calculateConstitModifier() {
-		int ability = Integer.parseInt(constitution.getText());
-		int modifier = (int) Math.floor((ability / 2) - 5);
-		constitutionMod.setText("(" + modifier + ")");
+		try {
+			int ability = Integer.parseInt(constitution.getText());
+			int modifier = (int) Math.floor((ability / 2) - 5);
+			constitutionMod.setText("(" + modifier + ")");
+		} catch (Exception e) {
+			constitution.setText("");
+			getError("Constitution must be a positive number!");
+		}
 	}
 	@FXML
 	void calculateIntelliModifier() {
-		int ability = Integer.parseInt(intelligence.getText());
-		int modifier = (int) Math.floor((ability / 2) - 5);
-		intelligenceMod.setText("(" + modifier + ")");
+		try {
+			int ability = Integer.parseInt(intelligence.getText());
+			int modifier = (int) Math.floor((ability / 2) - 5);
+			intelligenceMod.setText("(" + modifier + ")");
+		} catch (Exception e) {
+			intelligence.setText("");
+			getError("Intelligence must be a positive number!");
+		}
 	}
 	@FXML
 	void calculateWisModifier() {
-		int ability = Integer.parseInt(wisdom.getText());
-		int modifier = (int) Math.floor((ability / 2) - 5);
-		wisdomMod.setText("(" + modifier + ")");
+		try {
+			int ability = Integer.parseInt(wisdom.getText());
+			int modifier = (int) Math.floor((ability / 2) - 5);
+			wisdomMod.setText("(" + modifier + ")");
+		} catch (Exception e) {
+			wisdom.setText("");
+			getError("Wisdom must be a positive number!");
+		}
 	}
 	@FXML
 	void calculateCharisModifier() {
+		try {
 		int ability = Integer.parseInt(charisma.getText());
 		int modifier = (int) Math.floor((ability / 2) - 5);
 		charismaMod.setText("(" + modifier + ")");
+		} catch (Exception e) {
+			charisma.setText("");
+			getError("Charisma must be a positive number!");
+		}
 	}
 
 	@FXML
