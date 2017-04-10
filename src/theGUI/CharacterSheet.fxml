@@ -340,7 +340,7 @@
                                                             </HBox>
                                                             <HBox prefHeight="29.0" prefWidth="186.0">
                                                                <children>
-                                                                  <Button fx:id="chardown" mnemonicParsing="false" onAction="#decreaseChar" text="-">
+                                                                  <Button fx:id="throwCHARdown" mnemonicParsing="false" onAction="#decreaseThrowCHAR" text="-">
                                                                      <font>
                                                                         <Font size="10.0" />
                                                                      </font>
@@ -348,12 +348,12 @@
                                                                         <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
                                                                      </HBox.margin>
                                                                   </Button>
-                                                                  <Label fx:id="savingchar" alignment="CENTER" contentDisplay="CENTER" prefHeight="28.0" prefWidth="151.0" text="[ +0 ]  CHARISMA">
+                                                                  <Label fx:id="throwCHAR" alignment="CENTER" contentDisplay="CENTER" prefHeight="28.0" prefWidth="151.0" text="[ +0 ]  CHARISMA">
                                                                      <font>
                                                                         <Font size="11.0" />
                                                                      </font>
                                                                   </Label>
-                                                                  <Button fx:id="charup" mnemonicParsing="false" onAction="#increaseChar" text="+">
+                                                                  <Button fx:id="throwCharup" mnemonicParsing="false" onAction="#increaseThrowCHAR" text="+">
                                                                      <font>
                                                                         <Font size="10.0" />
                                                                      </font>
