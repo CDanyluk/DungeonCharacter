@@ -375,10 +375,10 @@ public class CharacterController {
 
 	}
 
-//	@FXML
-//	void exportFile() {
+	@FXML
+	void exportFile() {
 //		exporter.main();
-//	}
+	}
 
 	@FXML
 	void calculateStrModifier() {
