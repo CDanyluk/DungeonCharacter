@@ -36,6 +36,7 @@ public class Character {
 		this.charStats = new EnumMap<>(Statistics.class);
 		this.charExtra = new EnumMap<>(Miscellaneous.class);
 		this.charSkills = new EnumMap<>(Skills.class);
+		this.charThrows = new EnumMap<>(Throws.class);
 
 		for (Attributes att : Attributes.values()) {
 			  addAttri(att, "none");
