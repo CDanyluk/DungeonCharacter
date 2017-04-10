@@ -24,11 +24,11 @@ public class Character {
 	*/
 
 	private String name;
-	private  EnumMap<Attributes, String> charAttri;
-	private  EnumMap<Statistics, Integer> charStats;
-	private EnumMap<Miscellaneous, String> charExtra;
-	private EnumMap<Skills, Integer> charSkills;
-	private EnumMap<Throws, Integer> charThrows;
+	public  EnumMap<Attributes, String> charAttri;
+	public  EnumMap<Statistics, Integer> charStats;
+	public EnumMap<Miscellaneous, String> charExtra;
+	public EnumMap<Skills, Integer> charSkills;
+	public EnumMap<Throws, Integer> charThrows;
 
 	public Character(String name) {
 		this.name = name;
