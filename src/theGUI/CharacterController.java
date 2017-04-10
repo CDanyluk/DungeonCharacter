@@ -186,9 +186,8 @@ public class CharacterController {
 	private CharacterController iam;
 
 	@FXML
-	void initialize(Character chara) {
-		//character = new Character((name.getText()));
-		character = chara;
+	void initialize() {
+		this.character = new Character(this.name.getText());
 		exporter = new Export(character);
 		send = new Send();
 

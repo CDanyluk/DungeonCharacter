@@ -51,10 +51,6 @@ public class SearchController {
 
 				CharacterController second = (CharacterController)loader.getController();
 				second.name.setText(createName.getText());
-				String s = createName.getText();
-				character = new Character(s);
-				second.initialize(character);
-				second.whoami(second);
 
 				Stage secondStage = new Stage();
 				Scene scene = new Scene(root);
@@ -144,10 +140,19 @@ public class SearchController {
 		HashMap misc = cf.getCharacterInfoFrom("Misc", MISC_COLUMNS);
 
 		fillTextFields(attributes, statistics, skills, misc, sheet);
+
+//		sheet.calculateCharisModifier();
+		sheet.calculateConstitModifier();
+		sheet.calculateDexModifier();
+		sheet.calculateIntelliModifier();
+		sheet.calculateProficiency();
+		sheet.calculateStrModifier();
+		sheet.calculateWisModifier();
 	}
 
 	void fillTextFields(HashMap<String, String> attributes, HashMap<String, String> statistics, HashMap<String, String> skills,
 			HashMap misc, CharacterController sheet) {
+
 		// Attributes
 		sheet.name.setText(attributes.get("Name").toString());
 		sheet.clas.setText(attributes.get("Class").toString());
