@@ -55,6 +55,7 @@ public class SearchController {
 				CharacterController second = (CharacterController)loader.getController();
 				second.name.setText(createName.getText());
 				second.initialize();
+				second.whoami(second);
 
 				Stage secondStage = new Stage();
 				Scene scene = new Scene(root);
