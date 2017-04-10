@@ -144,9 +144,9 @@ public class SearchController {
 
 		fillTextFields(attributes, statistics, skills, misc, sheet);
 
-		sheet.setAttri();
-		sheet.setMisc();
-		sheet.setStats();
+//		sheet.setAttri();
+//		sheet.setMisc();
+//		sheet.setStats();
 		sheet.setHP();
 		sheet.calculateCharisModifier();
 		sheet.calculateConstitModifier();

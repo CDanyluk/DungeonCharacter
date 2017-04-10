@@ -209,7 +209,6 @@ public class CharacterController {
 		this.character = new Character(this.name.getText());
 		//exporter = new Export(character);
 		send = new Send();
-		System.out.println("Character: " + this.character);
 
 
 		/*character.setSkills(Skills.ACROBATS, 0);
