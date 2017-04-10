@@ -28,6 +28,7 @@ public class Character {
 	private  EnumMap<Statistics, Integer> charStats;
 	private EnumMap<Miscellaneous, String> charExtra;
 	private EnumMap<Skills, Integer> charSkills;
+	private EnumMap<Throws, Integer> charThrows;
 
 	public Character(String name) {
 		this.name = name;
@@ -118,6 +119,26 @@ public class Character {
 		int number = charSkills.get(s);
 		number--;
 		charSkills.put(s, number);
+	}
+	
+	public void setThrows(Throws th, int num) {
+		charThrows.put(th, num);
+	}
+	
+	public int getThrows(Throws th) {
+		return charThrows.get(th);
+	}
+	
+	public void increaseThrows(Throws th) {
+		int number = charThrows.get(th);
+		number++;
+		charThrows.put(th, number);
+	}
+
+	public void decreaseThrows(Throws th) {
+		int number = charThrows.get(th);
+		number--;
+		charThrows.put(th, number);
 	}
 
 }
