@@ -21,6 +21,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import theDatabase.CharacterFinder;
 import Classes.Character;
+import Classes.Skills;
 
 public class SearchController {
 
@@ -38,8 +39,6 @@ public class SearchController {
 	/*
 	 * Called when the create button is pressed
 	 */
-
-	Character character;
 
 	@FXML
 	void openBlankCharSheet() {
@@ -145,13 +144,30 @@ public class SearchController {
 
 		fillTextFields(attributes, statistics, skills, misc, sheet);
 
-//		sheet.calculateCharisModifier();
+		sheet.setAttri();
+		sheet.setMisc();
+		sheet.setStats();
+		sheet.setHP();
+		sheet.calculateCharisModifier();
 		sheet.calculateConstitModifier();
 		sheet.calculateDexModifier();
 		sheet.calculateIntelliModifier();
 		sheet.calculateProficiency();
 		sheet.calculateStrModifier();
 		sheet.calculateWisModifier();
+
+		//addCharacterSkills(sheet, skills);
+	}
+
+	void addCharacterSkills(CharacterController sheet, HashMap<String, String> skills) {
+		Character character = sheet.getCharacter();
+		String[] skillsList = {"Acrobatics", "Animals", "Arcana", "Athletics", "Deception", "History",
+							"Insight", "Intimidation", "Investigation", "Medicine", "Nature", "Perception",
+							"Performance", "Persuasion", "Religion", "SleightOfHand", "Stealth", "Survival"};
+		for (String skill : skillsList) {
+			character.setSkills(Skills.skill, Integer.parseInt(skills.get(skill)));
+		}
+		sheet.setCharacter(character);
 	}
 
 	void fillTextFields(HashMap<String, String> attributes, HashMap<String, String> statistics, HashMap<String, String> skills,

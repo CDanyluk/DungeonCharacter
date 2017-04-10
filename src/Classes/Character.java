@@ -85,8 +85,8 @@ public class Character {
 
 	//Use example:
 	//		character.addStats(Skills.DECEPTION, 42);
-	public void setSkills(Skills s, int num) {
-		charSkills.put(s,  num);
+	public void setSkills(Skills skill, int num) {
+		charSkills.put(skill,  num);
 	}
 
 	//Example use:
