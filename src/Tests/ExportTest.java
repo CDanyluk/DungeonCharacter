@@ -5,6 +5,8 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 import java.io.*;
+import Classes.Character;
+import Classes.Export;
 
 /**
  * Created by Mason Millsap on 4/10/2017.
