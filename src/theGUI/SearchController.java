@@ -47,7 +47,6 @@ public class SearchController {
 			try {
 				FXMLLoader loader = new FXMLLoader();
 				loader.setLocation(CharacterRun.class.getResource("CharacterSheet.fxml"));
-				//BorderPane root = (BorderPane) loader.load();
 				ScrollPane root = (ScrollPane) loader.load();
 
 				CharacterController second = (CharacterController)loader.getController();
@@ -117,11 +116,12 @@ public class SearchController {
 		try {
 			FXMLLoader loader = new FXMLLoader();
 			loader.setLocation(CharacterRun.class.getResource(sep + "theGui" + sep + "CharacterSheet.fxml"));
-			//BorderPane root = (BorderPane) loader.load();
 			ScrollPane root = (ScrollPane) loader.load();
 
 			CharacterController second = (CharacterController)loader.getController();
 			characterSheetSetup(second, charName);
+			second.initialize();
+			second.whoami(second);
 
 			Stage secondStage = new Stage();
 			Scene scene = new Scene(root);
